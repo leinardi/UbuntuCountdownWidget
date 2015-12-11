@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<!--
+		Ubuntu Countdown Widget Copyright (C) 2011 Roberto Leinardi This
+		program is free software: you can redistribute it and/or modify it
+		under the terms of the GNU General Public License as published by the
+		Free Software Foundation, either version 3 of the License, or (at your
+		option) any later version. This program is distributed in the hope
+		that it will be useful, but WITHOUT ANY WARRANTY; without even the
+		implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+		PURPOSE. See the GNU General Public License for more details. You
+		should have received a copy of the GNU General Public License along
+		with this program. If not, see <http://www.gnu.org/licenses/>.
+	-->
+
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="160dp"
+	android:layout_height="160dp"
+	android:background="@drawable/background_light"
+	android:paddingLeft="10dp"
+	android:paddingRight="10dp"
+	android:paddingTop="16dp"
+	android:paddingBottom="16dp"
+	android:id="@+id/rl_widget">
+	<ImageView
+		android:layout_height="wrap_content"
+		android:layout_alignParentTop="true"
+		android:layout_width="wrap_content"
+		android:id="@+id/iv_header"
+		android:layout_centerHorizontal="true"
+		android:src="@drawable/ubuntu_large_light"
+		android:paddingTop="2dp"
+		android:paddingLeft="4dp" />
+	<TextView
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:id="@+id/tv_counter"
+		android:layout_centerInParent="true"
+		style="@style/Counter"
+		android:visibility="gone"
+		android:textSize="58dip" />
+	<ImageView
+		android:layout_height="wrap_content"
+		android:id="@+id/iv_logo"
+		android:layout_width="wrap_content"
+		android:src="@drawable/logo_large"
+		android:layout_centerInParent="true"
+		android:visibility="gone"
+		android:paddingBottom="20dp" />
+	<TextView
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:id="@+id/tv_release_big"
+		android:layout_centerInParent="true"
+		style="@style/Release"
+		android:visibility="gone"
+		android:textSize="42dip" />
+	<TextView
+		android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true"
+		android:layout_width="wrap_content"
+		android:id="@+id/tv_footer"
+		android:layout_centerHorizontal="true"
+		style="@style/Footer.Light"
+		android:text="@string/days_left"
+		android:visibility="invisible"
+		android:textSize="20dip" />
+	<FrameLayout
+		android:layout_height="wrap_content"
+		android:id="@+id/progress_bar"
+		android:layout_width="wrap_content"
+		android:layout_centerInParent="true">
+		<ProgressBar
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content" />
+	</FrameLayout>
+</RelativeLayout>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+		Ubuntu Countdown Widget Copyright (C) 2011 Roberto Leinardi This
+		program is free software: you can redistribute it and/or modify it
+		under the terms of the GNU General Public License as published by the
+		Free Software Foundation, either version 3 of the License, or (at your
+		option) any later version. This program is distributed in the hope
+		that it will be useful, but WITHOUT ANY WARRANTY; without even the
+		implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+		PURPOSE. See the GNU General Public License for more details. You
+		should have received a copy of the GNU General Public License along
+		with this program. If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<resources>
+
+    <string name="widget_1x1_name">Ubuntu Countdown 1x1</string>
+    <string name="widget_2x2_name">Ubuntu Countdown 2x2</string>
+    <string name="days_left">Días faltan</string>
+    <string name="coming_soon">Próximamente</string>
+    <string name="its_here">Está aquí!</string>
+    <string name="ok">Aceptar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="yes">Si</string>
+    <string name="no">No</string>
+    <string name="back">Atrás</string>
+    <string name="next">Adelante</string>
+    <string name="settings">Configuración</string>
+    <string name="exit">Salir</string>
+    <string name="default_text">Por defecto</string>
+
+    <!-- Eula -->
+    <string name="eula_title">Licencia</string>
+    <string name="eula_accept">Aceptar</string>
+    <string name="eula_refuse">Rechazar</string>
+    <string name="pref_display_eula_summary">Mostar la licencia de la aplicación</string>
+    <string name="info">Info</string>
+
+    <!-- Preferences -->
+    <string name="pref_countdown_options">Opciones Countdown</string>
+    <string name="pref_default_release_date">Fecha lanzamiento Ubuntu</string>
+    <string name="pref_custom_date_checkbox">Usar una fecha personalizada</string>
+    <string name="pref_custom_date_checkbox_summary">Usa una fecha personalizada para la cuentra atrás</string>
+    <string name="pref_custom_date">Seleccionar una fecha personalizada</string>
+    <string name="pref_theme">Tema</string>
+    <string name="pref_theme_summary">Selecciona si quieres un tema claro u oscuro</string>
+    <string name="pref_on_touch">Acción al tocar</string>
+    <string name="pref_on_touch_summary">Elegir que se debe hacer al tocar el widget</string>
+    <string name="pref_url">URL</string>
+    <string name="pref_url_summary">Dfinir una URL personalizada</string>
+    <string name="pref_launcher_options">Opciones del Launcher</string>
+    <string name="pref_show_launcher_icon">Mostrar icono en Launcher</string>
+    <string name="pref_show_launcher_icon_summary">Si descarmas, esconde el widget del launcher (necesario
+		reiniciar)</string>
+    <string name="pref_show_tutorial">Mostrar tutorial</string>
+    <string name="pref_show_tutorial_summary">Mostrar el tutorial cuando se hace click en el icono</string>
+    <string name="pref_info_version">Versión</string>
+    <string name="pref_info_version_error">Imposible determinar la versión</string>
+    <string name="pref_info_summary">Info, FAQ y reconocimientos</string>
+    <string name="pref_donate">Comprame una cerveza</string>
+    <string name="pref_donate_title">Donate</string>
+    <string name="pref_donate_summary">Ayudame a mantener mis aplicaciones gratis y sin anuncios</string>
+    <string name="pref_report_a_bug">Reportar un fallo</string>
+    <string name="pref_report_a_bug_summary">Enviar un nuevo fallo al tracker</string>
+    <string name="pref_display_changelog_summary">Mostar los cambios en la aplicación</string>
+    <string name="pref_display_settings">Mostrar configuración</string>
+    <string name="pref_save">Save</string>
+
+</resources>
