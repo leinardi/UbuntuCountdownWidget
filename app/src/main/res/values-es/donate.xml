@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<!--
+		Ubuntu Countdown Widget Copyright (C) 2011 Roberto Leinardi This
+		program is free software: you can redistribute it and/or modify it
+		under the terms of the GNU General Public License as published by the
+		Free Software Foundation, either version 3 of the License, or (at your
+		option) any later version. This program is distributed in the hope
+		that it will be useful, but WITHOUT ANY WARRANTY; without even the
+		implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+		PURPOSE. See the GNU General Public License for more details. You
+		should have received a copy of the GNU General Public License along
+		with this program. If not, see <http://www.gnu.org/licenses/>.
+	-->
+	
+<resources>
+	<string
+		name="donate_message">Ubuntu Countdown Widget es gratis y de código abierto. Tu puedes
+		darle soporte con una pequeña donación.\n\nGracias a tu ayuda, será posible
+		probar la aplicación en el mayor número de dispositivos posibles y a
+		mantener el desarrollo. \n\nDonar es fácil: pulsa el botón \"Si\" y serás
+		redirigido al Market donde puedes comprar la aplicación de donación.</string>
+</resources>
