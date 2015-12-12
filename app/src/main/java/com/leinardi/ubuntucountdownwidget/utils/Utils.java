@@ -22,13 +22,17 @@ import java.util.TimeZone;
 
 public class Utils {
 
+    private static final GregorianCalendar ubuntuReleaseDate;
+
+    static {
+        ubuntuReleaseDate = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
+        ubuntuReleaseDate.set(2016, Calendar.APRIL, 21, 0, 0, 0);
+    }
+
     private Utils() {
     }
 
     public static GregorianCalendar getUbuntuReleseDate() {
-        GregorianCalendar ubuntuReleaseDate = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
-        ubuntuReleaseDate.set(2014, Calendar.OCTOBER, 16, 0, 0, 0);
-
         return (GregorianCalendar) ubuntuReleaseDate.clone();
     }
 }

@@ -166,10 +166,11 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
     }
 
     private void updateUbuntuReleaseDate() {
-        String releaseDate = DateFormat.getDateInstance(DateFormat.LONG,
-                Locale.getDefault()).format(Utils.getUbuntuReleseDate().getTime());
-        findPreference(getString(R.string.pref_default_release_date_key)).setSummary(
-                releaseDate + " " + TimeZone.getDefault().getDisplayName());
+        DateFormat dateInstance = DateFormat.getDateInstance(DateFormat.LONG,
+                Locale.getDefault());
+        dateInstance.setTimeZone(TimeZone.getTimeZone("GMT"));
+        String releaseDate = dateInstance.format(Utils.getUbuntuReleseDate().getTime());
+        findPreference(getString(R.string.pref_default_release_date_key)).setSummary(releaseDate);
     }
 
     @Override

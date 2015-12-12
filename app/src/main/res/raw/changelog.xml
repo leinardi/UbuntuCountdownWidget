@@ -16,6 +16,10 @@
 
 <changelog bulletedList="true">
 
+    <changelogversion changeDate="Dec 12, 2015" versionName="16.04">
+        <changelogtext>Countdown started for Ubuntu 14.04 LTS Trusty Tahr!</changelogtext>
+    </changelogversion>
+
     <changelogversion changeDate="Jan 18, 2014" versionName="1.6">
         <changelogtext>Countdown started for Ubuntu 14.04 LTS Trusty Tahr!</changelogtext>
     </changelogversion>
