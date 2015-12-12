@@ -24,7 +24,6 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
 
-
         // Use the current date as the default date in the picker
         final Calendar c = this.getPersitendCalendar(DEFAULT_VALUE);
         int year = c.get(Calendar.YEAR);

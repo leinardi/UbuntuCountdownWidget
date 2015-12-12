@@ -16,5 +16,21 @@
 
 package com.leinardi.ubuntucountdownwidget.appwidgets;
 
+import android.content.ComponentName;
+import android.content.Context;
+import android.widget.RemoteViews;
+
+import com.leinardi.ubuntucountdownwidget.R;
+
 public class Widget2x2Provider extends WidgetProvider {
+    @Override
+    protected ComponentName getComponentName(Context context) {
+        return new ComponentName(context, Widget2x2Provider.class);
+    }
+
+    @Override
+    protected RemoteViews getRemoteViews(Context context, boolean isThemeDark) {
+        return new RemoteViews(context.getPackageName(),
+                isThemeDark ? R.layout.appwidget_2x2_dark : R.layout.appwidget_2x2_light);
+    }
 }

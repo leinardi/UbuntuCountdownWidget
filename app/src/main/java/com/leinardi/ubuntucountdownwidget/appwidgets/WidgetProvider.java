@@ -32,7 +32,6 @@ import android.widget.RemoteViews;
 
 import com.leinardi.ubuntucountdownwidget.BuildConfig;
 import com.leinardi.ubuntucountdownwidget.R;
-import com.leinardi.ubuntucountdownwidget.misc.LogUtils;
 import com.leinardi.ubuntucountdownwidget.ui.SettingsActivity;
 import com.leinardi.ubuntucountdownwidget.ui.dialogs.DatePickerFragment;
 import com.leinardi.ubuntucountdownwidget.utils.Utils;
@@ -41,7 +40,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.TimeZone;
 
-public class WidgetProvider extends AppWidgetProvider {
+public abstract class WidgetProvider extends AppWidgetProvider {
     private static final String TAG = WidgetProvider.class.getSimpleName();
     public static final String FORCE_WIDGET_UPDATE = BuildConfig.APPLICATION_ID + ".FORCE_WIDGET_UPDATE";
 
@@ -52,7 +51,6 @@ public class WidgetProvider extends AppWidgetProvider {
 
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
-        // Log.d(TAG, "onUpdate");
         updateWidget(context);
         super.onUpdate(context, appWidgetManager, appWidgetIds);
     }
@@ -65,7 +63,6 @@ public class WidgetProvider extends AppWidgetProvider {
                 action.equals(Intent.ACTION_TIMEZONE_CHANGED) ||
                 // action.equals(Intent.ACTION_DATE_CHANGED) ||
                 action.equals(Intent.ACTION_TIME_CHANGED)) {
-            // Log.d(TAG,"broadcast "+ action +" catched!");
             updateWidget(context);
         }
 
@@ -73,27 +70,17 @@ public class WidgetProvider extends AppWidgetProvider {
     }
 
     public void updateWidget(Context context) {
-        ComponentName thisWidget = null;
-        if (this instanceof Widget1x1Provider) {
-            thisWidget = new ComponentName(context, Widget1x1Provider.class);
-            // Log.d(TAG, "instanceof Widget1x1Provider");
-        } else if (this instanceof Widget2x2Provider) {
-            thisWidget = new ComponentName(context, Widget2x2Provider.class);
-            // Log.d(TAG, "instanceof Widget2x2Provider");
-        } else {
-            // TODO Write a better log message
-            LogUtils.e(TAG, "instanceof ERROR !!!");
-        }
-
+        ComponentName thisWidget = getComponentName(context);
         AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
         int[] appWidgetIds = appWidgetManager.getAppWidgetIds(thisWidget);
         updateWidget(context, appWidgetManager, appWidgetIds);
     }
 
-    public void updateWidget(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
-        // Log.d(TAG, "updateWidget");
+    abstract protected ComponentName getComponentName(Context context);
 
+    public void updateWidget(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         SharedPreferences mPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+
         boolean isThemeDark = mPrefs.getString(context.getString(R.string.pref_theme_key), "light")
                 .equals("dark");
 
@@ -113,61 +100,22 @@ public class WidgetProvider extends AppWidgetProvider {
         long hoursLeft = (long) Math.ceil(millisLeft / (1000 * 60 * 60.0));
         long daysLeft = (long) Math.ceil(hoursLeft / 24.0);
 
-        RemoteViews views = null;
-
-        if (this instanceof Widget1x1Provider) {
-            views = new RemoteViews(context.getPackageName(),
-                    isThemeDark ? R.layout.appwidget_1x1_dark : R.layout.appwidget_1x1_light);
-            // Log.d(TAG, "instanceof Widget1x1Provider");
-        } else if (this instanceof Widget2x2Provider) {
-            views = new RemoteViews(context.getPackageName(),
-                    isThemeDark ? R.layout.appwidget_2x2_dark : R.layout.appwidget_2x2_light);
-            // Log.d(TAG, "instanceof Widget2x2Provider");
-        } else {
-            // TODO Write a better log message
-            LogUtils.e(TAG, "instanceof ERROR !!!");
-        }
+        RemoteViews views = getRemoteViews(context, isThemeDark);
 
         for (int appWidgetId : appWidgetIds) {
-            views.setViewVisibility(R.id.progress_bar, View.GONE);
-            views.setViewVisibility(R.id.tv_footer, View.VISIBLE);
-
-            if (millisLeft > DateUtils.DAY_IN_MILLIS / 2) {
-                views.setViewVisibility(R.id.iv_header, View.VISIBLE);
-                views.setViewVisibility(R.id.tv_release_big, View.GONE);
-                views.setViewVisibility(R.id.iv_logo, View.GONE);
-                views.setTextViewText(R.id.tv_counter, daysLeft + "");
-                views.setViewVisibility(R.id.tv_counter, View.VISIBLE);
-                views.setTextViewText(R.id.tv_footer, context.getString(R.string.days_left));
-            } else if (millisLeft < 0) {
-                String releaseNumber = String.format("%02d.%02d", ubuntuReleaseDay.getTime()
-                        .getYear() - 100, ubuntuReleaseDay.getTime().getMonth() + 1);
-                views.setViewVisibility(R.id.iv_header, View.VISIBLE);
-                views.setViewVisibility(R.id.iv_logo, View.GONE);
-                views.setViewVisibility(R.id.tv_counter, View.GONE);
-                views.setTextViewText(R.id.tv_release_big, releaseNumber);
-                views.setViewVisibility(R.id.tv_release_big, View.VISIBLE);
-                views.setTextViewText(R.id.tv_footer, context.getString(R.string.its_here));
-            } else {
-                views.setViewVisibility(R.id.iv_header, View.GONE);
-                views.setViewVisibility(R.id.tv_counter, View.GONE);
-                views.setViewVisibility(R.id.tv_release_big, View.GONE);
-                views.setViewVisibility(R.id.iv_logo, View.VISIBLE);
-                views.setTextViewText(R.id.tv_footer, context.getString(R.string.coming_soon));
-            }
+            setupViews(context, ubuntuReleaseDay, millisLeft, daysLeft, views);
 
             String strOnTouch = mPrefs.getString(context.getString(R.string.pref_on_touch_key),
                     context.getString(R.string.on_touch_defaultValue));
-            LogUtils.d(TAG, "strOnTouch=" + strOnTouch);
-            Intent intent;
+
+            Intent intent = new Intent();
             if (!strOnTouch.equals("disabled")) {
                 if (strOnTouch.equals("config")) {
                     intent = new Intent(context, SettingsActivity.class);
                 } else {
                     String url = mPrefs.getString(context.getString(R.string.pref_url_key),
                             context.getString(R.string.url_defaultValue));
-                    ;
-                    if (!url.startsWith("http://") && !url.startsWith("https://")) {
+                    if (!url.toLowerCase().matches("^\\w+://.*")) {
                         url = "http://" + url;
                     }
                     intent = new Intent(Intent.ACTION_VIEW);
@@ -175,10 +123,6 @@ public class WidgetProvider extends AppWidgetProvider {
                 }
 
                 intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
-
-            } else {
-                // TODO This is ugly :(
-                intent = new Intent("com.leinardi.donothing");
             }
 
             PendingIntent pendingIntent = PendingIntent.getActivity(context,
@@ -188,6 +132,37 @@ public class WidgetProvider extends AppWidgetProvider {
             views.setOnClickPendingIntent(R.id.rl_widget, pendingIntent);
 
             appWidgetManager.updateAppWidget(appWidgetId, views);
+        }
+    }
+
+    abstract protected RemoteViews getRemoteViews(Context context, boolean isThemeDark);
+
+    private void setupViews(Context context, GregorianCalendar ubuntuReleaseDay, long millisLeft, long daysLeft, RemoteViews views) {
+        views.setViewVisibility(R.id.progress_bar, View.GONE);
+        views.setViewVisibility(R.id.tv_footer, View.VISIBLE);
+
+        if (millisLeft > DateUtils.DAY_IN_MILLIS / 2) {
+            views.setViewVisibility(R.id.iv_header, View.VISIBLE);
+            views.setViewVisibility(R.id.tv_release_big, View.GONE);
+            views.setViewVisibility(R.id.iv_logo, View.GONE);
+            views.setTextViewText(R.id.tv_counter, daysLeft + "");
+            views.setViewVisibility(R.id.tv_counter, View.VISIBLE);
+            views.setTextViewText(R.id.tv_footer, context.getString(R.string.days_left));
+        } else if (millisLeft < 0) {
+            String releaseNumber = String.format("%02d.%02d", ubuntuReleaseDay.getTime()
+                    .getYear() - 100, ubuntuReleaseDay.getTime().getMonth() + 1);
+            views.setViewVisibility(R.id.iv_header, View.VISIBLE);
+            views.setViewVisibility(R.id.iv_logo, View.GONE);
+            views.setViewVisibility(R.id.tv_counter, View.GONE);
+            views.setTextViewText(R.id.tv_release_big, releaseNumber);
+            views.setViewVisibility(R.id.tv_release_big, View.VISIBLE);
+            views.setTextViewText(R.id.tv_footer, context.getString(R.string.its_here));
+        } else {
+            views.setViewVisibility(R.id.iv_header, View.GONE);
+            views.setViewVisibility(R.id.tv_counter, View.GONE);
+            views.setViewVisibility(R.id.tv_release_big, View.GONE);
+            views.setViewVisibility(R.id.iv_logo, View.VISIBLE);
+            views.setTextViewText(R.id.tv_footer, context.getString(R.string.coming_soon));
         }
     }
 
