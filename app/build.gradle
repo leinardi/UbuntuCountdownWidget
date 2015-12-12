@@ -17,12 +17,7 @@ repositories {
 
 def getVersionCode = {
     try {
-        def stdout = new ByteArrayOutputStream()
-        exec {
-            commandLine 'git', 'rev-list', '--first-parent', '--count', 'HEAD'
-            standardOutput = stdout
-        }
-        return Integer.parseInt(stdout.toString().trim())
+        return Integer.parseInt('git rev-list --first-parent --count HEAD'.execute().text.trim())
     }
     catch (ignored) {
         return -1;
@@ -31,12 +26,15 @@ def getVersionCode = {
 
 def getVersionName = {
     try {
-        def stdout = new ByteArrayOutputStream()
-        exec {
-            commandLine 'git', 'describe', '--tags'
-            standardOutput = stdout
+        def tagName = 'git describe --abbrev=0 --tags'.execute().text.trim()
+        def tagHash = 'git rev-list --tags --max-count=1'.execute().text.trim()
+        def commitCount = Integer.parseInt(('git rev-list --count ' + tagHash + '..HEAD').execute().text.trim())
+
+        if (commitCount > 0) {
+            return String.format("%s.%d", tagName, commitCount)
+        } else {
+            return tagName
         }
-        return stdout.toString().trim()
     }
     catch (ignored) {
         return null;
