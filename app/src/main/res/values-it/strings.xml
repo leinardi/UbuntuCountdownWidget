@@ -51,7 +51,7 @@
     <string name="pref_show_launcher_icon_summary">Se non spuntato nasconde l\'icona del widget sul launcher
 		(richiede riavvio)</string>
     <string name="pref_show_tutorial">Visualizza tutorial</string>
-    <string name="pref_show_tutorial_summary">ostra il tutorial quando si clicca l\'icona del launcher</string>
+    <string name="pref_show_tutorial_summary">Mostra il tutorial quando si clicca l\'icona del launcher</string>
     <string name="pref_info_version">Versione</string>
     <string name="pref_info_version_error">Impossibile determinare la versione</string>
     <string name="pref_info_summary">Informazioni, FAQ e Ringraziamenti</string>
