@@ -17,7 +17,18 @@
 <changelog bulletedList="true">
 
     <changelogversion changeDate="Dec 12, 2015" versionName="16.04">
-        <changelogtext>Countdown started for Ubuntu 14.04 LTS Trusty Tahr!</changelogtext>
+        <changelogtext>Countdown started for Ubuntu 16.04 LTS Xenial Xerus!</changelogtext>
+        <changelogtext>Updated compileSdkVersion and buildToolsVersion to the latest version
+        </changelogtext>
+        <changelogtext>Added Crashlytics integration to the Standard flavor</changelogtext>
+        <changelogtext>Added xxhdpi and xxxhdpi resources and moved the launcher icons to mip-map
+            directories
+        </changelogtext>
+        <changelogtext>Moved from PreferenceActivity to PreferenceFragmentCompat</changelogtext>
+        <changelogtext>Added ActionBar to Launcher and Settings Activities</changelogtext>
+        <changelogtext>Replaced Buttons with Action Items</changelogtext>
+        <changelogtext>The Changelog is now using Gabriele Mariotti's Changeloglib</changelogtext>
+        <changelogtext>Probably something I'm forgetting</changelogtext>
     </changelogversion>
 
     <changelogversion changeDate="Jan 18, 2014" versionName="1.6">
