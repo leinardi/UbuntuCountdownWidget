@@ -7,7 +7,7 @@
     <bool name="ga_autoActivityTracking">true</bool>
 
     <!-- The screen names that will appear in reports -->
-    <screenName name="com.leinardi.ubuntucountdownwidget.ui.ConfigActivity">
+    <screenName name="com.leinardi.ubuntucountdownwidget.ui.SettingsActivity">
         UbuntuCountdownWidget ConfigActivity
     </screenName>
     <screenName name="com.leinardi.ubuntucountdownwidget.ui.LauncherActivity">

@@ -2,14 +2,17 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.leinardi.ubuntucountdownwidget">
 
-    <uses-permission android:name="com.android.vending.BILLING" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
+    <uses-sdk xmlns:tools="http://schemas.android.com/tools"
+        tools:overrideLibrary="android.support.v14.preference" />
+
     <application
-        android:icon="@drawable/ic_launcher_ucw"
         android:name=".UbuntuCountdownWidget"
-        android:label="@string/app_name">
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.AppTheme">
 
         <receiver
             android:name=".appwidgets.Widget1x1Provider"
@@ -20,7 +23,7 @@
                 <action android:name="android.intent.action.TIME_SET" />
                 <!-- <action -->
                 <!-- android:name="android.intent.action.DATE_CHANGED" /> -->
-                <action android:name="com.leinardi.ubuntucountdownwidget.FORCE_WIDGET_UPDATE" />
+                <action android:name="${applicationId}.FORCE_WIDGET_UPDATE" />
             </intent-filter>
 
             <meta-data
@@ -36,7 +39,7 @@
                 <action android:name="android.intent.action.TIME_SET" />
                 <!-- <action -->
                 <!-- android:name="android.intent.action.DATE_CHANGED" /> -->
-                <action android:name="com.leinardi.ubuntucountdownwidget.FORCE_WIDGET_UPDATE" />
+                <action android:name="${applicationId}.FORCE_WIDGET_UPDATE" />
             </intent-filter>
 
             <meta-data
@@ -54,12 +57,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.ConfigActivity"
+            android:name=".ui.SettingsActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="d6a7d9e5206bea5363da94713b01b7419cb2dcd3" />
     </application>
 
 </manifest>

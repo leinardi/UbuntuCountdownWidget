@@ -19,6 +19,6 @@
 	android:updatePeriodMillis="86400000"
 	android:initialLayout="@layout/appwidget_1x1_light"
 	android:label="@string/widget_1x1_name"
-	android:configure="com.leinardi.ubuntucountdownwidget.ui.ConfigActivity"
+	android:configure="com.leinardi.ubuntucountdownwidget.ui.SettingsActivity"
 	android:previewImage="@drawable/preview_1x1">
 </appwidget-provider>

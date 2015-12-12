@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-	<!--
+<?xml version="1.0" encoding="utf-8"?>    <!--
 		Ubuntu Countdown Widget Copyright (C) 2011 Roberto Leinardi This
 		program is free software: you can redistribute it and/or modify it
 		under the terms of the GNU General Public License as published by the
@@ -13,42 +12,40 @@
 	-->
 
 <resources>
-	<style
-		name="Counter"
-		parent="@android:style/Widget.TextView">
-		<item
-			name="android:gravity">center_vertical|center_horizontal</item>
-		<item
-			name="android:textColor">@color/redbuntu</item>
-		<item
-			name="android:textStyle">bold</item>
-	</style>
 
-	<style
-		name="Release"
-		parent="@android:style/Widget.TextView">
-		<item
-			name="android:gravity">center_vertical|center_horizontal</item>
-		<item
-			name="android:textColor">@color/redbuntu</item>
-	</style>
-	
-	<style
-		name="Footer"
-		parent="@android:style/Widget.TextView">
-		<item
-			name="android:gravity">center_vertical|center_horizontal</item>
-	</style>
-	<style
-		name="Footer.Light"
-		parent="@style/Footer">
-		<item
-			name="android:textColor">@color/gray</item>
-	</style>
-		<style
-		name="Footer.Dark"
-		parent="@style/Footer">
-		<item
-			name="android:textColor">@color/white</item>
-	</style>
+    <style name="Counter" parent="@android:style/Widget.TextView">
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Release" parent="@android:style/Widget.TextView">
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:textColor">@color/colorAccent</item>
+    </style>
+
+    <style name="Footer" parent="@android:style/Widget.TextView">
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+    </style>
+
+    <style name="Footer.Light" parent="@style/Footer">
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="Footer.Dark" parent="@style/Footer">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="AppCompatAlertDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+    </style>
+
+    <style name="Theme.AppTheme.ListSeparatorTextView">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/accent_selector</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:layout_marginBottom">16dp</item>
+    </style>
 </resources>

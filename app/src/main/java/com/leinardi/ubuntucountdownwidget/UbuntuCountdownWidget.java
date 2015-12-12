@@ -9,7 +9,6 @@ public class UbuntuCountdownWidget extends Application {
 
     private static UbuntuCountdownWidget mSingleton;
 
-    // Returns the application instance
     public static UbuntuCountdownWidget getInstance() {
         return mSingleton;
     }
@@ -18,6 +17,10 @@ public class UbuntuCountdownWidget extends Application {
     public void onCreate() {
         super.onCreate();
         mSingleton = this;
+
+        if (!BuildConfig.DEBUG) {
+            FabricWrapper.with(this);
+        }
     }
 
 }

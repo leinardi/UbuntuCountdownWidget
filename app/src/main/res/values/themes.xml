@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.AppTheme_" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Set AppCompat’s actionBarStyle -->
+        <!--<item name="actionBarStyle">@style/MyActionBarStyle</item>-->
+
+        <!-- Set AppCompat’s color theming attrs -->
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <!--<item name="colorPrimaryDark">@color/my_awesome_darker_red</item>-->
+
+    </style>
+
+    <style name="Theme.AppTheme" parent="Theme.AppTheme_">
+        <!-- The rest of your attributes -->
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
+        <item name="android:listSeparatorTextViewStyle">
+            @style/Theme.AppTheme.ListSeparatorTextView
+        </item>
+    </style>
+</resources>

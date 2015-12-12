@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Kitchen Timer
+  ~ Copyright (C) 2015 Roberto Leinardi
+  ~
+  ~ This program is free software: you can redistribute it and/or modify it under the terms
+  ~ of the GNU General Public License as published by the Free Software Foundation,
+  ~ either version 3 of the License, or (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful, but WITHOUT ANY
+  ~ WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+  ~ A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License along with this
+  ~ program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<changelog bulletedList="true">
+
+    <changelogversion changeDate="Jan 18, 2014" versionName="1.6">
+        <changelogtext>Countdown started for Ubuntu 14.04 LTS Trusty Tahr!</changelogtext>
+    </changelogversion>
+
+    <changelogversion changeDate="May 4, 2013" versionName="1.5">
+        <changelogtext>Countdown started for Ubuntu 13.10 Saucy Salamander!</changelogtext>
+    </changelogversion>
+
+    <changelogversion changeDate="Oct 27, 2012" versionName="1.4">
+        <changelogtext>Countdown started for Ubuntu 13.04 Raring Ringtail!</changelogtext>
+    </changelogversion>
+
+    <changelogversion changeDate="Jul 1, 2012" versionName="1.3">
+        <changelogtext>Countdown started for Ubuntu 12.10 Quantal Quetzal!</changelogtext>
+    </changelogversion>
+
+    <changelogversion changeDate="Dec 27, 2011" versionName="1.2.0">
+        <changelogtext>Countdown started for Ubuntu 12.04 LTS Precise Pangolin!</changelogtext>
+        <changelogtext>Added Widget Preview (API 11+)</changelogtext>
+        <changelogtext>Added the ability to make donations with InApp-Billing :D (require Vending
+            Permission)
+        </changelogtext>
+        <changelogtext>Added anonymous usage statistics collection through Google Analytics
+            (require Internet Permission and Access Network State Permission)
+        </changelogtext>
+    </changelogversion>
+
+    <changelogversion changeDate="May 14, 2011" versionName="1.1.1">
+        <changelogtext>Oops</changelogtext>
+    </changelogversion>
+
+    <changelogversion changeDate="May 14, 2011" versionName="1.1.0">
+        <changelogtext>Countdown started for Ubuntu 11.10 Oneiric Ocelot!</changelogtext>
+        <changelogtext>Added Spanish localization (thanks to Monino)</changelogtext>
+    </changelogversion>
+
+    <changelogversion changeDate="Feb 13, 2011" versionName="1.0.0">
+        <changelogtext>Added French localization (thanks to Guillaume Mazoyer)</changelogtext>
+        <changelogtext>Built with API Level 10</changelogtext>
+    </changelogversion>
+
+    <changelogversion changeDate="Feb 06, 2011" versionName="0.9.8">
+        <changelogtext>Added DARK THEME :D</changelogtext>
+        <changelogtext>Added "On touch action" (do nothing, open settings, open URL)</changelogtext>
+    </changelogversion>
+
+    <changelogversion changeDate="Jan 29, 2011" versionName="0.9.6">
+        <changelogtext>Added FAQ</changelogtext>
+        <changelogtext>We are considering the possibility of adding a dark theme :-)</changelogtext>
+    </changelogversion>
+
+    <changelogversion changeDate="Jan 27, 2011" versionName="0.9.5">
+        <changelogtext>Release on Android Market! \o/</changelogtext>
+    </changelogversion>
+
+    <changelogversion changeDate="Jan 26, 2011" versionName="0.9.4">
+        <changelogtext>Added Tutorial on how to add Widgets</changelogtext>
+        <changelogtext>Added Italian localization</changelogtext>
+        <changelogtext>New icon</changelogtext>
+        <changelogtext>Fixed some little bug</changelogtext>
+    </changelogversion>
+
+    <changelogversion changeDate="Jan 14, 2011" versionName="0.9.0">
+        <changelogtext>First public beta!</changelogtext>
+    </changelogversion>
+
+</changelog>

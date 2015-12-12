@@ -1,20 +1,19 @@
 /**
- *  Ubuntu Countdown Widget
- *  Copyright (C) 2011 Roberto Leinardi
- *  
- *  This program is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
- *  
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *  
- *  You should have received a copy of the GNU General Public License
- *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *  
+ * Ubuntu Countdown Widget
+ * Copyright (C) 2011 Roberto Leinardi
+ * <p/>
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * <p/>
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * <p/>
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 /*
@@ -40,11 +39,11 @@ import android.text.format.DateUtils;
 import android.view.View;
 import android.widget.RemoteViews;
 
+import com.leinardi.ubuntucountdownwidget.BuildConfig;
 import com.leinardi.ubuntucountdownwidget.R;
-import com.leinardi.ubuntucountdownwidget.customviews.DatePreference;
-import com.leinardi.ubuntucountdownwidget.misc.Constants;
-import com.leinardi.ubuntucountdownwidget.misc.Log;
-import com.leinardi.ubuntucountdownwidget.ui.ConfigActivity;
+import com.leinardi.ubuntucountdownwidget.misc.LogUtils;
+import com.leinardi.ubuntucountdownwidget.ui.SettingsActivity;
+import com.leinardi.ubuntucountdownwidget.ui.dialogs.DatePickerFragment;
 import com.leinardi.ubuntucountdownwidget.utils.Utils;
 
 import java.util.Calendar;
@@ -52,7 +51,8 @@ import java.util.GregorianCalendar;
 import java.util.TimeZone;
 
 public class WidgetProvider extends AppWidgetProvider {
-    private static final String TAG = "WidgetProvider";
+    private static final String TAG = WidgetProvider.class.getSimpleName();
+    public static final String FORCE_WIDGET_UPDATE = BuildConfig.APPLICATION_ID + ".FORCE_WIDGET_UPDATE";
 
     @Override
     public void onEnabled(Context context) {
@@ -70,7 +70,7 @@ public class WidgetProvider extends AppWidgetProvider {
     public void onReceive(Context context, Intent intent) {
         final String action = intent.getAction();
 
-        if (action.equals(Constants.FORCE_WIDGET_UPDATE) ||
+        if (action.equals(FORCE_WIDGET_UPDATE) ||
                 action.equals(Intent.ACTION_TIMEZONE_CHANGED) ||
                 // action.equals(Intent.ACTION_DATE_CHANGED) ||
                 action.equals(Intent.ACTION_TIME_CHANGED)) {
@@ -91,7 +91,7 @@ public class WidgetProvider extends AppWidgetProvider {
             // Log.d(TAG, "instanceof Widget2x2Provider");
         } else {
             // TODO Write a better log message
-            Log.e(TAG, "instanceof ERROR !!!");
+            LogUtils.e(TAG, "instanceof ERROR !!!");
         }
 
         AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
@@ -111,7 +111,7 @@ public class WidgetProvider extends AppWidgetProvider {
 
         if (mPrefs.getBoolean(context.getString(R.string.pref_custom_date_checkbox_key), false)) {
             long ubuntuReleaseMillis = mPrefs.getLong(
-                    context.getString(R.string.pref_custom_date_key), DatePreference.DEFAULT_VALUE);
+                    context.getString(R.string.pref_custom_date_key), DatePickerFragment.DEFAULT_VALUE);
             ubuntuReleaseDay.setTimeInMillis(ubuntuReleaseMillis);
         }
 
@@ -134,7 +134,7 @@ public class WidgetProvider extends AppWidgetProvider {
             // Log.d(TAG, "instanceof Widget2x2Provider");
         } else {
             // TODO Write a better log message
-            Log.e(TAG, "instanceof ERROR !!!");
+            LogUtils.e(TAG, "instanceof ERROR !!!");
         }
 
         for (int appWidgetId : appWidgetIds) {
@@ -167,11 +167,11 @@ public class WidgetProvider extends AppWidgetProvider {
 
             String strOnTouch = mPrefs.getString(context.getString(R.string.pref_on_touch_key),
                     context.getString(R.string.on_touch_defaultValue));
-            Log.d(TAG, "strOnTouch=" + strOnTouch);
+            LogUtils.d(TAG, "strOnTouch=" + strOnTouch);
             Intent intent;
             if (!strOnTouch.equals("disabled")) {
                 if (strOnTouch.equals("config")) {
-                    intent = new Intent(context, ConfigActivity.class);
+                    intent = new Intent(context, SettingsActivity.class);
                 } else {
                     String url = mPrefs.getString(context.getString(R.string.pref_url_key),
                             context.getString(R.string.url_defaultValue));
@@ -204,7 +204,7 @@ public class WidgetProvider extends AppWidgetProvider {
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 
         PendingIntent pi = PendingIntent.getBroadcast(context, 0, new Intent(
-                Constants.FORCE_WIDGET_UPDATE), 0);
+                FORCE_WIDGET_UPDATE), 0);
 
         GregorianCalendar now = new GregorianCalendar(TimeZone.getDefault());
         GregorianCalendar triggerCalendar = (GregorianCalendar) now.clone();

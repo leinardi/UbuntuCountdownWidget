@@ -21,6 +21,7 @@
     <string name="its_here">It\'s here!</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
+    <string name="close">Close</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="back">Back</string>
@@ -30,10 +31,10 @@
     <string name="default_text">Default</string>
 
     <!-- Eula -->
-    <string name="eula_title">License</string>
-    <string name="eula_accept">Accept</string>
-    <string name="eula_refuse">Refuse</string>
-    <string name="pref_display_eula_summary">Display application license</string>
+    <string name="licenses_title">License</string>
+    <string name="licenses_accept">Accept</string>
+    <string name="licenses_refuse">Refuse</string>
+    <string name="pref_display_licenses_summary">Display application license</string>
     <string name="info">Info</string>
 
     <!-- Preferences -->
@@ -65,5 +66,6 @@
     <string name="pref_display_changelog_summary">Display application changelog</string>
     <string name="pref_display_settings">Display settings</string>
     <string name="pref_save">Save</string>
+    <string name="press_save_to_add_the_widget">Press Save to add the Widget</string>
 
 </resources>
