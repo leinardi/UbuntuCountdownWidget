@@ -37,7 +37,7 @@ public class OpenSourceLicensesDialogFragment extends DialogFragment {
         webView.loadUrl(LICENSES_PATH);
 
         return new AlertDialog.Builder(getActivity(), R.style.AppCompatAlertDialogTheme)
-                .setTitle(R.string.licenses_title)
+                .setTitle(R.string.open_source_licenses)
                 .setView(webView)
                 .setPositiveButton(R.string.close, new DialogInterface.OnClickListener() {
 

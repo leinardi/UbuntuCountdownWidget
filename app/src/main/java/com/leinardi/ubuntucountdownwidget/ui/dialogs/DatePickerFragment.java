@@ -17,7 +17,7 @@ import java.util.Calendar;
  * Created by leinardi on 11/12/15.
  */
 public class DatePickerFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
-    public static final long DEFAULT_VALUE = Utils.getInstance().getUbuntuReleseDate().getTimeInMillis();
+    public static final long DEFAULT_VALUE = Utils.getUbuntuReleseDate().getTimeInMillis();
     private SharedPreferences mSharedPreferences;
 
     @Override

@@ -1,5 +1,23 @@
+/*
+ * Ubuntu Countdown Widget
+ * Copyright (C) 2015 Roberto Leinardi
+ *
+ * This program is free software: you can redistribute it and/or modify it under the terms
+ * of the GNU General Public License as published by the Free Software Foundation,
+ * either version 3 of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT ANY
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+ * A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along with this
+ * program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 package com.leinardi.ubuntucountdownwidget.ui;
 
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
@@ -49,7 +67,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
         mPrefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
 
         String releaseDate = DateFormat.getDateInstance(DateFormat.LONG,
-                Locale.getDefault()).format(Utils.getInstance().getUbuntuReleseDate().getTime());
+                Locale.getDefault()).format(Utils.getUbuntuReleseDate().getTime());
         findPreference(getString(R.string.pref_default_release_date_key)).setSummary(
                 releaseDate + " " + TimeZone.getDefault().getDisplayName());
 
@@ -78,11 +96,11 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
                     @Override
                     public boolean onPreferenceClick(Preference preference) {
                         if (((CheckBoxPreference) preference).isChecked()) {
-                            Utils.getInstance().enableComponent(true, getActivity(),
+                            enableComponent(true, getActivity(),
                                     LauncherActivity.class);
                             // Log.d(TAG, "Launcher icon enabled");
                         } else {
-                            Utils.getInstance().enableComponent(false, getActivity(),
+                            enableComponent(false, getActivity(),
                                     LauncherActivity.class);
                             // Log.d(TAG, "Launcher icon disabled");
                         }
@@ -139,7 +157,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
 
         if (!customDateCheckbox.isChecked()) {
             mPrefs.edit().putLong(getString(R.string.pref_custom_date_key),
-                    Utils.getInstance().getUbuntuReleseDate().getTimeInMillis()).commit();
+                    Utils.getUbuntuReleseDate().getTimeInMillis()).commit();
         }
         // Setup the initial values
         long dateInMillis = mPrefs.getLong(getString(R.string.pref_custom_date_key),
@@ -178,5 +196,11 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
         }
     }
 
-
+    private void enableComponent(boolean enable, Context mContext, Class<?> class1) {
+        ComponentName componentName = new ComponentName(mContext, class1);
+        mContext.getPackageManager().setComponentEnabledSetting(
+                componentName,
+                enable ? PackageManager.COMPONENT_ENABLED_STATE_ENABLED : PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+                PackageManager.DONT_KILL_APP);
+    }
 }
