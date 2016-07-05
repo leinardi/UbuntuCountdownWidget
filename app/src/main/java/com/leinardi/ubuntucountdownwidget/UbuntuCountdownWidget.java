@@ -17,6 +17,8 @@
 package com.leinardi.ubuntucountdownwidget;
 
 import android.app.Application;
+import com.crashlytics.android.Crashlytics;
+import io.fabric.sdk.android.Fabric;
 
 /**
  * Created by leinardi on 31/05/14.
@@ -32,6 +34,7 @@ public class UbuntuCountdownWidget extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        Fabric.with(this, new Crashlytics());
         mSingleton = this;
 
         if (!BuildConfig.DEBUG) {

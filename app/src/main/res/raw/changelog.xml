@@ -16,6 +16,11 @@
 
 <changelog bulletedList="true">
 
+    <changelogversion changeDate="July 5, 2016" versionName="16.10">
+        <changelogtext>Countdown started for Ubuntu 16.10 Yakkety Yak!</changelogtext>
+        <changelogtext>Updated compileSdkVersion and buildToolsVersion to the latest version</changelogtext>
+    </changelogversion>
+
     <changelogversion changeDate="Dec 12, 2015" versionName="16.04">
         <changelogtext>Countdown started for Ubuntu 16.04 LTS Xenial Xerus!</changelogtext>
         <changelogtext>Updated compileSdkVersion and buildToolsVersion to the latest version
