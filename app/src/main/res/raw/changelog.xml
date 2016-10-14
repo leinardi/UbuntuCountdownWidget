@@ -16,6 +16,10 @@
 
 <changelog bulletedList="true">
 
+    <changelogversion changeDate="October 14, 2016" versionName="16.10.3">
+        <changelogtext>Fixed release date for Ubuntu 16.10 Yakkety Yak (sorry for the mistake...)</changelogtext>
+    </changelogversion>
+
     <changelogversion changeDate="July 5, 2016" versionName="16.10">
         <changelogtext>Countdown started for Ubuntu 16.10 Yakkety Yak!</changelogtext>
         <changelogtext>Updated compileSdkVersion and buildToolsVersion to the latest version</changelogtext>
