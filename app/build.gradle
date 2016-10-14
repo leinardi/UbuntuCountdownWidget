@@ -42,13 +42,13 @@ def getVersionName = {
 }
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion "24.0"
+    compileSdkVersion COMPILE_SDK_VERSION as int
+    buildToolsVersion BUILD_TOOLS_VERSION as String
 
     defaultConfig {
         applicationId "com.leinardi.ubuntucountdownwidget"
-        minSdkVersion 9
-        targetSdkVersion 24
+        minSdkVersion MIN_SDK_VERSION as int
+        targetSdkVersion TARGET_SDK_VERSION as int
         versionCode getVersionCode() + 200
         versionName getVersionName()
     }
@@ -102,11 +102,11 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:support-v4:24.0.0'
-    compile 'com.android.support:appcompat-v7:24.0.0'
-    compile 'com.android.support:design:24.0.0'
-    compile 'com.android.support:preference-v7:24.0.0'
-    compile 'com.android.support:preference-v14:24.0.0'
+    compile 'com.android.support:support-v4:' + SUPPORT_LIBRARIES_VERSION
+    compile 'com.android.support:appcompat-v7:' + SUPPORT_LIBRARIES_VERSION
+    compile 'com.android.support:design:' + SUPPORT_LIBRARIES_VERSION
+    compile 'com.android.support:preference-v7:' + SUPPORT_LIBRARIES_VERSION
+    compile 'com.android.support:preference-v14:' + SUPPORT_LIBRARIES_VERSION
     compile 'com.github.gabrielemariotti.changeloglib:changelog:2.1.0'
     standardCompile('com.crashlytics.sdk.android:crashlytics:2.6.0@aar') {
         transitive = true;
