@@ -16,6 +16,11 @@
 
 <changelog bulletedList="true">
 
+    <changelogversion changeDate="June 11, 2017" versionName="17.10">
+        <changelogtext>Countdown started for Ubuntu 17.10 Artful Aardvark!</changelogtext>
+        <changelogtext>Updated compileSdkVersion and buildToolsVersion to the latest version</changelogtext>
+    </changelogversion>
+
     <changelogversion changeDate="January 14, 2017" versionName="17.04">
         <changelogtext>Countdown started for Ubuntu 17.04 Zesty Zapus!</changelogtext>
         <changelogtext>Updated compileSdkVersion and buildToolsVersion to the latest version</changelogtext>
