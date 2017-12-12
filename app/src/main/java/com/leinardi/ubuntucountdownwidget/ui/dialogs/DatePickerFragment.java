@@ -33,7 +33,7 @@ import java.util.Calendar;
  * Created by leinardi on 11/12/15.
  */
 public class DatePickerFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
-    public static final long DEFAULT_VALUE = Utils.getUbuntuReleseDate().getTimeInMillis();
+    public static final long DEFAULT_VALUE = Utils.getUbuntuReleaseDate().getTimeInMillis();
     private SharedPreferences mSharedPreferences;
 
     @Override
@@ -41,7 +41,7 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
 
         // Use the current date as the default date in the picker
-        final Calendar c = this.getPersitendCalendar(DEFAULT_VALUE);
+        final Calendar c = this.getPersistedCalendar(DEFAULT_VALUE);
         int year = c.get(Calendar.YEAR);
         int month = c.get(Calendar.MONTH);
         int day = c.get(Calendar.DAY_OF_MONTH);
@@ -83,7 +83,7 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
         }
     }
 
-    private Calendar getPersitendCalendar(final long defaultValue) {
+    private Calendar getPersistedCalendar(final long defaultValue) {
         final long date = this.getPersistedLong(defaultValue);
         final Calendar c = Calendar.getInstance();
         c.setTimeInMillis(date);

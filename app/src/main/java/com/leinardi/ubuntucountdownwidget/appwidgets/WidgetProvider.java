@@ -85,7 +85,7 @@ public abstract class WidgetProvider extends AppWidgetProvider {
                 .equals("dark");
 
         GregorianCalendar today = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
-        GregorianCalendar ubuntuReleaseDay = Utils.getUbuntuReleseDate();
+        GregorianCalendar ubuntuReleaseDay = Utils.getUbuntuReleaseDate();
 
         if (mPrefs.getBoolean(context.getString(R.string.pref_custom_date_checkbox_key), false)) {
             long ubuntuReleaseMillis = mPrefs.getLong(

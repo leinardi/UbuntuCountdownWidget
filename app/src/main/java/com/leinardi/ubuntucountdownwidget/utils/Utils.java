@@ -26,13 +26,13 @@ public class Utils {
 
     static {
         ubuntuReleaseDate = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
-        ubuntuReleaseDate.set(2017, Calendar.OCTOBER, 19, 0, 0, 0);
+        ubuntuReleaseDate.set(2018, Calendar.APRIL, 26, 0, 0, 0);
     }
 
     private Utils() {
     }
 
-    public static GregorianCalendar getUbuntuReleseDate() {
+    public static GregorianCalendar getUbuntuReleaseDate() {
         return (GregorianCalendar) ubuntuReleaseDate.clone();
     }
 }

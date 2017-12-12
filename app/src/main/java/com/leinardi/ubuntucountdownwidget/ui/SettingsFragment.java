@@ -169,7 +169,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
         DateFormat dateInstance = DateFormat.getDateInstance(DateFormat.LONG,
                 Locale.getDefault());
         dateInstance.setTimeZone(TimeZone.getTimeZone("GMT"));
-        String releaseDate = dateInstance.format(Utils.getUbuntuReleseDate().getTime());
+        String releaseDate = dateInstance.format(Utils.getUbuntuReleaseDate().getTime());
         findPreference(getString(R.string.pref_default_release_date_key)).setSummary(releaseDate);
     }
 
@@ -179,7 +179,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
 
         if (!customDateCheckbox.isChecked()) {
             mPrefs.edit().putLong(getString(R.string.pref_custom_date_key),
-                    Utils.getUbuntuReleseDate().getTimeInMillis()).commit();
+                    Utils.getUbuntuReleaseDate().getTimeInMillis()).commit();
         }
         // Setup the initial values
         long dateInMillis = mPrefs.getLong(getString(R.string.pref_custom_date_key),

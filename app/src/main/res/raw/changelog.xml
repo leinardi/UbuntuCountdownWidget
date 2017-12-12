@@ -16,6 +16,12 @@
 
 <changelog bulletedList="true">
 
+    <changelogversion changeDate="December 12, 2017" versionName="18.04">
+        <changelogtext>Countdown started for Ubuntu 18.04 LTS Bionic Beaver!</changelogtext>
+        <changelogtext>Updated compileSdkVersion and buildToolsVersion to the latest version</changelogtext>
+        <changelogtext>Increased minSdk to 14 (Ice Cream Sandwich) since is now the minimum for the Android Support Libraries</changelogtext>
+    </changelogversion>
+
     <changelogversion changeDate="June 11, 2017" versionName="17.10">
         <changelogtext>Countdown started for Ubuntu 17.10 Artful Aardvark!</changelogtext>
         <changelogtext>Updated compileSdkVersion and buildToolsVersion to the latest version</changelogtext>
