@@ -53,9 +53,14 @@ android {
         versionName getVersionName()
     }
 
+    flavorDimensions "licenseVersion"
+
     productFlavors {
-        standard {}
+        standard {
+            dimension "licenseVersion"
+        }
         foss {
+            dimension "licenseVersion"
             applicationIdSuffix ".foss"
             versionName getVersionName() + "-foss"
         }
