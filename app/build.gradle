@@ -43,7 +43,6 @@ def getVersionName = {
 
 android {
     compileSdkVersion COMPILE_SDK_VERSION as int
-    buildToolsVersion BUILD_TOOLS_VERSION as String
 
     defaultConfig {
         applicationId "com.leinardi.ubuntucountdownwidget"
@@ -113,7 +112,7 @@ dependencies {
     compile 'com.android.support:preference-v7:' + SUPPORT_LIBRARIES_VERSION
     compile 'com.android.support:preference-v14:' + SUPPORT_LIBRARIES_VERSION
     compile 'com.github.gabrielemariotti.changeloglib:changelog:2.1.0'
-    standardCompile('com.crashlytics.sdk.android:crashlytics:2.6.0@aar') {
-        transitive = true;
+    standardCompile('com.crashlytics.sdk.android:crashlytics:2.9.5@aar') {
+        transitive = true
     }
 }
