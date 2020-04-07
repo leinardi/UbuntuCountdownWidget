@@ -3,12 +3,8 @@ buildscript {
         maven { url 'https://maven.fabric.io/public' }
     }
 
-    dependencies {
-        classpath 'io.fabric.tools:gradle:1.+'
-    }
 }
 apply plugin: 'com.android.application'
-apply plugin: 'io.fabric'
 
 repositories {
     maven { url 'https://maven.fabric.io/public' }
@@ -20,7 +16,7 @@ def getVersionCode = {
         return Integer.parseInt('git rev-list --first-parent --count HEAD'.execute().text.trim())
     }
     catch (ignored) {
-        return -1;
+        return -1
     }
 }
 
@@ -37,7 +33,7 @@ def getVersionName = {
         }
     }
     catch (ignored) {
-        return null;
+        return null
     }
 }
 
@@ -106,14 +102,11 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:support-v4:' + SUPPORT_LIBRARIES_VERSION
-    compile 'com.android.support:appcompat-v7:' + SUPPORT_LIBRARIES_VERSION
-    compile 'com.android.support:design:' + SUPPORT_LIBRARIES_VERSION
-    compile 'com.android.support:preference-v7:' + SUPPORT_LIBRARIES_VERSION
-    compile 'com.android.support:preference-v14:' + SUPPORT_LIBRARIES_VERSION
-    compile 'com.github.gabrielemariotti.changeloglib:changelog:2.1.0'
-    standardCompile('com.crashlytics.sdk.android:crashlytics:2.6.0@aar') {
-        transitive = true;
-    }
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:support-v4:' + SUPPORT_LIBRARIES_VERSION
+    implementation 'com.android.support:appcompat-v7:' + SUPPORT_LIBRARIES_VERSION
+    implementation 'com.android.support:design:' + SUPPORT_LIBRARIES_VERSION
+    implementation 'com.android.support:preference-v7:' + SUPPORT_LIBRARIES_VERSION
+    implementation 'com.android.support:preference-v14:' + SUPPORT_LIBRARIES_VERSION
+    implementation 'com.github.gabrielemariotti.changeloglib:changelog:2.1.0'
 }

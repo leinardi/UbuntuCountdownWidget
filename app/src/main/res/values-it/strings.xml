@@ -16,11 +16,11 @@
 
 <resources>
 
-    <string name="widget_1x1_name">Ubuntu Countdown 1x1</string>
-    <string name="widget_2x2_name">Ubuntu Countdown 2x2</string>
-    <string name="days_left">Days left</string>
-    <string name="coming_soon">Coming soon</string>
-    <string name="its_here">It\'s here!</string>
+    <string name="widget_1x1_name">Conto alla rovescia Ubuntu 1x1</string>
+    <string name="widget_2x2_name">Conto alla rovescia Ubuntu 2x2</string>
+    <string name="days_left">giorni...</string>
+    <string name="coming_soon">In arrivo</string>
+    <string name="its_here">È qui!</string>
     <string name="ok">OK</string>
     <string name="cancel">Annulla</string>
     <string name="close">Chiudi</string>
@@ -32,7 +32,7 @@
     <string name="exit">Esci</string>
     <string name="default_text">Default</string>
 
-    <string name="info">Info</string>
+    <string name="info">Informazioni</string>
     <string name="open_source_licenses">Licenze Open Source</string>
 
     <!-- Preferences -->
@@ -65,5 +65,6 @@
     <string name="pref_display_changelog_summary">Visualizza il changelog dell\'applicazione</string>
     <string name="pref_save">Salva</string>
     <string name="press_save_to_add_the_widget">Premi Salva per aggiungere il Widget</string>
+    <string name="changelog_title">Note di revisione</string>
 
 </resources>
