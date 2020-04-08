@@ -1,6 +1,6 @@
 /*
  * Ubuntu Countdown Widget
- * Copyright (C) 2015 Roberto Leinardi
+ * Copyright (C) 2020 Roberto Leinardi
  *
  * This program is free software: you can redistribute it and/or modify it under the terms
  * of the GNU General Public License as published by the Free Software Foundation,
@@ -22,17 +22,17 @@ import java.util.TimeZone;
 
 public class Utils {
 
-    private static final GregorianCalendar ubuntuReleaseDate;
+    private static final GregorianCalendar UBUNTU_RELEASE_DATE;
 
     static {
-        ubuntuReleaseDate = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
-        ubuntuReleaseDate.set(2020, Calendar.APRIL, 23, 0, 0, 0);
+        UBUNTU_RELEASE_DATE = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
+        UBUNTU_RELEASE_DATE.set(2020, Calendar.APRIL, 23, 0, 0, 0);
     }
 
     private Utils() {
     }
 
     public static GregorianCalendar getUbuntuReleaseDate() {
-        return (GregorianCalendar) ubuntuReleaseDate.clone();
+        return (GregorianCalendar) UBUNTU_RELEASE_DATE.clone();
     }
 }

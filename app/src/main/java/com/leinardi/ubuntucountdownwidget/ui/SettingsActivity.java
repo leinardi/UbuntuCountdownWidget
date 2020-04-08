@@ -1,6 +1,6 @@
 /*
  * Ubuntu Countdown Widget
- * Copyright (C) 2015 Roberto Leinardi
+ * Copyright (C) 2020 Roberto Leinardi
  *
  * This program is free software: you can redistribute it and/or modify it under the terms
  * of the GNU General Public License as published by the Free Software Foundation,
@@ -19,12 +19,12 @@ package com.leinardi.ubuntucountdownwidget.ui;
 import android.appwidget.AppWidgetManager;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import androidx.appcompat.app.AppCompatActivity;
+import com.google.android.material.snackbar.Snackbar;
 import com.leinardi.ubuntucountdownwidget.R;
 import com.leinardi.ubuntucountdownwidget.appwidgets.WidgetProvider;
 
@@ -73,7 +73,8 @@ public class SettingsActivity extends AppCompatActivity {
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         if (AppWidgetManager.ACTION_APPWIDGET_CONFIGURE.equals(getIntent().getAction())) {
-            final Snackbar snackbar = Snackbar.make(findViewById(R.id.main_content), R.string.press_save_to_add_the_widget, Snackbar.LENGTH_INDEFINITE);
+            final Snackbar snackbar = Snackbar.make(findViewById(R.id.main_content),
+                    R.string.press_save_to_add_the_widget, Snackbar.LENGTH_INDEFINITE);
             snackbar.setAction(R.string.close, new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

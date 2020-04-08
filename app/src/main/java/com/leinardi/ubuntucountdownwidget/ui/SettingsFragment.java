@@ -1,6 +1,6 @@
 /*
  * Ubuntu Countdown Widget
- * Copyright (C) 2015 Roberto Leinardi
+ * Copyright (C) 2020 Roberto Leinardi
  *
  * This program is free software: you can redistribute it and/or modify it under the terms
  * of the GNU General Public License as published by the Free Software Foundation,
@@ -24,12 +24,12 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.preference.CheckBoxPreference;
-import android.support.v7.preference.EditTextPreference;
-import android.support.v7.preference.Preference;
-import android.support.v7.preference.PreferenceFragmentCompat;
-import android.support.v7.preference.PreferenceManager;
 
+import androidx.preference.CheckBoxPreference;
+import androidx.preference.EditTextPreference;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceFragmentCompat;
+import androidx.preference.PreferenceManager;
 import com.leinardi.ubuntucountdownwidget.R;
 import com.leinardi.ubuntucountdownwidget.misc.LogUtils;
 import com.leinardi.ubuntucountdownwidget.ui.dialogs.ChangelogDialogFragment;
@@ -44,14 +44,15 @@ import java.util.TimeZone;
 /**
  * Created by leinardi on 11/12/15.
  */
-public class SettingsFragment extends PreferenceFragmentCompat implements SharedPreferences.OnSharedPreferenceChangeListener {
-    private final static String TAG = SettingsActivity.class.getSimpleName();
-    private final static String REPORT_A_BUG_URL = "https://github.com/leinardi/UbuntuCountdownWidget/issues";
+public class SettingsFragment extends PreferenceFragmentCompat
+        implements SharedPreferences.OnSharedPreferenceChangeListener {
+    private static final String TAG = SettingsActivity.class.getSimpleName();
+    private static final String REPORT_A_BUG_URL = "https://github.com/leinardi/UbuntuCountdownWidget/issues";
 
     private SharedPreferences mPrefs;
-    private Preference customDatePicker;
-    private CheckBoxPreference customDateCheckbox;
-    private EditTextPreference UrlEditTextPreference;
+    private Preference mCustomDatePicker;
+    private CheckBoxPreference mCustomDateCheckbox;
+    private EditTextPreference mUrlEditTextPreference;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String s) {
@@ -62,9 +63,9 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
     private void setupPreferencesScreen() {
         addPreferencesFromResource(R.xml.preferences);
 
-        customDateCheckbox = (CheckBoxPreference) findPreference(getString(R.string.pref_custom_date_checkbox_key));
-        customDatePicker = findPreference(getString(R.string.pref_custom_date_key));
-        UrlEditTextPreference = (EditTextPreference) findPreference(getString(R.string.pref_url_key));
+        mCustomDateCheckbox = (CheckBoxPreference) findPreference(getString(R.string.pref_custom_date_checkbox_key));
+        mCustomDatePicker = findPreference(getString(R.string.pref_custom_date_key));
+        mUrlEditTextPreference = (EditTextPreference) findPreference(getString(R.string.pref_url_key));
 
         updateUbuntuReleaseDate();
         setCustomDatePickerClickListener();
@@ -135,14 +136,14 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
         String onTouchValue = sharedPreferences.getString(getString(R.string.pref_on_touch_key),
                 getString(R.string.on_touch_defaultValue));
         if ("url".equals(onTouchValue)) {
-            UrlEditTextPreference.setEnabled(true);
+            mUrlEditTextPreference.setEnabled(true);
         } else {
-            UrlEditTextPreference.setEnabled(false);
+            mUrlEditTextPreference.setEnabled(false);
         }
     }
 
     private void setCustomDatePickerClickListener() {
-        customDatePicker.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+        mCustomDatePicker.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
                 DatePickerFragment newFragment = new DatePickerFragment();
@@ -177,19 +178,18 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
     public void onResume() {
         super.onResume();
 
-        if (!customDateCheckbox.isChecked()) {
+        if (!mCustomDateCheckbox.isChecked()) {
             mPrefs.edit().putLong(getString(R.string.pref_custom_date_key),
                     Utils.getUbuntuReleaseDate().getTimeInMillis()).commit();
         }
         // Setup the initial values
         long dateInMillis = mPrefs.getLong(getString(R.string.pref_custom_date_key),
                 DatePickerFragment.DEFAULT_VALUE);
-        customDatePicker.setSummary(DateFormat.getDateInstance(DateFormat.LONG,
+        mCustomDatePicker.setSummary(DateFormat.getDateInstance(DateFormat.LONG,
                 Locale.getDefault()).format(dateInMillis));
 
         getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
     }
-
 
     @Override
     public void onPause() {
@@ -202,7 +202,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
         if (key.equals(getString(R.string.pref_custom_date_key))) {
             long dateInMillis = sharedPreferences.getLong(getString(R.string.pref_custom_date_key),
                     DatePickerFragment.DEFAULT_VALUE);
-            customDatePicker.setSummary(DateFormat.getDateInstance(DateFormat.LONG,
+            mCustomDatePicker.setSummary(DateFormat.getDateInstance(DateFormat.LONG,
                     Locale.getDefault()).format(dateInMillis));
         } else if (key.equals(getString(R.string.pref_on_touch_key))) {
             updateCustomUrlPreferenceState(sharedPreferences);
@@ -213,7 +213,8 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
         ComponentName componentName = new ComponentName(mContext, class1);
         mContext.getPackageManager().setComponentEnabledSetting(
                 componentName,
-                enable ? PackageManager.COMPONENT_ENABLED_STATE_ENABLED : PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+                enable ? PackageManager.COMPONENT_ENABLED_STATE_ENABLED :
+                        PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
                 PackageManager.DONT_KILL_APP);
     }
 }

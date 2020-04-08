@@ -1,6 +1,6 @@
 /*
  * Ubuntu Countdown Widget
- * Copyright (C) 2015 Roberto Leinardi
+ * Copyright (C) 2020 Roberto Leinardi
  *
  * This program is free software: you can redistribute it and/or modify it under the terms
  * of the GNU General Public License as published by the Free Software Foundation,
@@ -76,7 +76,7 @@ public abstract class WidgetProvider extends AppWidgetProvider {
         updateWidget(context, appWidgetManager, appWidgetIds);
     }
 
-    abstract protected ComponentName getComponentName(Context context);
+    protected abstract ComponentName getComponentName(Context context);
 
     public void updateWidget(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         SharedPreferences mPrefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -135,9 +135,10 @@ public abstract class WidgetProvider extends AppWidgetProvider {
         }
     }
 
-    abstract protected RemoteViews getRemoteViews(Context context, boolean isThemeDark);
+    protected abstract RemoteViews getRemoteViews(Context context, boolean isThemeDark);
 
-    private void setupViews(Context context, GregorianCalendar ubuntuReleaseDay, long millisLeft, long daysLeft, RemoteViews views) {
+    private void setupViews(Context context, GregorianCalendar ubuntuReleaseDay, long millisLeft, long daysLeft,
+                            RemoteViews views) {
         views.setViewVisibility(R.id.progress_bar, View.GONE);
         views.setViewVisibility(R.id.tv_footer, View.VISIBLE);
 

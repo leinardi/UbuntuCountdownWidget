@@ -1,6 +1,6 @@
 /*
  * Ubuntu Countdown Widget
- * Copyright (C) 2015 Roberto Leinardi
+ * Copyright (C) 2020 Roberto Leinardi
  *
  * This program is free software: you can redistribute it and/or modify it under the terms
  * of the GNU General Public License as published by the Free Software Foundation,
@@ -14,29 +14,18 @@
  * program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.leinardi.ubuntucountdownwidget;
+apply plugin: 'io.gitlab.arturbosch.detekt'
 
-import android.app.Application;
+detekt {
+    toolVersion = rootProject.ext.versions.detekt
+    input = files(rootDir)
+    config = rootProject.files('config/detekt/config.yml')
+}
 
-/**
- * Created by leinardi on 31/05/14.
- */
-public class UbuntuCountdownWidget extends Application {
+dependencies {
+    detektPlugins "io.gitlab.arturbosch.detekt:detekt-formatting:${versions.detekt}"
+}
 
-    private static UbuntuCountdownWidget mSingleton;
-
-    public static UbuntuCountdownWidget getInstance() {
-        return mSingleton;
-    }
-
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        mSingleton = this;
-
-        if (!BuildConfig.DEBUG) {
-            FabricWrapper.with(this);
-        }
-    }
-
+tasks.getByName('detekt') {
+    exclude("**/build/generated/**")
 }

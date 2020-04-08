@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
-	<!--
+<?xml version="1.0" encoding="utf-8"?>    <!--
   ~ Ubuntu Countdown Widget
-  ~ Copyright (C) 2015 Roberto Leinardi
+  ~ Copyright (C) 2020 Roberto Leinardi
   ~
   ~ This program is free software: you can redistribute it and/or modify it under the terms
   ~ of the GNU General Public License as published by the Free Software Foundation,
@@ -16,31 +15,25 @@
   -->
 
 <resources>
-	<string-array
-		name="pref_theme_entries">
-		<item>Light</item>
-		<item>Dark</item>
-	</string-array>
+    <string-array name="pref_theme_entries">
+        <item>Light</item>
+        <item>Dark</item>
+    </string-array>
 
-	<string-array
-		name="pref_theme_values"
-		translatable="false">
-		<item>light</item>
-		<item>dark</item>
-	</string-array>
+    <string-array name="pref_theme_values" translatable="false">
+        <item>light</item>
+        <item>dark</item>
+    </string-array>
 
-	<string-array
-		name="pref_on_touch_entries">
-		<item>Do nothing</item>
-		<item>Open widget settings</item>
-		<item>Open URL</item>
-	</string-array>
+    <string-array name="pref_on_touch_entries">
+        <item>Do nothing</item>
+        <item>Open widget settings</item>
+        <item>Open URL</item>
+    </string-array>
 
-	<string-array
-		name="pref_on_touch_values"
-		translatable="false">
-		<item>disabled</item>
-		<item>config</item>
-		<item>url</item>
-	</string-array>
+    <string-array name="pref_on_touch_values" translatable="false">
+        <item>disabled</item>
+        <item>config</item>
+        <item>url</item>
+    </string-array>
 </resources>
