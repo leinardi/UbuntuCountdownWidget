@@ -1,6 +1,6 @@
 /*
  * Ubuntu Countdown Widget
- * Copyright (C) 2015 Roberto Leinardi
+ * Copyright (C) 2020 Roberto Leinardi
  *
  * This program is free software: you can redistribute it and/or modify it under the terms
  * of the GNU General Public License as published by the Free Software Foundation,
@@ -42,7 +42,7 @@ public class LauncherActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_launcher);
 
-        WebView web = (WebView) findViewById(R.id.wv_info);
+        WebView web = findViewById(R.id.wv_info);
         web.loadUrl("file:///android_asset/" + getString(R.string.info_filename));
 
     }

@@ -1,3 +1,19 @@
+/*
+ * Ubuntu Countdown Widget
+ * Copyright (C) 2020 Roberto Leinardi
+ *
+ * This program is free software: you can redistribute it and/or modify it under the terms
+ * of the GNU General Public License as published by the Free Software Foundation,
+ * either version 3 of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT ANY
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+ * A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along with this
+ * program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 buildscript {
     repositories {
         maven { url 'https://maven.fabric.io/public' }
@@ -10,15 +26,6 @@ repositories {
     maven { url 'https://maven.fabric.io/public' }
 }
 
-
-def getVersionCode = {
-    try {
-        return Integer.parseInt('git rev-list --first-parent --count HEAD'.execute().text.trim())
-    }
-    catch (ignored) {
-        return -1
-    }
-}
 
 def getVersionName = {
     try {
@@ -38,28 +45,15 @@ def getVersionName = {
 }
 
 android {
-    compileSdkVersion COMPILE_SDK_VERSION as int
-    buildToolsVersion BUILD_TOOLS_VERSION as String
+    compileSdkVersion build_versions.target_sdk
 
     defaultConfig {
         applicationId "com.leinardi.ubuntucountdownwidget"
-        minSdkVersion MIN_SDK_VERSION as int
-        targetSdkVersion TARGET_SDK_VERSION as int
-        versionCode getVersionCode() + 200
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+        targetSdkVersion build_versions.target_sdk
+        versionCode build_versions.version_code
         versionName getVersionName()
-    }
-
-    flavorDimensions "licenseVersion"
-
-    productFlavors {
-        standard {
-            dimension "licenseVersion"
-        }
-        foss {
-            dimension "licenseVersion"
-            applicationIdSuffix ".foss"
-            versionName getVersionName() + "-foss"
-        }
     }
 
     buildTypes {

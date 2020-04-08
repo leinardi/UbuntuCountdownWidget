@@ -1,6 +1,6 @@
 /*
  * Ubuntu Countdown Widget
- * Copyright (C) 2015 Roberto Leinardi
+ * Copyright (C) 2020 Roberto Leinardi
  *
  * This program is free software: you can redistribute it and/or modify it under the terms
  * of the GNU General Public License as published by the Free Software Foundation,
@@ -24,7 +24,6 @@ import android.support.v7.app.AlertDialog;
 import android.view.View;
 
 import com.leinardi.ubuntucountdownwidget.R;
-
 
 /**
  * Created by leinardi on 22/04/15.
