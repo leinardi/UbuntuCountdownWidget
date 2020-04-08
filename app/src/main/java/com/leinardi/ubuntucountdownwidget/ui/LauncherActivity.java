@@ -19,12 +19,12 @@ package com.leinardi.ubuntucountdownwidget.ui;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
 import com.leinardi.ubuntucountdownwidget.R;
 
 public class LauncherActivity extends AppCompatActivity {

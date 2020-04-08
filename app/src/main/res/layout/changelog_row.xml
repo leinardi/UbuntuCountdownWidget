@@ -25,7 +25,7 @@
     android:paddingRight="24dp">
 
     <!-- ChangeLog Row [Bullet Point] You have to use the id="chg_textbullet" -->
-    <android.support.v7.widget.AppCompatTextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/chg_textbullet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
         android:text="" />
 
     <!-- ChangeLog Row [Text] You have to use the id="chg_text" -->
-    <android.support.v7.widget.AppCompatTextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/chg_text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

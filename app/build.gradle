@@ -97,10 +97,10 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:support-v4:' + SUPPORT_LIBRARIES_VERSION
-    implementation 'com.android.support:appcompat-v7:' + SUPPORT_LIBRARIES_VERSION
-    implementation 'com.android.support:design:' + SUPPORT_LIBRARIES_VERSION
-    implementation 'com.android.support:preference-v7:' + SUPPORT_LIBRARIES_VERSION
-    implementation 'com.android.support:preference-v14:' + SUPPORT_LIBRARIES_VERSION
-    implementation 'com.github.gabrielemariotti.changeloglib:changelog:2.1.0'
+    implementation "androidx.legacy:legacy-support-v4:$versions.androidx_legacy_support"
+    implementation "androidx.appcompat:appcompat:$versions.androidx_appcompat"
+    implementation "com.google.android.material:material:$versions.android_material"
+    implementation "androidx.preference:preference:$versions.androidx_preference"
+    implementation "androidx.legacy:legacy-preference-v14:$versions.androidx_legacy_preference"
+    implementation "com.github.gabrielemariotti.changeloglib:changelog:$versions.changeloglib"
 }
