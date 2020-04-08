@@ -26,7 +26,7 @@ public class Utils {
 
     static {
         ubuntuReleaseDate = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
-        ubuntuReleaseDate.set(2018, Calendar.APRIL, 26, 0, 0, 0);
+        ubuntuReleaseDate.set(2020, Calendar.APRIL, 23, 0, 0, 0);
     }
 
     private Utils() {
