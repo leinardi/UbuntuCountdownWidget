@@ -1,0 +1,32 @@
+<!--
+  ~ Ubuntu Countdown Widget
+  ~ Copyright (C) 2020 Roberto Leinardi
+  ~
+  ~ This program is free software: you can redistribute it and/or modify it under the terms
+  ~ of the GNU General Public License as published by the Free Software Foundation,
+  ~ either version 3 of the License, or (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful, but WITHOUT ANY
+  ~ WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+  ~ A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License along with this
+  ~ program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<vector android:height="103dp" android:viewportHeight="56"
+    android:viewportWidth="56" android:width="103dp"
+    xmlns:aapt="http://schemas.android.com/aapt" xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:pathData="M8,0L48,0A8,8 0,0 1,56 8L56,48A8,8 0,0 1,48 56L8,56A8,8 0,0 1,0 48L0,8A8,8 0,0 1,8 0z">
+        <aapt:attr name="android:fillColor">
+            <gradient android:centerX="28" android:centerY="28"
+                android:gradientRadius="28" android:type="radial">
+                <item android:color="#FF666666" android:offset="0"/>
+                <item android:color="#FF333333" android:offset="1"/>
+            </gradient>
+        </aapt:attr>
+    </path>
+    <path android:fillColor="#00000000"
+        android:pathData="M8,1.5L48,1.5A6.5,6.5 0,0 1,54.5 8L54.5,48A6.5,6.5 0,0 1,48 54.5L8,54.5A6.5,6.5 0,0 1,1.5 48L1.5,8A6.5,6.5 0,0 1,8 1.5z"
+        android:strokeColor="#AEA79F" android:strokeWidth="1"/>
+</vector>
