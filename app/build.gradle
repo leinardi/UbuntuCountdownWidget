@@ -61,6 +61,11 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        debug {
+            applicationIdSuffix ".debug"
+            versionNameSuffix "-debug"
+            debuggable true
+        }
     }
 
     def isKeystoreInfoAvailable = file(KEYSTORE_PATH).exists() && file(KEYSTORE_PROPERTIES_PATH).exists()
