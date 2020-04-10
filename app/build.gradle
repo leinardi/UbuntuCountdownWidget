@@ -22,10 +22,14 @@ buildscript {
 }
 apply plugin: 'com.android.application'
 
-repositories {
-    maven { url 'https://maven.fabric.io/public' }
+allprojects {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+    tasks.withType(JavaCompile) {
+        options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+    }
 }
-
 
 def getVersionName = {
     try {

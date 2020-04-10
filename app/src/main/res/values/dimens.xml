@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dim_release_big">42dip</dimen>
+    <dimen name="dim_release_small">20dip</dimen>
+</resources>

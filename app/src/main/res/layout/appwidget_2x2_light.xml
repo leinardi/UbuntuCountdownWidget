@@ -59,7 +59,7 @@
         android:layout_centerInParent="true"
         style="@style/Release"
         android:visibility="gone"
-        android:textSize="42dip" />
+        android:textSize="@dimen/dim_release_big" />
 
     <TextView
         android:layout_height="wrap_content"
