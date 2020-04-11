@@ -15,12 +15,8 @@
  */
 
 apply plugin: 'com.android.application'
-
-allprojects {
-    tasks.withType(JavaCompile) {
-        options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
-    }
-}
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
 
 def getVersionName = {
     try {
@@ -88,19 +84,17 @@ android {
             }
         }
     }
-
-    // It would be better to fix the issues
-    lintOptions {
-        abortOnError false
-    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
+    implementation "androidx.core:core-ktx:+"
     implementation "androidx.legacy:legacy-support-v4:$versions.androidx_legacy_support"
     implementation "androidx.appcompat:appcompat:$versions.androidx_appcompat"
     implementation "com.google.android.material:material:$versions.android_material"
     implementation "androidx.preference:preference:$versions.androidx_preference"
     implementation "androidx.legacy:legacy-preference-v14:$versions.androidx_legacy_preference"
     implementation "com.github.gabrielemariotti.changeloglib:changelog:$versions.changeloglib"
+    implementation "com.jakewharton.timber:timber:$versions.timber"
 }

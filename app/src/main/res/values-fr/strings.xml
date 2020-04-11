@@ -23,6 +23,7 @@
     <string name="its_here">C\'est là !</string>
     <string name="ok">Valider</string>
     <string name="cancel">Annuler</string>
+    <string name="close">Fermer</string>
     <string name="yes">Oui</string>
     <string name="no">Non</string>
     <string name="back">Précédent</string>
@@ -31,6 +32,8 @@
     <string name="exit">Quitter</string>
     <string name="default_text">Défaut</string>
     <string name="info">Info</string>
+    <string name="open_source_licenses">Open Source Licenses</string>
+    <string name="changelog_title">Changelog</string>
 
     <!-- Preferences -->
     <string name="pref_countdown_options">Options du compte à rebours</string>
@@ -60,5 +63,6 @@
     <string name="pref_display_changelog_summary">Voir les changements de l\'application</string>
     <string name="pref_display_settings">Voir les préférences</string>
     <string name="pref_save">Save</string>
+    <string name="press_save_to_add_the_widget">Appuyez sur Enregistrer pour ajouter le Widget</string>
 
 </resources>

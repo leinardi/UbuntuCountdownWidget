@@ -15,71 +15,71 @@
   -->
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/bg_dark"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp"
-    android:paddingTop="16dp"
-    android:paddingBottom="16dp"
-    android:id="@+id/rl_widget">
+    android:id="@+id/rl_widget"
+    android:layout_width="@dimen/widget_size_2x2"
+    android:layout_height="@dimen/widget_size_2x2"
+    android:layout_gravity="center"
+    android:background="@drawable/background_dark">
 
     <ImageView
+        android:id="@+id/header_image_view"
+        android:layout_width="96dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_width="wrap_content"
-        android:id="@+id/iv_header"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/ubuntu_large_dark"
-        android:paddingTop="2dp"
-        android:paddingLeft="4dp" />
+        android:layout_marginTop="8dp"
+        android:adjustViewBounds="true"
+        android:paddingLeft="4dp"
+        android:src="@drawable/ubuntu_large_dark" />
 
     <TextView
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:id="@+id/tv_counter"
-        android:layout_centerInParent="true"
+        android:id="@+id/counter_text_view"
         style="@style/Counter"
-        android:visibility="gone"
-        android:textSize="58dip" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textSize="48dp"
+        android:visibility="invisible" />
 
     <ImageView
+        android:id="@+id/logo_image_view"
+        android:layout_width="72dp"
         android:layout_height="wrap_content"
-        android:id="@+id/iv_logo"
-        android:layout_width="wrap_content"
+        android:layout_centerInParent="true"
+        android:adjustViewBounds="true"
+        android:paddingBottom="16dp"
         android:src="@drawable/logo_large"
-        android:layout_centerInParent="true"
-        android:visibility="gone"
-        android:paddingBottom="20dp" />
+        android:visibility="gone" />
 
     <TextView
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:id="@+id/tv_release_big"
-        android:layout_centerInParent="true"
+        android:id="@+id/release_text_view"
         style="@style/Release"
-        android:visibility="gone"
-        android:textSize="@dimen/dim_release_big" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textSize="@dimen/text_size_2x2"
+        android:visibility="gone" />
 
     <TextView
+        android:id="@+id/footer_text_view"
+        style="@style/Footer.Dark"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_width="wrap_content"
-        android:id="@+id/tv_footer"
         android:layout_centerHorizontal="true"
-        style="@style/Footer.Dark"
+        android:layout_marginBottom="8dp"
         android:text="@string/days_left"
-        android:visibility="invisible"
-        android:textSize="20dip" />
+        android:textSize="16sp"
+        android:visibility="invisible" />
 
     <FrameLayout
-        android:layout_height="wrap_content"
         android:id="@+id/progress_bar"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerInParent="true">
 
         <ProgressBar
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </FrameLayout>
 </RelativeLayout>

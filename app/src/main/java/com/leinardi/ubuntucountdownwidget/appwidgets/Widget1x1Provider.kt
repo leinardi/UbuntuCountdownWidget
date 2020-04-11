@@ -13,26 +13,21 @@
  * You should have received a copy of the GNU General Public License along with this
  * program.  If not, see <http://www.gnu.org/licenses/>.
  */
+package com.leinardi.ubuntucountdownwidget.appwidgets
 
-package com.leinardi.ubuntucountdownwidget.utils;
+import android.content.ComponentName
+import android.content.Context
+import android.widget.RemoteViews
+import com.leinardi.ubuntucountdownwidget.R
 
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.TimeZone;
+class Widget1x1Provider : WidgetProvider() {
 
-public class Utils {
-
-    private static final GregorianCalendar UBUNTU_RELEASE_DATE;
-
-    static {
-        UBUNTU_RELEASE_DATE = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
-        UBUNTU_RELEASE_DATE.set(2020, Calendar.APRIL, 23, 0, 0, 0);
+    override fun getComponentName(context: Context): ComponentName {
+        return ComponentName(context, Widget1x1Provider::class.java)
     }
 
-    private Utils() {
-    }
-
-    public static GregorianCalendar getUbuntuReleaseDate() {
-        return (GregorianCalendar) UBUNTU_RELEASE_DATE.clone();
+    override fun getRemoteViews(context: Context, isThemeDark: Boolean): RemoteViews {
+        return RemoteViews(context.packageName,
+                if (isThemeDark) R.layout.appwidget_1x1_dark else R.layout.appwidget_1x1_light)
     }
 }

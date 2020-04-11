@@ -13,24 +13,21 @@
  * You should have received a copy of the GNU General Public License along with this
  * program.  If not, see <http://www.gnu.org/licenses/>.
  */
+package com.leinardi.ubuntucountdownwidget.appwidgets
 
-package com.leinardi.ubuntucountdownwidget.appwidgets;
+import android.content.ComponentName
+import android.content.Context
+import android.widget.RemoteViews
+import com.leinardi.ubuntucountdownwidget.R
 
-import android.content.ComponentName;
-import android.content.Context;
-import android.widget.RemoteViews;
+class Widget2x2Provider : WidgetProvider() {
 
-import com.leinardi.ubuntucountdownwidget.R;
-
-public class Widget1x1Provider extends WidgetProvider {
-    @Override
-    protected ComponentName getComponentName(Context context) {
-        return new ComponentName(context, Widget1x1Provider.class);
+    override fun getComponentName(context: Context): ComponentName {
+        return ComponentName(context, Widget2x2Provider::class.java)
     }
 
-    @Override
-    protected RemoteViews getRemoteViews(Context context, boolean isThemeDark) {
-        return new RemoteViews(context.getPackageName(),
-                isThemeDark ? R.layout.appwidget_1x1_dark : R.layout.appwidget_1x1_light);
+    override fun getRemoteViews(context: Context, isThemeDark: Boolean): RemoteViews {
+        return RemoteViews(context.packageName,
+                if (isThemeDark) R.layout.appwidget_2x2_dark else R.layout.appwidget_2x2_light)
     }
 }
