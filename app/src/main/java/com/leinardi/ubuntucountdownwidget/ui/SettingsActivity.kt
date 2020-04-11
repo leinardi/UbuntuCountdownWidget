@@ -24,6 +24,8 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import com.leinardi.ubuntucountdownwidget.R
+import com.leinardi.ubuntucountdownwidget.appwidgets.Widget1x1Provider
+import com.leinardi.ubuntucountdownwidget.appwidgets.Widget2x2Provider
 import com.leinardi.ubuntucountdownwidget.appwidgets.WidgetProvider
 
 class SettingsActivity : AppCompatActivity() {
@@ -86,7 +88,8 @@ class SettingsActivity : AppCompatActivity() {
                 setResult(Activity.RESULT_OK, result)
             }
         }
-        sendBroadcast(Intent(WidgetProvider.FORCE_WIDGET_UPDATE))
+        sendBroadcast(Intent(this, Widget1x1Provider::class.java).apply { action = WidgetProvider.FORCE_WIDGET_UPDATE })
+        sendBroadcast(Intent(this, Widget2x2Provider::class.java).apply { action = WidgetProvider.FORCE_WIDGET_UPDATE })
     }
 
     companion object {
