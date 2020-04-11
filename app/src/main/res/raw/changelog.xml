@@ -20,6 +20,7 @@
         changeDate="April 07, 2020"
         versionName="20.04">
         <changelogtext>Countdown started for Ubuntu 20.04 LTS Focal Fossa!</changelogtext>
+        <changelogtext>Fixed widget background on new Android versions - #5</changelogtext>
         <changelogtext>Italian translation updated</changelogtext>
         <changelogtext>Updated compileSdkVersion and buildToolsVersion to the latest version
         </changelogtext>

@@ -15,9 +15,9 @@
   -->
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="160dp"
-    android:layout_height="160dp"
-    android:background="@drawable/background_dark"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_dark"
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
     android:paddingTop="16dp"
@@ -59,7 +59,7 @@
         android:layout_centerInParent="true"
         style="@style/Release"
         android:visibility="gone"
-        android:textSize="42dip" />
+        android:textSize="@dimen/dim_release_big" />
 
     <TextView
         android:layout_height="wrap_content"

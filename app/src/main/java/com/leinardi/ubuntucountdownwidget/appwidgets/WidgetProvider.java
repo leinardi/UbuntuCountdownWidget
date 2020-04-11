@@ -25,11 +25,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
-import android.preference.PreferenceManager;
 import android.text.format.DateUtils;
 import android.view.View;
 import android.widget.RemoteViews;
 
+import androidx.preference.PreferenceManager;
 import com.leinardi.ubuntucountdownwidget.BuildConfig;
 import com.leinardi.ubuntucountdownwidget.R;
 import com.leinardi.ubuntucountdownwidget.ui.SettingsActivity;
@@ -150,8 +150,8 @@ public abstract class WidgetProvider extends AppWidgetProvider {
             views.setViewVisibility(R.id.tv_counter, View.VISIBLE);
             views.setTextViewText(R.id.tv_footer, context.getString(R.string.days_left));
         } else if (millisLeft < 0) {
-            String releaseNumber = String.format("%02d.%02d", ubuntuReleaseDay.getTime()
-                    .getYear() - 100, ubuntuReleaseDay.getTime().getMonth() + 1);
+            String releaseNumber = String.format("%02d.%02d", ubuntuReleaseDay.get(Calendar.YEAR)
+                    - 2000, ubuntuReleaseDay.get(Calendar.MONTH) + 1);
             views.setViewVisibility(R.id.iv_header, View.VISIBLE);
             views.setViewVisibility(R.id.iv_logo, View.GONE);
             views.setViewVisibility(R.id.tv_counter, View.GONE);
@@ -176,9 +176,9 @@ public abstract class WidgetProvider extends AppWidgetProvider {
         GregorianCalendar now = new GregorianCalendar(TimeZone.getDefault());
         GregorianCalendar triggerCalendar = (GregorianCalendar) now.clone();
 
-        triggerCalendar.set(Calendar.HOUR_OF_DAY, ubuntuReleaseDay.getTime().getHours());
-        triggerCalendar.set(Calendar.MINUTE, ubuntuReleaseDay.getTime().getMinutes());
-        triggerCalendar.set(Calendar.SECOND, ubuntuReleaseDay.getTime().getSeconds() + 1);
+        triggerCalendar.set(Calendar.HOUR_OF_DAY, ubuntuReleaseDay.get(Calendar.HOUR));
+        triggerCalendar.set(Calendar.MINUTE, ubuntuReleaseDay.get(Calendar.MINUTE));
+        triggerCalendar.set(Calendar.SECOND, ubuntuReleaseDay.get(Calendar.SECOND) + 1);
         triggerCalendar.set(Calendar.MILLISECOND, 0);
         if (triggerCalendar.before(now)) {
             triggerCalendar.add(Calendar.HOUR_OF_DAY, 12);
