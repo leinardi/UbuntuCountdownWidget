@@ -1,4 +1,0 @@
-<resources>
-    <drawable name="bg_light">@drawable/background_light</drawable>
-    <drawable name="bg_dark">@drawable/background_dark</drawable>
-</resources>

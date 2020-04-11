@@ -16,12 +16,6 @@
 
 apply plugin: 'com.android.application'
 
-allprojects {
-    tasks.withType(JavaCompile) {
-        options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
-    }
-}
-
 def getVersionName = {
     try {
         def tagName = 'git describe --abbrev=0 --tags'.execute().text.trim()

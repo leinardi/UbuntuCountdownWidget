@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="dim_release_big">42dip</dimen>
-    <dimen name="dim_release_small">20dip</dimen>
-    <dimen name="dim_1x1size">-1px</dimen> // match_parent
+    <dimen name="widget_size_1x1">56dp</dimen>
+    <dimen name="widget_size_2x2">110dp</dimen>
+    <dimen name="text_size_2x2">40sp</dimen>
+    <dimen name="text_size_1x1">16sp</dimen>
 </resources>

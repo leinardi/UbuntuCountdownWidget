@@ -49,7 +49,7 @@ ext.versions = versions
 
 def commitCount = 'git rev-list --count HEAD'.execute().text.trim()
 def build_versions = [:]
-build_versions.min_sdk = 14
+build_versions.min_sdk = 16
 build_versions.target_sdk = 29
 build_versions.java_version = JavaVersion.VERSION_1_7
 build_versions.version_code = commitCount.isNumber() ? (commitCount as int) + 200 : 0

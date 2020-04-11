@@ -140,30 +140,30 @@ public abstract class WidgetProvider extends AppWidgetProvider {
     private void setupViews(Context context, GregorianCalendar ubuntuReleaseDay, long millisLeft, long daysLeft,
                             RemoteViews views) {
         views.setViewVisibility(R.id.progress_bar, View.GONE);
-        views.setViewVisibility(R.id.tv_footer, View.VISIBLE);
+        views.setViewVisibility(R.id.footer_text_view, View.VISIBLE);
 
         if (millisLeft > DateUtils.DAY_IN_MILLIS / 2) {
-            views.setViewVisibility(R.id.iv_header, View.VISIBLE);
-            views.setViewVisibility(R.id.tv_release_big, View.GONE);
-            views.setViewVisibility(R.id.iv_logo, View.GONE);
-            views.setTextViewText(R.id.tv_counter, daysLeft + "");
-            views.setViewVisibility(R.id.tv_counter, View.VISIBLE);
-            views.setTextViewText(R.id.tv_footer, context.getString(R.string.days_left));
+            views.setViewVisibility(R.id.header_image_view, View.VISIBLE);
+            views.setViewVisibility(R.id.release_text_view, View.GONE);
+            views.setViewVisibility(R.id.logo_image_view, View.GONE);
+            views.setTextViewText(R.id.counter_text_view, daysLeft + "");
+            views.setViewVisibility(R.id.counter_text_view, View.VISIBLE);
+            views.setTextViewText(R.id.footer_text_view, context.getString(R.string.days_left));
         } else if (millisLeft < 0) {
             String releaseNumber = String.format("%02d.%02d", ubuntuReleaseDay.get(Calendar.YEAR)
                     - 2000, ubuntuReleaseDay.get(Calendar.MONTH) + 1);
-            views.setViewVisibility(R.id.iv_header, View.VISIBLE);
-            views.setViewVisibility(R.id.iv_logo, View.GONE);
-            views.setViewVisibility(R.id.tv_counter, View.GONE);
-            views.setTextViewText(R.id.tv_release_big, releaseNumber);
-            views.setViewVisibility(R.id.tv_release_big, View.VISIBLE);
-            views.setTextViewText(R.id.tv_footer, context.getString(R.string.its_here));
+            views.setViewVisibility(R.id.header_image_view, View.VISIBLE);
+            views.setViewVisibility(R.id.logo_image_view, View.GONE);
+            views.setViewVisibility(R.id.counter_text_view, View.GONE);
+            views.setTextViewText(R.id.release_text_view, releaseNumber);
+            views.setViewVisibility(R.id.release_text_view, View.VISIBLE);
+            views.setTextViewText(R.id.footer_text_view, context.getString(R.string.its_here));
         } else {
-            views.setViewVisibility(R.id.iv_header, View.GONE);
-            views.setViewVisibility(R.id.tv_counter, View.GONE);
-            views.setViewVisibility(R.id.tv_release_big, View.GONE);
-            views.setViewVisibility(R.id.iv_logo, View.VISIBLE);
-            views.setTextViewText(R.id.tv_footer, context.getString(R.string.coming_soon));
+            views.setViewVisibility(R.id.header_image_view, View.GONE);
+            views.setViewVisibility(R.id.counter_text_view, View.GONE);
+            views.setViewVisibility(R.id.release_text_view, View.GONE);
+            views.setViewVisibility(R.id.logo_image_view, View.VISIBLE);
+            views.setTextViewText(R.id.footer_text_view, context.getString(R.string.coming_soon));
         }
     }
 
