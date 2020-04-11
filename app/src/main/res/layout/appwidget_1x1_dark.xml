@@ -15,8 +15,8 @@
   -->
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="@dimen/dim_1x1size"
+    android:layout_height="@dimen/dim_1x1size"
     android:background="@drawable/bg_dark"
     android:paddingLeft="6dp"
     android:paddingRight="6dp"
