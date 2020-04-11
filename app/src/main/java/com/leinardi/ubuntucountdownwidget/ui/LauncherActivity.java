@@ -47,14 +47,6 @@ public class LauncherActivity extends AppCompatActivity {
 
     }
 
-    private void startConfigActivity() {
-        Intent intent = new Intent(LauncherActivity.this, SettingsActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP
-                | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
-        finish();
-    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_launcher, menu);
@@ -70,5 +62,13 @@ public class LauncherActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void startConfigActivity() {
+        Intent intent = new Intent(LauncherActivity.this, SettingsActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP
+                | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        finish();
     }
 }

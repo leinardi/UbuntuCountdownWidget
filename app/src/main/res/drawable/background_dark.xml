@@ -14,19 +14,31 @@
   ~ program.  If not, see <http://www.gnu.org/licenses/>.
   -->
 
-<vector android:height="103dp" android:viewportHeight="56"
-    android:viewportWidth="56" android:width="103dp"
-    xmlns:aapt="http://schemas.android.com/aapt" xmlns:android="http://schemas.android.com/apk/res/android">
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="103dp"
+    android:height="103dp"
+    android:viewportWidth="56"
+    android:viewportHeight="56">
     <path android:pathData="M8,0L48,0A8,8 0,0 1,56 8L56,48A8,8 0,0 1,48 56L8,56A8,8 0,0 1,0 48L0,8A8,8 0,0 1,8 0z">
         <aapt:attr name="android:fillColor">
-            <gradient android:centerX="28" android:centerY="28"
-                android:gradientRadius="28" android:type="radial">
-                <item android:color="#FF666666" android:offset="0"/>
-                <item android:color="#FF333333" android:offset="1"/>
+            <gradient
+                android:centerX="28"
+                android:centerY="28"
+                android:gradientRadius="28"
+                android:type="radial">
+                <item
+                    android:color="#FF666666"
+                    android:offset="0" />
+                <item
+                    android:color="#FF333333"
+                    android:offset="1" />
             </gradient>
         </aapt:attr>
     </path>
-    <path android:fillColor="#00000000"
+    <path
+        android:fillColor="#00000000"
         android:pathData="M8,1.5L48,1.5A6.5,6.5 0,0 1,54.5 8L54.5,48A6.5,6.5 0,0 1,48 54.5L8,54.5A6.5,6.5 0,0 1,1.5 48L1.5,8A6.5,6.5 0,0 1,8 1.5z"
-        android:strokeColor="#AEA79F" android:strokeWidth="1"/>
+        android:strokeWidth="1"
+        android:strokeColor="#AEA79F" />
 </vector>

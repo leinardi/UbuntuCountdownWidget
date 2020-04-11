@@ -39,12 +39,6 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onPause() {
-        super.onPause();
-        resultIntent();
-    }
-
-    @Override
     public void onBackPressed() {
         // This will be called either automatically for you on 2.0
         // or later, or by the code above on earlier versions of the
@@ -52,22 +46,6 @@ public class SettingsActivity extends AppCompatActivity {
         // Log.d(TAG, "onBackPressed");
         resultIntent();
         finish();
-    }
-
-    private void resultIntent() {
-        if (CONFIGURE_ACTION.equals(getIntent().getAction())) {
-            Intent intent = getIntent();
-            Bundle extras = intent.getExtras();
-            if (extras != null) {
-                int appWidgetId = extras.getInt(AppWidgetManager.EXTRA_APPWIDGET_ID,
-                        AppWidgetManager.INVALID_APPWIDGET_ID);
-                Intent result = new Intent();
-
-                result.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
-                setResult(RESULT_OK, result);
-            }
-        }
-        sendBroadcast(new Intent(WidgetProvider.FORCE_WIDGET_UPDATE));
     }
 
     @Override
@@ -104,5 +82,27 @@ public class SettingsActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        resultIntent();
+    }
+
+    private void resultIntent() {
+        if (CONFIGURE_ACTION.equals(getIntent().getAction())) {
+            Intent intent = getIntent();
+            Bundle extras = intent.getExtras();
+            if (extras != null) {
+                int appWidgetId = extras.getInt(AppWidgetManager.EXTRA_APPWIDGET_ID,
+                        AppWidgetManager.INVALID_APPWIDGET_ID);
+                Intent result = new Intent();
+
+                result.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
+                setResult(RESULT_OK, result);
+            }
+        }
+        sendBroadcast(new Intent(WidgetProvider.FORCE_WIDGET_UPDATE));
     }
 }

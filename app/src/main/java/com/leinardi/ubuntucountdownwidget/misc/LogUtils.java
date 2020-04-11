@@ -25,11 +25,11 @@ import android.util.Log;
 
 public class LogUtils {
 
-    private LogUtils() {
-    }
-
     public static final String LOGTAG = "UCW";
     public static final boolean DEBUG = "userdebug".equals(Build.TYPE);
+
+    private LogUtils() {
+    }
 
     public static void v(String message, Object... args) {
         if (DEBUG || Log.isLoggable(LOGTAG, Log.VERBOSE)) {

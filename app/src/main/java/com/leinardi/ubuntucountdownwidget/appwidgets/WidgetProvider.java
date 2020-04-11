@@ -41,8 +41,8 @@ import java.util.GregorianCalendar;
 import java.util.TimeZone;
 
 public abstract class WidgetProvider extends AppWidgetProvider {
-    private static final String TAG = WidgetProvider.class.getSimpleName();
     public static final String FORCE_WIDGET_UPDATE = BuildConfig.APPLICATION_ID + ".FORCE_WIDGET_UPDATE";
+    private static final String TAG = WidgetProvider.class.getSimpleName();
 
     @Override
     public void onEnabled(Context context) {
@@ -75,8 +75,6 @@ public abstract class WidgetProvider extends AppWidgetProvider {
         int[] appWidgetIds = appWidgetManager.getAppWidgetIds(thisWidget);
         updateWidget(context, appWidgetManager, appWidgetIds);
     }
-
-    protected abstract ComponentName getComponentName(Context context);
 
     public void updateWidget(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         SharedPreferences mPrefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -135,6 +133,13 @@ public abstract class WidgetProvider extends AppWidgetProvider {
         }
     }
 
+    @Override
+    public void onDisabled(Context context) {
+        super.onDisabled(context);
+    }
+
+    protected abstract ComponentName getComponentName(Context context);
+
     protected abstract RemoteViews getRemoteViews(Context context, boolean isThemeDark);
 
     private void setupViews(Context context, GregorianCalendar ubuntuReleaseDay, long millisLeft, long daysLeft,
@@ -192,11 +197,6 @@ public abstract class WidgetProvider extends AppWidgetProvider {
         alarmManager.cancel(pi);
         alarmManager.setRepeating(AlarmManager.RTC, triggerCalendar.getTimeInMillis(),
                 AlarmManager.INTERVAL_HALF_DAY, pi);
-    }
-
-    @Override
-    public void onDisabled(Context context) {
-        super.onDisabled(context);
     }
 
 }

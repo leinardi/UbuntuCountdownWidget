@@ -60,6 +60,41 @@ public class SettingsFragment extends PreferenceFragmentCompat
         setupPreferencesScreen();
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        if (!mCustomDateCheckbox.isChecked()) {
+            mPrefs.edit().putLong(getString(R.string.pref_custom_date_key),
+                    Utils.getUbuntuReleaseDate().getTimeInMillis()).commit();
+        }
+        // Setup the initial values
+        long dateInMillis = mPrefs.getLong(getString(R.string.pref_custom_date_key),
+                DatePickerFragment.DEFAULT_VALUE);
+        mCustomDatePicker.setSummary(DateFormat.getDateInstance(DateFormat.LONG,
+                Locale.getDefault()).format(dateInMillis));
+
+        getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        getPreferenceScreen().getSharedPreferences().unregisterOnSharedPreferenceChangeListener(this);
+    }
+
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+        if (key.equals(getString(R.string.pref_custom_date_key))) {
+            long dateInMillis = sharedPreferences.getLong(getString(R.string.pref_custom_date_key),
+                    DatePickerFragment.DEFAULT_VALUE);
+            mCustomDatePicker.setSummary(DateFormat.getDateInstance(DateFormat.LONG,
+                    Locale.getDefault()).format(dateInMillis));
+        } else if (key.equals(getString(R.string.pref_on_touch_key))) {
+            updateCustomUrlPreferenceState(sharedPreferences);
+        }
+    }
+
     private void setupPreferencesScreen() {
         addPreferencesFromResource(R.xml.preferences);
 
@@ -172,41 +207,6 @@ public class SettingsFragment extends PreferenceFragmentCompat
         dateInstance.setTimeZone(TimeZone.getTimeZone("GMT"));
         String releaseDate = dateInstance.format(Utils.getUbuntuReleaseDate().getTime());
         findPreference(getString(R.string.pref_default_release_date_key)).setSummary(releaseDate);
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-
-        if (!mCustomDateCheckbox.isChecked()) {
-            mPrefs.edit().putLong(getString(R.string.pref_custom_date_key),
-                    Utils.getUbuntuReleaseDate().getTimeInMillis()).commit();
-        }
-        // Setup the initial values
-        long dateInMillis = mPrefs.getLong(getString(R.string.pref_custom_date_key),
-                DatePickerFragment.DEFAULT_VALUE);
-        mCustomDatePicker.setSummary(DateFormat.getDateInstance(DateFormat.LONG,
-                Locale.getDefault()).format(dateInMillis));
-
-        getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        getPreferenceScreen().getSharedPreferences().unregisterOnSharedPreferenceChangeListener(this);
-    }
-
-    @Override
-    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-        if (key.equals(getString(R.string.pref_custom_date_key))) {
-            long dateInMillis = sharedPreferences.getLong(getString(R.string.pref_custom_date_key),
-                    DatePickerFragment.DEFAULT_VALUE);
-            mCustomDatePicker.setSummary(DateFormat.getDateInstance(DateFormat.LONG,
-                    Locale.getDefault()).format(dateInMillis));
-        } else if (key.equals(getString(R.string.pref_on_touch_key))) {
-            updateCustomUrlPreferenceState(sharedPreferences);
-        }
     }
 
     private void enableComponent(boolean enable, Context mContext, Class<?> class1) {
