@@ -14,18 +14,9 @@
  * program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-buildscript {
-    repositories {
-        maven { url 'https://maven.fabric.io/public' }
-    }
-
-}
 apply plugin: 'com.android.application'
 
 allprojects {
-    repositories {
-        maven { url 'https://maven.fabric.io/public' }
-    }
     tasks.withType(JavaCompile) {
         options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
     }
