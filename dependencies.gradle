@@ -45,6 +45,7 @@ versions.mockito = "2.13.3"
 versions.mockito_all = "1.10.19"
 versions.nullaway = "0.7.5"
 versions.violations_plugin = "1.59"
+versions.timber = "4.7.1"
 ext.versions = versions
 
 def commitCount = 'git rev-list --count HEAD'.execute().text.trim()
