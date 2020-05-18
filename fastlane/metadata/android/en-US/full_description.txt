@@ -1,0 +1,7 @@
+Keep an eye on the days remaining before the new Ubuntu release!<br>
+<br>
+Features:<br>
+ - Two square widgets (1x1 and 2x2)<br>
+ - Ability to set a custom date<br>
+ - Built with an eye on battery consumption (widget refresh at most twice a day)<br>
+ - Light and Dark themes<br>
