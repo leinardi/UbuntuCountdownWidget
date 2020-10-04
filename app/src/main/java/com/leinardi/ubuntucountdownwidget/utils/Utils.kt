@@ -21,7 +21,7 @@ import java.util.TimeZone
 
 object Utils {
     private val UBUNTU_RELEASE_DATE = GregorianCalendar(TimeZone.getTimeZone("GMT")).apply {
-        set(2020, Calendar.APRIL, 23, 0, 0, 0)
+        set(2020, Calendar.OCTOBER, 22, 0, 0, 0)
     }
     val ubuntuReleaseDate: GregorianCalendar
         get() = UBUNTU_RELEASE_DATE.clone() as GregorianCalendar
