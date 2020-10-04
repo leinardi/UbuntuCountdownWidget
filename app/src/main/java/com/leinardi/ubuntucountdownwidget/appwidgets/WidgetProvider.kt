@@ -40,9 +40,6 @@ import kotlin.math.ceil
 
 @Suppress("MagicNumber")
 abstract class WidgetProvider : AppWidgetProvider() {
-    override fun onEnabled(context: Context) {
-        super.onEnabled(context)
-    }
 
     override fun onUpdate(context: Context, appWidgetManager: AppWidgetManager, appWidgetIds: IntArray) {
         updateWidget(context)
@@ -66,6 +63,7 @@ abstract class WidgetProvider : AppWidgetProvider() {
         updateWidget(context, appWidgetManager, appWidgetIds)
     }
 
+    @Suppress("NestedBlockDepth")
     private fun updateWidget(context: Context, appWidgetManager: AppWidgetManager, appWidgetIds: IntArray) {
         val prefs = PreferenceManager.getDefaultSharedPreferences(context)
         val isThemeDark = prefs.getString(context.getString(R.string.pref_theme_key), "light") == "dark"
@@ -110,10 +108,6 @@ abstract class WidgetProvider : AppWidgetProvider() {
         }
     }
 
-    override fun onDisabled(context: Context) {
-        super.onDisabled(context)
-    }
-
     protected abstract fun getComponentName(context: Context): ComponentName
 
     protected abstract fun getRemoteViews(context: Context, isThemeDark: Boolean): RemoteViews
@@ -123,31 +117,36 @@ abstract class WidgetProvider : AppWidgetProvider() {
             ubuntuReleaseDay: GregorianCalendar,
             millisLeft: Long,
             daysLeft: Long,
-            views: RemoteViews) {
+            views: RemoteViews
+    ) {
         views.setViewVisibility(R.id.progress_bar, View.GONE)
         views.setViewVisibility(R.id.footer_text_view, View.VISIBLE)
-        if (millisLeft > DateUtils.DAY_IN_MILLIS / 2) {
-            views.setViewVisibility(R.id.header_image_view, View.VISIBLE)
-            views.setViewVisibility(R.id.release_text_view, View.GONE)
-            views.setViewVisibility(R.id.logo_image_view, View.GONE)
-            views.setTextViewText(R.id.counter_text_view, daysLeft.toString() + "")
-            views.setViewVisibility(R.id.counter_text_view, View.VISIBLE)
-            views.setTextViewText(R.id.footer_text_view, context.getString(R.string.days_left))
-        } else if (millisLeft < 0) {
-            val releaseNumber = String.format("%02d.%02d", ubuntuReleaseDay[Calendar.YEAR]
-                    - 2000, ubuntuReleaseDay[Calendar.MONTH] + 1)
-            views.setViewVisibility(R.id.header_image_view, View.VISIBLE)
-            views.setViewVisibility(R.id.logo_image_view, View.GONE)
-            views.setViewVisibility(R.id.counter_text_view, View.GONE)
-            views.setTextViewText(R.id.release_text_view, releaseNumber)
-            views.setViewVisibility(R.id.release_text_view, View.VISIBLE)
-            views.setTextViewText(R.id.footer_text_view, context.getString(R.string.its_here))
-        } else {
-            views.setViewVisibility(R.id.header_image_view, View.GONE)
-            views.setViewVisibility(R.id.counter_text_view, View.GONE)
-            views.setViewVisibility(R.id.release_text_view, View.GONE)
-            views.setViewVisibility(R.id.logo_image_view, View.VISIBLE)
-            views.setTextViewText(R.id.footer_text_view, context.getString(R.string.coming_soon))
+        when {
+            millisLeft > DateUtils.DAY_IN_MILLIS / 2 -> {
+                views.setViewVisibility(R.id.header_image_view, View.VISIBLE)
+                views.setViewVisibility(R.id.release_text_view, View.GONE)
+                views.setViewVisibility(R.id.logo_image_view, View.GONE)
+                views.setTextViewText(R.id.counter_text_view, daysLeft.toString() + "")
+                views.setViewVisibility(R.id.counter_text_view, View.VISIBLE)
+                views.setTextViewText(R.id.footer_text_view, context.getString(R.string.days_left))
+            }
+            millisLeft < 0 -> {
+                val releaseNumber = String.format("%02d.%02d", ubuntuReleaseDay[Calendar.YEAR] - 2000,
+                        ubuntuReleaseDay[Calendar.MONTH] + 1)
+                views.setViewVisibility(R.id.header_image_view, View.VISIBLE)
+                views.setViewVisibility(R.id.logo_image_view, View.GONE)
+                views.setViewVisibility(R.id.counter_text_view, View.GONE)
+                views.setTextViewText(R.id.release_text_view, releaseNumber)
+                views.setViewVisibility(R.id.release_text_view, View.VISIBLE)
+                views.setTextViewText(R.id.footer_text_view, context.getString(R.string.its_here))
+            }
+            else -> {
+                views.setViewVisibility(R.id.header_image_view, View.GONE)
+                views.setViewVisibility(R.id.counter_text_view, View.GONE)
+                views.setViewVisibility(R.id.release_text_view, View.GONE)
+                views.setViewVisibility(R.id.logo_image_view, View.VISIBLE)
+                views.setTextViewText(R.id.footer_text_view, context.getString(R.string.coming_soon))
+            }
         }
     }
 
