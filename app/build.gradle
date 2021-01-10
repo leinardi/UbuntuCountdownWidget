@@ -86,6 +86,16 @@ android {
     }
 }
 
+task updateVersionFile() {
+    doLast {
+        project.rootProject.file("version.txt").text =
+                "${project.android.defaultConfig.versionName}+" +
+                        "${project.android.defaultConfig.versionCode}\n"
+    }
+}
+
+preBuild.dependsOn updateVersionFile
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
