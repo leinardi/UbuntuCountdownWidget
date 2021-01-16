@@ -1,0 +1,3 @@
+ - Migrated the app to Kotlin
+ - Better support for newer version of Android
+ - Added count down for Ubuntu 20.04 LTS

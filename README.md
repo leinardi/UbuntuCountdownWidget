@@ -15,7 +15,7 @@ I would like to thank all of those who directly or indirectly contributed to the
 In particular, thanks to:
 
 * Martín Césare for creating the origina widget backgrounds
-* @igor-cali for helping witht he migration to new Android versions
+* @igor-cali for helping with he migration to new Android versions
 * Canonical for creating this wonderful GNU/Linux distribution.
 
 ## FOSS friendly!

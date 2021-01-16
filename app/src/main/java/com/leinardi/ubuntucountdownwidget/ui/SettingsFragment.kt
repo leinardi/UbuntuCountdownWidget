@@ -98,7 +98,7 @@ class SettingsFragment : PreferenceFragmentCompat(), SharedPreferences.OnSharedP
     private fun setOpenSourceLicensesClickListener() {
         checkNotNull(findPreference<Preference>(getString(R.string.pref_licenses_key))).onPreferenceClickListener =
                 Preference.OnPreferenceClickListener {
-                    OpenSourceLicensesDialogFragment().show(checkNotNull(fragmentManager),
+                    OpenSourceLicensesDialogFragment().show(parentFragmentManager,
                             OpenSourceLicensesDialogFragment::class.java.simpleName)
                     true
                 }
@@ -107,7 +107,7 @@ class SettingsFragment : PreferenceFragmentCompat(), SharedPreferences.OnSharedP
     private fun setChangelogClickListener() {
         checkNotNull(findPreference<Preference>(getString(R.string.pref_changelog_key))).onPreferenceClickListener =
                 Preference.OnPreferenceClickListener {
-                    ChangelogDialogFragment().show(checkNotNull(fragmentManager),
+                    ChangelogDialogFragment().show(parentFragmentManager,
                             ChangelogDialogFragment::class.java.simpleName)
                     true
                 }
@@ -143,7 +143,7 @@ class SettingsFragment : PreferenceFragmentCompat(), SharedPreferences.OnSharedP
     private fun setCustomDatePickerClickListener() {
         customDatePicker.onPreferenceClickListener = Preference.OnPreferenceClickListener {
             val newFragment = DatePickerFragment()
-            newFragment.show(checkNotNull(fragmentManager), getString(R.string.pref_custom_date_key))
+            newFragment.show(parentFragmentManager, getString(R.string.pref_custom_date_key))
             true
         }
     }
