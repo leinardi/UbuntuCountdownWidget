@@ -4,6 +4,13 @@ Keep an eye on the days remaining before the new Ubuntu release!
 
 <img src="/art/screenshot-1.png" width="290" align="right" hspace="0" />
 
+[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
+     alt="Get it on F-Droid"
+     height="80">](https://f-droid.org/packages/com.leinardi.ubuntucountdownwidget/)
+[<img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png"
+     alt="Get it on Google Play"
+     height="80">](https://play.google.com/store/apps/details?id=com.leinardi.ubuntucountdownwidget)
+
 ## Features
 * Two square widgets (1x1 and 2x2)
 * Option to set a custom release date
