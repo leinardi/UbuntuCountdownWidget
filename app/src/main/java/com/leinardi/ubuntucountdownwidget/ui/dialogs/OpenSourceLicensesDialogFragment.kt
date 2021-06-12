@@ -24,7 +24,7 @@ import com.leinardi.ubuntucountdownwidget.R
 
 class OpenSourceLicensesDialogFragment : DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val webView = WebView(activity)
+        val webView = WebView(requireContext())
         webView.loadUrl(LICENSES_PATH)
         return AlertDialog.Builder(requireContext(), R.style.AppCompatAlertDialogTheme)
                 .setTitle(R.string.open_source_licenses)
