@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Ubuntu Countdown Widget
+  ~ Copyright (C) 2020 Roberto Leinardi
+  ~
+  ~ This program is free software: you can redistribute it and/or modify it under the terms
+  ~ of the GNU General Public License as published by the Free Software Foundation,
+  ~ either version 3 of the License, or (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful, but WITHOUT ANY
+  ~ WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+  ~ A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License along with this
+  ~ program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<resources>
+
+    <string name="widget_1x1_name">Ubuntu Countdown 1x1</string>
+    <string name="widget_2x2_name">Ubuntu Countdown 2x2</string>
+    <string name="days_left">Dias apenas</string>
+    <string name="coming_soon">Logo será</string>
+    <string name="its_here">Está aqui!</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancelar</string>
+    <string name="close">Fechar</string>
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
+    <string name="back">Voltar</string>
+    <string name="next">Próximo</string>
+    <string name="settings">Configurar</string>
+    <string name="exit">Sair</string>
+    <string name="default_text">Padrão</string>
+    <string name="info">Info</string>
+    <string name="open_source_licenses">Licenças de software livre</string>
+    <string name="changelog_title">Registro de modificações</string>
+
+    <!-- Preferences -->
+    <string name="pref_countdown_options">Opções de contagem</string>
+    <string name="pref_default_release_date">Data de lançamento de Ubuntu</string>
+    <string name="pref_custom_date_checkbox">Use uma data personalizada</string>
+    <string name="pref_custom_date_checkbox_summary">Use uma data personalizada para a contagem regressiva</string>
+    <string name="pref_custom_date">Selecione uma data personalizada</string>
+    <string name="pref_theme">Tema</string>
+    <string name="pref_theme_summary">Escolha entre o tema claro ou escuro</string>
+    <string name="pref_on_touch">Ação ao tocar</string>
+    <string name="pref_on_touch_summary">Escolha o que deveria ser feito quando você tocar no Widget</string>
+    <string name="pref_url">URL</string>
+    <string name="pref_url_summary">Definir um URL personalizado</string>
+    <string name="pref_launcher_options">Opções do lançador</string>
+    <string name="pref_show_launcher_icon">Mostrar o ícone do lançador</string>
+    <string name="pref_show_launcher_icon_summary">Se não for marcado, oculte o ícone do widget do lançador (Reinicio		
+		necessário)</string>
+    <string name="pref_show_tutorial">Mostrar tutorial</string>
+    <string name="pref_show_tutorial_summary">Mostrar o tutorial ao clicar no ícone do lançador</string>
+    <string name="pref_info_version">Versão</string>
+    <string name="pref_info_version_error">Não foi possível determinar a versão</string>
+    <string name="pref_info_summary">Info, FAQ e agradecimentos</string>
+    <string name="pref_donate_title">Doar</string>
+    <string name="pref_donate">Compre-me um café</string>
+    <string name="pref_donate_summary">Ajude-me a manter meus apps gratuitos e sem anúncios</string>
+    <string name="pref_report_a_bug">Relatar um bug</string>
+    <string name="pref_report_a_bug_summary">Relatar um novo bug ao rastreador de problemas</string>
+    <string name="pref_display_changelog_summary">Mostrar o registro de mudanças</string>
+    <string name="pref_display_settings">Mostrar configurações</string>
+    <string name="pref_save">Salvar</string>
+    <string name="press_save_to_add_the_widget">Clique no Salvar para adicionar o Widget</string>
+
+</resources>
