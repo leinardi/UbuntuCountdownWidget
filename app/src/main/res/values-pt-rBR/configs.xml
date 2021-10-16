@@ -14,20 +14,8 @@
   ~ program.  If not, see <http://www.gnu.org/licenses/>.
   -->
 
-<resources xmlns:tools="http://schemas.android.com/tools"
-    tools:ignore="TypographyDashes">
-    <integer name="ga_sessionTimeout">300</integer>
+<resources>
+    
+    <string name="info_filename">info-ptbr.html</string>
 
-    <!-- Enable automatic Activity measurement -->
-    <bool name="ga_autoActivityTracking">true</bool>
-
-    <!-- The screen names that will appear in reports -->
-    <screenName name="com.leinardi.ubuntucountdownwidget.ui.SettingsActivity">
-        UbuntuCountdownWidget ConfigActivity
-    </screenName>
-    <screenName name="com.leinardi.ubuntucountdownwidget.ui.LauncherActivity">
-        UbuntuCountdownWidget LauncherActivity
-    </screenName>
-
-    <string name="ga_trackingId">UA-27961343-2</string>
 </resources>

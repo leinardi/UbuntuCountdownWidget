@@ -15,9 +15,15 @@
   -->
 
 <resources>
-	<string name="donate_message">Ubuntu Countdown Widget is free and open source. You can
-		support it with a small donation.\n\nThanks to your help, it will be
-		possible to test the application on a greater number of devices and to
-		keep developing it. \n\nDonating is easy: touch the \"Yes\" button and
-		you will be redirected to the Market where you can make a little Donation.</string>
+    <string-array name="pref_theme_entries">
+        <item>Claro</item>
+        <item>Escuro</item>
+    </string-array>    
+
+    <string-array name="pref_on_touch_entries">
+        <item>Não faça nada</item>
+        <item>Abrir as configurações do Widget</item>
+        <item>Abrir URL</item>
+    </string-array>
+    
 </resources>
