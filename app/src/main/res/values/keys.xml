@@ -15,18 +15,18 @@
   -->
 
 <resources>
-    <string name="pref_custom_date_checkbox_key">pref_custom_date_checkbox</string>
-    <string name="pref_custom_date_key">pref_custom_date</string>
-    <string name="pref_default_release_date_key">pref_default_release_date</string>
-    <string name="pref_theme_key">pref_theme</string>
-    <string name="pref_on_touch_key">pref_on_touch</string>
-    <string name="pref_url_key">pref_url</string>
-    <string name="pref_show_launcher_icon_key">pref_show_launcher_icon</string>
-    <string name="pref_show_tutorial_key">pref_show_tutorial</string>
-    <string name="pref_info_version_key">pref_info_version</string>
-    <string name="pref_info_key">pref_info</string>
-    <string name="pref_donate_key">pref_donate</string>
-    <string name="pref_report_a_bug_key">pref_report_a_bug</string>
-    <string name="pref_changelog_key">pref_changelog</string>
-    <string name="pref_licenses_key">pref_licenses</string>
+    <string name="pref_custom_date_checkbox_key" translatable="false">pref_custom_date_checkbox</string>
+    <string name="pref_custom_date_key" translatable="false">pref_custom_date</string>
+    <string name="pref_default_release_date_key" translatable="false">pref_default_release_date</string>
+    <string name="pref_theme_key" translatable="false">pref_theme</string>
+    <string name="pref_on_touch_key" translatable="false">pref_on_touch</string>
+    <string name="pref_url_key" translatable="false">pref_url</string>
+    <string name="pref_show_launcher_icon_key" translatable="false">pref_show_launcher_icon</string>
+    <string name="pref_show_tutorial_key" translatable="false">pref_show_tutorial</string>
+    <string name="pref_info_version_key" translatable="false">pref_info_version</string>
+    <string name="pref_info_key" translatable="false">pref_info</string>
+    <string name="pref_donate_key" translatable="false">pref_donate</string>
+    <string name="pref_report_a_bug_key" translatable="false">pref_report_a_bug</string>
+    <string name="pref_changelog_key" translatable="false">pref_changelog</string>
+    <string name="pref_licenses_key" translatable="false">pref_licenses</string>
 </resources>

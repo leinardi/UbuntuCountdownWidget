@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>    <!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Ubuntu Countdown Widget
   ~ Copyright (C) 2020 Roberto Leinardi
   ~
@@ -15,9 +15,7 @@
   -->
 
 <resources>
-	<string name="donate_message">Ubuntu Countdown Widget is free and open source. You can
-		support it with a small donation.\n\nThanks to your help, it will be
-		possible to test the application on a greater number of devices and to
-		keep developing it. \n\nDonating is easy: touch the \"Yes\" button and
-		you will be redirected to the Market where you can make a little Donation.</string>
+    
+    <string name="info_filename">info-ptbr.html</string>
+
 </resources>
