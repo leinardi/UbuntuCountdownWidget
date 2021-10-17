@@ -99,11 +99,11 @@ preBuild.dependsOn updateVersionFile
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
-    implementation "androidx.core:core-ktx:+"
+    implementation "androidx.core:core-ktx:1.6.0"
     implementation "androidx.legacy:legacy-support-v4:$versions.androidx_legacy_support"
     implementation "androidx.appcompat:appcompat:$versions.androidx_appcompat"
     implementation "com.google.android.material:material:$versions.android_material"
-    implementation "androidx.preference:preference:$versions.androidx_preference"
+    implementation "androidx.preference:preference-ktx:$versions.androidx_preference"
     implementation "androidx.legacy:legacy-preference-v14:$versions.androidx_legacy_preference"
     implementation "com.github.gabrielemariotti.changeloglib:changelog:$versions.changeloglib"
     implementation "com.jakewharton.timber:timber:$versions.timber"
