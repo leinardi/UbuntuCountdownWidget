@@ -13,38 +13,39 @@
  * You should have received a copy of the GNU General Public License along with this
  * program.  If not, see <http://www.gnu.org/licenses/>.
  */
-apply from: rootProject.file('versions-plugin.gradle')
-apply from: rootProject.file('detekt.gradle')
 
 buildscript {
-    ext.kotlin_version = '1.3.71'
     repositories {
-        apply from: 'dependencies.gradle'
-        addRepos(repositories)
+        google()
         mavenCentral()
-    }
-    dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
-        classpath "com.android.tools.build:gradle:$versions.android_gradle_plugin"
-        classpath "com.leinardi.android:android-checkstyle-plugin:$versions.android_checkstyle_plugin"
-        classpath "com.github.ben-manes:gradle-versions-plugin:$versions.gradle_versions_plugin"
-        classpath "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:$versions.detekt"
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+        gradlePluginPortal()
     }
 }
 
-allprojects {
+plugins {
+    id 'ubuntucountdownwidget.config-conventions'
+    id 'ubuntucountdownwidget.buildlog-conventions'
+    id 'ubuntucountdownwidget.spotless-conventions'
+    id 'ubuntucountdownwidget.versions-conventions'
+    id 'ubuntucountdownwidget.dependency-graph-conventions'
+    id 'ubuntucountdownwidget.violation-comments-to-github-conventions'
+    alias(libs.plugins.gradledoctor)
+}
+
+doctor {
+    warnWhenJetifierEnabled = false
+}
+
+subprojects {
     gradle.projectsEvaluated {
         tasks.withType(JavaCompile) {
             options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
         }
     }
-    repositories {
-        addRepos(repositories)
-    }
 }
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
+
+wrapper {
+    gradleVersion = libs.versions.gradle.get()
+    distributionType = Wrapper.DistributionType.ALL
 }

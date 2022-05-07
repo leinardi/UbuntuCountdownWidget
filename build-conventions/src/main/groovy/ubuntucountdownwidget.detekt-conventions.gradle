@@ -14,11 +14,21 @@
  * program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-apply plugin: 'com.leinardi.android.checkstyle'
+plugins {
+    id 'io.gitlab.arturbosch.detekt'
+}
 
-checkstyle {
-    ignoreFailures = false // Whether this task will ignore failures and continue running the build.
-    configFile rootProject.file('config/checkstyle/checkstyle.xml')
-    // The Checkstyle configuration file to use.
-    toolVersion = '8.23' // The version of Checkstyle you want to be used
+detekt {
+    toolVersion = libs.versions.detekt.get()
+    source = files("src/main/kotlin", "src/test/kotlin", "src/androidTest/kotlin")
+    parallel = true
+}
+
+dependencies {
+    detektPlugins libs.detekt
+}
+
+afterEvaluate {
+    check.dependsOn tasks.named("detektMain")
+    check.dependsOn tasks.named("detektTest")
 }

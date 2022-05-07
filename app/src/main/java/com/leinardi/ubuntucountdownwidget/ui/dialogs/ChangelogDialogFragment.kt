@@ -13,6 +13,7 @@
  * You should have received a copy of the GNU General Public License along with this
  * program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.leinardi.ubuntucountdownwidget.ui.dialogs
 
 import android.app.Dialog
@@ -26,9 +27,9 @@ class ChangelogDialogFragment : DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val changelogView = View.inflate(activity, R.layout.dialog_changelog, null)
         return AlertDialog.Builder(requireContext(), R.style.AppCompatAlertDialogTheme)
-                .setTitle(R.string.changelog_title)
-                .setView(changelogView)
-                .setPositiveButton(R.string.close) { _, _ -> dismiss() }
-                .create()
+            .setTitle(R.string.changelog_title)
+            .setView(changelogView)
+            .setPositiveButton(R.string.close) { _, _ -> dismiss() }
+            .create()
     }
 }

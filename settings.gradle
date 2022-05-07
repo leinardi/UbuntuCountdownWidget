@@ -14,4 +14,15 @@
  * program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "ubuntucountdownwidget"
+
+includeBuild("build-conventions")
+
 include ':app'

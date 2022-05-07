@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><!--
+  ~ Ubuntu Countdown Widget
+  ~ Copyright (C) 2022 Roberto Leinardi
+  ~
+  ~ This program is free software: you can redistribute it and/or modify it under the terms
+  ~ of the GNU General Public License as published by the Free Software Foundation,
+  ~ either version 3 of the License, or (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful, but WITHOUT ANY
+  ~ WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+  ~ A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License along with this
+  ~ program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<lint>
+
+    <!-- Disable the check for `list.forEach {}` in Kotlin files  -->
+    <!-- Android's lint gets confused and thinks that Kotlin is using Java's forEach (minSdk 24) -->
+    <!-- This can be safely removed when we define Android minSdk to 24 -->
+    <!-- We can also check this once Kotlin 1.5.0 is officially released together with the new AS 4.2+ -->
+    <issue id="NewApi">
+        <ignore path="*.kt" regexp="forEach" />
+    </issue>
+
+</lint>

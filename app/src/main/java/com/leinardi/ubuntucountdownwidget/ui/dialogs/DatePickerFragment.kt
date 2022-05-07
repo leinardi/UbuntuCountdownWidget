@@ -13,6 +13,7 @@
  * You should have received a copy of the GNU General Public License along with this
  * program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.leinardi.ubuntucountdownwidget.ui.dialogs
 
 import android.app.DatePickerDialog
@@ -27,11 +28,13 @@ import com.leinardi.ubuntucountdownwidget.utils.Utils
 import java.util.Calendar
 
 class DatePickerFragment : DialogFragment(), DatePickerDialog.OnDateSetListener {
-
-    private val sharedPreferences: SharedPreferences by lazy { PreferenceManager.getDefaultSharedPreferences(context) }
+    private val sharedPreferences: SharedPreferences by lazy {
+        PreferenceManager.getDefaultSharedPreferences(
+            requireContext(),
+        )
+    }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-
         // Use the current date as the default date in the picker
         val calendar = getPersistedCalendar(DEFAULT_VALUE)
         val year = calendar[Calendar.YEAR]
@@ -49,7 +52,7 @@ class DatePickerFragment : DialogFragment(), DatePickerDialog.OnDateSetListener 
     }
 
     private fun getPersistedLong(defaultReturnValue: Long) =
-            sharedPreferences.getLong(getString(R.string.pref_custom_date_key), defaultReturnValue)
+        sharedPreferences.getLong(getString(R.string.pref_custom_date_key), defaultReturnValue)
 
     private fun persistLong(value: Long): Boolean {
         if (value == getPersistedLong(value.inv())) {

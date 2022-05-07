@@ -1,0 +1,135 @@
+/*
+ * Ubuntu Countdown Widget
+ * Copyright (C) 2022 Roberto Leinardi
+ *
+ * This program is free software: you can redistribute it and/or modify it under the terms
+ * of the GNU General Public License as published by the Free Software Foundation,
+ * either version 3 of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT ANY
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+ * A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along with this
+ * program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+plugins {
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'ubuntucountdownwidget.detekt-conventions'
+}
+
+kapt {
+    useBuildCache = true
+    correctErrorTypes true
+    javacOptions {
+        option('-Xmaxerrs', Integer.MAX_VALUE)
+    }
+}
+
+android {
+    compileSdk config.android.compileSdk
+    buildToolsVersion libs.versions.buildtools.get()
+
+    defaultConfig {
+        minSdk config.android.minSdk
+        targetSdk config.android.targetSdk
+
+        multiDexEnabled true
+
+        testInstrumentationRunner "com.leinardi.ubuntucountdownwidget.core.test.runner.HiltTestRunner"
+        // The following argument makes the Android Test Orchestrator run its
+        // "pm clear" command after each test invocation. This command ensures
+        // that the app's state is completely cleared between tests.
+        testInstrumentationRunnerArguments clearPackageData: 'true'
+    }
+    compileOptions {
+        coreLibraryDesugaringEnabled true
+        // https://developer.android.com/studio/write/java8-support#library-desugaring
+        sourceCompatibility config.android.javaVersion
+        targetCompatibility config.android.javaVersion
+    }
+    kotlinOptions {
+        freeCompilerArgs += '-opt-in=kotlin.RequiresOptIn'
+        jvmTarget = config.android.javaVersion
+        useIR = true
+    }
+    testOptions {
+        execution 'ANDROIDX_TEST_ORCHESTRATOR'
+        animationsDisabled = true
+        unitTests {
+            returnDefaultValues = true
+            includeAndroidResources = true
+            all {
+                jvmArgs '-noverify'
+            }
+        }
+    }
+    lintOptions {
+        abortOnError true
+        checkAllWarnings false
+        checkDependencies true
+        checkReleaseBuilds false
+        ignoreTestSources true
+        warningsAsErrors false
+        disable 'ResourceType'
+        lintConfig file("${project.rootDir}/config/lint/lint.xml")
+    }
+    packagingOptions {
+        resources {
+            exclude '.readme'
+            exclude 'LICENSE.txt'
+            exclude 'fabric/*.properties'
+            // Exclude the Firebase/Fabric/other random properties files
+            exclude '/*.properties'
+            // Exclude AndroidX version files
+            exclude 'META-INF/*.version'
+            // Exclude consumer proguard files
+            exclude 'META-INF/proguard/*'
+            exclude 'META-INF/*.properties'
+            exclude 'META-INF/LICENSE.txt'
+            exclude 'META-INF/MANIFEST.MF'
+            exclude 'META-INF/NOTICE.txt'
+            exclude "META-INF/AL2.0"
+            exclude "META-INF/LGPL2.1"
+            exclude 'META-INF/maven/com.google.guava/guava/pom.properties'
+            exclude 'META-INF/maven/com.google.guava/guava/pom.xml'
+            exclude 'META-INF/*.kotlin_module'
+            // for byte-buddy
+            exclude "META-INF/licenses/ASM"
+            pickFirst "win32-x86-64/attach_hotspot_windows.dll"
+            pickFirst "win32-x86/attach_hotspot_windows.dll"
+        }
+    }
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+        test.java.srcDirs += 'src/test/kotlin'
+    }
+}
+
+kotlin {
+    sourceSets.all {
+        languageSettings {
+            progressiveMode = true
+            // deprecations and bug fixes for unstable code take effect immediately
+        }
+    }
+}
+
+tasks.withType(Test) {
+    testLogging {
+        events "skipped", "failed"
+    }
+}
+
+dependencies {
+    implementation libs.androidx.core.ktx
+    implementation 'androidx.multidex:multidex:2.0.1'
+    coreLibraryDesugaring libs.desugar
+    testImplementation libs.mockk
+    androidTestImplementation libs.androidx.test.espresso.core
+    androidTestImplementation libs.androidx.test.ext.junit
+    androidTestImplementation libs.androidx.test.runner
+    androidTestImplementation libs.mockk.android
+    androidTestUtil libs.androidx.test.orchestrator
+}

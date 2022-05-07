@@ -13,6 +13,7 @@
  * You should have received a copy of the GNU General Public License along with this
  * program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.leinardi.ubuntucountdownwidget.appwidgets
 
 import android.app.AlarmManager
@@ -40,8 +41,11 @@ import kotlin.math.ceil
 
 @Suppress("MagicNumber")
 abstract class WidgetProvider : AppWidgetProvider() {
-
-    override fun onUpdate(context: Context, appWidgetManager: AppWidgetManager, appWidgetIds: IntArray) {
+    override fun onUpdate(
+        context: Context,
+        appWidgetManager: AppWidgetManager,
+        appWidgetIds: IntArray,
+    ) {
         updateWidget(context)
         super.onUpdate(context, appWidgetManager, appWidgetIds)
     }
@@ -49,8 +53,9 @@ abstract class WidgetProvider : AppWidgetProvider() {
     override fun onReceive(context: Context, intent: Intent) {
         val action = intent.action
         if (action == FORCE_WIDGET_UPDATE ||
-                action == Intent.ACTION_TIMEZONE_CHANGED ||
-                action == Intent.ACTION_TIME_CHANGED) {
+            action == Intent.ACTION_TIMEZONE_CHANGED ||
+            action == Intent.ACTION_TIME_CHANGED
+        ) {
             updateWidget(context)
         }
         super.onReceive(context, intent)
@@ -64,14 +69,20 @@ abstract class WidgetProvider : AppWidgetProvider() {
     }
 
     @Suppress("NestedBlockDepth")
-    private fun updateWidget(context: Context, appWidgetManager: AppWidgetManager, appWidgetIds: IntArray) {
+    private fun updateWidget(
+        context: Context,
+        appWidgetManager: AppWidgetManager,
+        appWidgetIds: IntArray,
+    ) {
         val prefs = PreferenceManager.getDefaultSharedPreferences(context)
-        val isThemeDark = prefs.getString(context.getString(R.string.pref_theme_key), "light") == "dark"
+        val isThemeDark =
+            prefs.getString(context.getString(R.string.pref_theme_key), "light") == "dark"
         val today = GregorianCalendar(TimeZone.getTimeZone("GMT"))
         val ubuntuReleaseDay = Utils.ubuntuReleaseDate
         if (prefs.getBoolean(context.getString(R.string.pref_custom_date_checkbox_key), false)) {
             val ubuntuReleaseMillis = prefs.getLong(
-                    context.getString(R.string.pref_custom_date_key), DatePickerFragment.DEFAULT_VALUE)
+                context.getString(R.string.pref_custom_date_key), DatePickerFragment.DEFAULT_VALUE,
+            )
             ubuntuReleaseDay.timeInMillis = ubuntuReleaseMillis
         }
         setAlarmManager(context, ubuntuReleaseDay)
@@ -82,15 +93,21 @@ abstract class WidgetProvider : AppWidgetProvider() {
         val views = getRemoteViews(context, isThemeDark)
         for (appWidgetId in appWidgetIds) {
             setupViews(context, ubuntuReleaseDay, millisLeft, daysLeft, views)
-            val strOnTouch = prefs.getString(context.getString(R.string.pref_on_touch_key),
-                    context.getString(R.string.on_touch_defaultValue))
+            val strOnTouch = prefs.getString(
+                context.getString(R.string.pref_on_touch_key),
+                context.getString(R.string.on_touch_defaultValue),
+            )
             var intent = Intent()
             if (strOnTouch != "disabled") {
                 if (strOnTouch == "config") {
                     intent = Intent(context, SettingsActivity::class.java)
                 } else {
-                    var url = checkNotNull(prefs.getString(context.getString(R.string.pref_url_key),
-                            context.getString(R.string.url_defaultValue)))
+                    var url = checkNotNull(
+                        prefs.getString(
+                            context.getString(R.string.pref_url_key),
+                            context.getString(R.string.url_defaultValue),
+                        ),
+                    )
                     if (!url.toLowerCase(Locale.ROOT).matches("^\\w+://.*".toRegex())) {
                         url = "http://$url"
                     }
@@ -99,10 +116,12 @@ abstract class WidgetProvider : AppWidgetProvider() {
                 }
                 intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
             }
-            val pendingIntent = PendingIntent.getActivity(context,
-                    0 /* no requestCode */,
-                    intent,
-                    0 /* no flags */)
+            val pendingIntent = PendingIntent.getActivity(
+                context,
+                0,  // no requestCode
+                intent,
+                0,  // no flags
+            )
             views.setOnClickPendingIntent(R.id.rl_widget, pendingIntent)
             appWidgetManager.updateAppWidget(appWidgetId, views)
         }
@@ -113,11 +132,11 @@ abstract class WidgetProvider : AppWidgetProvider() {
     protected abstract fun getRemoteViews(context: Context, isThemeDark: Boolean): RemoteViews
 
     private fun setupViews(
-            context: Context,
-            ubuntuReleaseDay: GregorianCalendar,
-            millisLeft: Long,
-            daysLeft: Long,
-            views: RemoteViews
+        context: Context,
+        ubuntuReleaseDay: GregorianCalendar,
+        millisLeft: Long,
+        daysLeft: Long,
+        views: RemoteViews,
     ) {
         views.setViewVisibility(R.id.progress_bar, View.GONE)
         views.setViewVisibility(R.id.footer_text_view, View.VISIBLE)
@@ -126,13 +145,16 @@ abstract class WidgetProvider : AppWidgetProvider() {
                 views.setViewVisibility(R.id.header_image_view, View.VISIBLE)
                 views.setViewVisibility(R.id.release_text_view, View.GONE)
                 views.setViewVisibility(R.id.logo_image_view, View.GONE)
-                views.setTextViewText(R.id.counter_text_view, daysLeft.toString() + "")
+                views.setTextViewText(R.id.counter_text_view, daysLeft.toString())
                 views.setViewVisibility(R.id.counter_text_view, View.VISIBLE)
                 views.setTextViewText(R.id.footer_text_view, context.getString(R.string.days_left))
             }
             millisLeft < 0 -> {
-                val releaseNumber = String.format("%02d.%02d", ubuntuReleaseDay[Calendar.YEAR] - 2000,
-                        ubuntuReleaseDay[Calendar.MONTH] + 1)
+                val releaseNumber = String.format(
+                    Locale.ROOT,
+                    "%02d.%02d", ubuntuReleaseDay[Calendar.YEAR] - 2000,
+                    ubuntuReleaseDay[Calendar.MONTH] + 1,
+                )
                 views.setViewVisibility(R.id.header_image_view, View.VISIBLE)
                 views.setViewVisibility(R.id.logo_image_view, View.GONE)
                 views.setViewVisibility(R.id.counter_text_view, View.GONE)
@@ -145,15 +167,23 @@ abstract class WidgetProvider : AppWidgetProvider() {
                 views.setViewVisibility(R.id.counter_text_view, View.GONE)
                 views.setViewVisibility(R.id.release_text_view, View.GONE)
                 views.setViewVisibility(R.id.logo_image_view, View.VISIBLE)
-                views.setTextViewText(R.id.footer_text_view, context.getString(R.string.coming_soon))
+                views.setTextViewText(
+                    R.id.footer_text_view,
+                    context.getString(R.string.coming_soon),
+                )
             }
         }
     }
 
     private fun setAlarmManager(context: Context, ubuntuReleaseDay: GregorianCalendar) {
         val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
-        val pi = PendingIntent.getBroadcast(context, 0, Intent(
-                FORCE_WIDGET_UPDATE), 0)
+        val pi = PendingIntent.getBroadcast(
+            context, 0,
+            Intent(
+                FORCE_WIDGET_UPDATE,
+            ),
+            0,
+        )
         val now = GregorianCalendar(TimeZone.getDefault())
         val triggerCalendar = now.clone() as GregorianCalendar
         triggerCalendar[Calendar.HOUR_OF_DAY] = ubuntuReleaseDay[Calendar.HOUR]
@@ -168,12 +198,13 @@ abstract class WidgetProvider : AppWidgetProvider() {
         }
         triggerCalendar.timeInMillis
         alarmManager.cancel(pi)
-        alarmManager.setRepeating(AlarmManager.RTC, triggerCalendar.timeInMillis,
-                AlarmManager.INTERVAL_HALF_DAY, pi)
+        alarmManager.setRepeating(
+            AlarmManager.RTC, triggerCalendar.timeInMillis,
+            AlarmManager.INTERVAL_HALF_DAY, pi,
+        )
     }
 
     companion object {
         const val FORCE_WIDGET_UPDATE = BuildConfig.APPLICATION_ID + ".FORCE_WIDGET_UPDATE"
-        private val TAG = WidgetProvider::class.java.simpleName
     }
 }

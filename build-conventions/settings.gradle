@@ -14,18 +14,15 @@
  * program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-apply plugin: 'io.gitlab.arturbosch.detekt'
-
-detekt {
-    toolVersion = rootProject.ext.versions.detekt
-    input = files(rootDir)
-    config = rootProject.files('config/detekt/config.yml')
-}
-
-dependencies {
-    detektPlugins "io.gitlab.arturbosch.detekt:detekt-formatting:${versions.detekt}"
-}
-
-tasks.getByName('detekt') {
-    exclude("**/build/generated/**")
+dependencyResolutionManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+    versionCatalogs {
+        libs {
+            from(files("../gradle/libs.versions.toml"))
+        }
+    }
 }

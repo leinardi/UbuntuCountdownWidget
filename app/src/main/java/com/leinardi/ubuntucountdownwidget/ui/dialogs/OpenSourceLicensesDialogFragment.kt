@@ -13,6 +13,7 @@
  * You should have received a copy of the GNU General Public License along with this
  * program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.leinardi.ubuntucountdownwidget.ui.dialogs
 
 import android.app.Dialog
@@ -27,10 +28,10 @@ class OpenSourceLicensesDialogFragment : DialogFragment() {
         val webView = WebView(requireContext())
         webView.loadUrl(LICENSES_PATH)
         return AlertDialog.Builder(requireContext(), R.style.AppCompatAlertDialogTheme)
-                .setTitle(R.string.open_source_licenses)
-                .setView(webView)
-                .setPositiveButton(R.string.close) { _, _ -> dismiss() }
-                .create()
+            .setTitle(R.string.open_source_licenses)
+            .setView(webView)
+            .setPositiveButton(R.string.close) { _, _ -> dismiss() }
+            .create()
     }
 
     companion object {

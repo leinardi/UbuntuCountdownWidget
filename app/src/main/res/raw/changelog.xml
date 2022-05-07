@@ -15,6 +15,32 @@
   -->
 
 <changelog bulletedList="true">
+    <changelogversion
+        changeDate="October 17, 2021"
+        versionName="22.04">
+        <changelogtext>Added count down for Ubuntu 22.04 Jammy Jellyfish</changelogtext>
+        <changelogtext>Updated dependencies</changelogtext>
+    </changelogversion>
+    <changelogversion
+        changeDate="April 25, 2021"
+        versionName="21.10">
+        <changelogtext>Added count down for Ubuntu 21.10 Impish Indri</changelogtext>
+        <changelogtext>Updated dependencies</changelogtext>
+    </changelogversion>
+
+    <changelogversion
+        changeDate="February 16, 2021"
+        versionName="21.04">
+        <changelogtext>Added count down for Ubuntu 21.04 Hirsute Hippo</changelogtext>
+        <changelogtext>Updated dependencies</changelogtext>
+    </changelogversion>
+
+    <changelogversion
+        changeDate="October 04, 2020"
+        versionName="20.10">
+        <changelogtext>Added count down for Ubuntu 20.10 Groovy Gorilla!</changelogtext>
+        <changelogtext>Updated dependencies</changelogtext>
+    </changelogversion>
 
     <changelogversion
         changeDate="April 07, 2020"

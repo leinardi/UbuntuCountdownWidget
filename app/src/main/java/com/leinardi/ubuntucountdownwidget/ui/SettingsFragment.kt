@@ -13,6 +13,7 @@
  * You should have received a copy of the GNU General Public License along with this
  * program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.leinardi.ubuntucountdownwidget.ui
 
 import android.content.ComponentName
@@ -36,8 +37,13 @@ import java.text.DateFormat
 import java.util.Locale
 import java.util.TimeZone
 
-class SettingsFragment : PreferenceFragmentCompat(), SharedPreferences.OnSharedPreferenceChangeListener {
-    private val prefs: SharedPreferences by lazy { PreferenceManager.getDefaultSharedPreferences(activity) }
+class SettingsFragment : PreferenceFragmentCompat(),
+    SharedPreferences.OnSharedPreferenceChangeListener {
+    private val prefs: SharedPreferences by lazy {
+        PreferenceManager.getDefaultSharedPreferences(
+            requireContext(),
+        )
+    }
     private val customDatePicker: Preference by lazy {
         checkNotNull(findPreference<Preference>(getString(R.string.pref_custom_date_key)))
     }
@@ -49,35 +55,45 @@ class SettingsFragment : PreferenceFragmentCompat(), SharedPreferences.OnSharedP
         checkNotNull(findPreference<Preference>(getString(R.string.pref_url_key))) as EditTextPreference
     }
 
-    override fun onCreatePreferences(savedInstanceState: Bundle?, s: String?) {
+    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setupPreferencesScreen()
     }
 
     override fun onResume() {
         super.onResume()
         if (!customDateCheckbox.isChecked) {
-            prefs.edit().putLong(getString(R.string.pref_custom_date_key),
-                    Utils.ubuntuReleaseDate.timeInMillis).apply()
+            prefs.edit().putLong(
+                getString(R.string.pref_custom_date_key),
+                Utils.ubuntuReleaseDate.timeInMillis,
+            ).apply()
         }
         // Setup the initial values
-        val dateInMillis = prefs.getLong(getString(R.string.pref_custom_date_key),
-                DatePickerFragment.DEFAULT_VALUE)
-        customDatePicker.summary = DateFormat.getDateInstance(DateFormat.LONG,
-                Locale.getDefault()).format(dateInMillis)
-        preferenceScreen.sharedPreferences.registerOnSharedPreferenceChangeListener(this)
+        val dateInMillis = prefs.getLong(
+            getString(R.string.pref_custom_date_key),
+            DatePickerFragment.DEFAULT_VALUE,
+        )
+        customDatePicker.summary = DateFormat.getDateInstance(
+            DateFormat.LONG,
+            Locale.getDefault(),
+        ).format(dateInMillis)
+        preferenceScreen.sharedPreferences?.registerOnSharedPreferenceChangeListener(this)
     }
 
     override fun onPause() {
         super.onPause()
-        preferenceScreen.sharedPreferences.unregisterOnSharedPreferenceChangeListener(this)
+        preferenceScreen.sharedPreferences?.unregisterOnSharedPreferenceChangeListener(this)
     }
 
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences, key: String) {
         if (key == getString(R.string.pref_custom_date_key)) {
-            val dateInMillis = sharedPreferences.getLong(getString(R.string.pref_custom_date_key),
-                    DatePickerFragment.DEFAULT_VALUE)
-            customDatePicker.summary = DateFormat.getDateInstance(DateFormat.LONG,
-                    Locale.getDefault()).format(dateInMillis)
+            val dateInMillis = sharedPreferences.getLong(
+                getString(R.string.pref_custom_date_key),
+                DatePickerFragment.DEFAULT_VALUE,
+            )
+            customDatePicker.summary = DateFormat.getDateInstance(
+                DateFormat.LONG,
+                Locale.getDefault(),
+            ).format(dateInMillis)
         } else if (key == getString(R.string.pref_on_touch_key)) {
             updateCustomUrlPreferenceState(sharedPreferences)
         }
@@ -97,34 +113,38 @@ class SettingsFragment : PreferenceFragmentCompat(), SharedPreferences.OnSharedP
 
     private fun setOpenSourceLicensesClickListener() {
         checkNotNull(findPreference<Preference>(getString(R.string.pref_licenses_key))).onPreferenceClickListener =
-                Preference.OnPreferenceClickListener {
-                    OpenSourceLicensesDialogFragment().show(parentFragmentManager,
-                            OpenSourceLicensesDialogFragment::class.java.simpleName)
-                    true
-                }
+            Preference.OnPreferenceClickListener {
+                OpenSourceLicensesDialogFragment().show(
+                    parentFragmentManager,
+                    OpenSourceLicensesDialogFragment::class.java.simpleName,
+                )
+                true
+            }
     }
 
     private fun setChangelogClickListener() {
         checkNotNull(findPreference<Preference>(getString(R.string.pref_changelog_key))).onPreferenceClickListener =
-                Preference.OnPreferenceClickListener {
-                    ChangelogDialogFragment().show(parentFragmentManager,
-                            ChangelogDialogFragment::class.java.simpleName)
-                    true
-                }
+            Preference.OnPreferenceClickListener {
+                ChangelogDialogFragment().show(
+                    parentFragmentManager,
+                    ChangelogDialogFragment::class.java.simpleName,
+                )
+                true
+            }
     }
 
     private fun setReportABugClickListener() {
         checkNotNull(findPreference<Preference>(getString(R.string.pref_report_a_bug_key))).onPreferenceClickListener =
-                Preference.OnPreferenceClickListener {
-                    val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(REPORT_A_BUG_URL))
-                    startActivity(browserIntent)
-                    false
-                }
+            Preference.OnPreferenceClickListener {
+                val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(REPORT_A_BUG_URL))
+                startActivity(browserIntent)
+                false
+            }
     }
 
     private fun setShowLaucherIconClickListener() {
         checkNotNull(findPreference<Preference>(getString(R.string.pref_show_launcher_icon_key)))
-                .onPreferenceClickListener = Preference.OnPreferenceClickListener { preference ->
+            .onPreferenceClickListener = Preference.OnPreferenceClickListener { preference ->
             if ((preference as CheckBoxPreference).isChecked) {
                 enableComponent(true, LauncherActivity::class.java)
             } else {
@@ -135,8 +155,10 @@ class SettingsFragment : PreferenceFragmentCompat(), SharedPreferences.OnSharedP
     }
 
     private fun updateCustomUrlPreferenceState(sharedPreferences: SharedPreferences) {
-        val onTouchValue = sharedPreferences.getString(getString(R.string.pref_on_touch_key),
-                getString(R.string.on_touch_defaultValue))
+        val onTouchValue = sharedPreferences.getString(
+            getString(R.string.pref_on_touch_key),
+            getString(R.string.on_touch_defaultValue),
+        )
         urlEditTextPreference.isEnabled = "url" == onTouchValue
     }
 
@@ -151,37 +173,44 @@ class SettingsFragment : PreferenceFragmentCompat(), SharedPreferences.OnSharedP
     private fun updateAppVersion() {
         val version: String
         version = try {
-            val pi = requireActivity().packageManager.getPackageInfo(requireActivity().packageName, 0)
+            val pi =
+                requireActivity().packageManager.getPackageInfo(requireActivity().packageName, 0)
             pi.versionName
         } catch (e: PackageManager.NameNotFoundException) {
             Timber.e(e, "Package name not found")
             getString(R.string.pref_info_version_error)
         }
-        checkNotNull(findPreference<Preference>(getString(R.string.pref_info_version_key))).summary = version
+        checkNotNull(findPreference<Preference>(getString(R.string.pref_info_version_key))).summary =
+            version
     }
 
     private fun updateUbuntuReleaseDate() {
-        val dateInstance = DateFormat.getDateInstance(DateFormat.LONG,
-                Locale.getDefault())
-        dateInstance.timeZone = TimeZone.getTimeZone("GMT")
+        val dateInstance = DateFormat.getDateInstance(
+            DateFormat.LONG,
+            Locale.getDefault(),
+        ).apply {
+            timeZone = TimeZone.getTimeZone("GMT")
+        }
         val releaseDate = dateInstance.format(Utils.ubuntuReleaseDate.time)
         checkNotNull(findPreference<Preference>(getString(R.string.pref_default_release_date_key)))
-                .summary = releaseDate
+            .summary = releaseDate
     }
 
     private fun enableComponent(enable: Boolean, class1: Class<*>) {
         val componentName = ComponentName(requireContext(), class1)
         requireContext().packageManager.setComponentEnabledSetting(
-                componentName,
-                if (enable) {
-                    PackageManager.COMPONENT_ENABLED_STATE_ENABLED
-                } else {
-                    PackageManager.COMPONENT_ENABLED_STATE_DISABLED
-                },
-                PackageManager.DONT_KILL_APP)
+            componentName,
+            if (enable) {
+                PackageManager.COMPONENT_ENABLED_STATE_ENABLED
+            } else {
+                PackageManager.COMPONENT_ENABLED_STATE_DISABLED
+            },
+            PackageManager.DONT_KILL_APP,
+        )
     }
 
     companion object {
-        private const val REPORT_A_BUG_URL = "https://github.com/leinardi/UbuntuCountdownWidget/issues"
+        private const val REPORT_A_BUG_URL =
+            "https://github.com/leinardi/UbuntuCountdownWidget/issues"
     }
 }

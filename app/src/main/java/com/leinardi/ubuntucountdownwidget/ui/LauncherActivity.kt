@@ -13,6 +13,7 @@
  * You should have received a copy of the GNU General Public License along with this
  * program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.leinardi.ubuntucountdownwidget.ui
 
 import android.content.Intent
@@ -28,14 +29,15 @@ class LauncherActivity : AppCompatActivity() {
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (!PreferenceManager.getDefaultSharedPreferences(this)
-                        .getBoolean(getString(R.string.pref_show_tutorial_key), true)) {
+                .getBoolean(getString(R.string.pref_show_tutorial_key), true)
+        ) {
             startConfigActivity()
             finish()
             return
         }
         setContentView(R.layout.activity_launcher)
         val web = findViewById<WebView>(R.id.wv_info)
-        web.loadUrl("file:///android_asset/" + getString(R.string.info_filename))
+        web.loadUrl("file:///android_asset/${getString(R.string.info_filename)}")
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -43,14 +45,12 @@ class LauncherActivity : AppCompatActivity() {
         return true
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.action_settings -> {
-                startConfigActivity()
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
+    override fun onOptionsItemSelected(item: MenuItem): Boolean = when (item.itemId) {
+        R.id.action_settings -> {
+            startConfigActivity()
+            true
         }
+        else -> super.onOptionsItemSelected(item)
     }
 
     private fun startConfigActivity() {

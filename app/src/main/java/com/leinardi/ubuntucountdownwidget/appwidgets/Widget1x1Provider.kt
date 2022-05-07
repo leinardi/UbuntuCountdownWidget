@@ -13,6 +13,7 @@
  * You should have received a copy of the GNU General Public License along with this
  * program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.leinardi.ubuntucountdownwidget.appwidgets
 
 import android.content.ComponentName
@@ -21,13 +22,12 @@ import android.widget.RemoteViews
 import com.leinardi.ubuntucountdownwidget.R
 
 class Widget1x1Provider : WidgetProvider() {
+    override fun getComponentName(context: Context): ComponentName =
+        ComponentName(context, Widget1x1Provider::class.java)
 
-    override fun getComponentName(context: Context): ComponentName {
-        return ComponentName(context, Widget1x1Provider::class.java)
-    }
-
-    override fun getRemoteViews(context: Context, isThemeDark: Boolean): RemoteViews {
-        return RemoteViews(context.packageName,
-                if (isThemeDark) R.layout.appwidget_1x1_dark else R.layout.appwidget_1x1_light)
-    }
+    override fun getRemoteViews(context: Context, isThemeDark: Boolean): RemoteViews =
+        RemoteViews(
+            context.packageName,
+            if (isThemeDark) R.layout.appwidget_1x1_dark else R.layout.appwidget_1x1_light,
+        )
 }

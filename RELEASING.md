@@ -4,7 +4,7 @@
 2. `git commit -am "Set release date for YY.MM RELEASE_NAME"` (where YY.MM RELEASE_NAME is the Ubuntu release name)
 3. `git tag -s vYY.MM`
 4. `./gradlew clean assembleDebug`
-5. `git ci --amend -av --no-edit`   
+5. `git ci --amend -av --no-edit`
 6. `git tag -s -f vYY.MM && git push --tags`
 7. `./gradlew clean assembleRelease`
 8. Test the release APK

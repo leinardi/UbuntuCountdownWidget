@@ -14,9 +14,9 @@
  * program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-android'
+plugins {
+    id 'ubuntucountdownwidget.android-app-conventions'
+}
 
 def getVersionName = {
     try {
@@ -34,32 +34,17 @@ def getVersionName = {
         return null
     }
 }
+def commitCount = 'git rev-list --count HEAD'.execute().text.trim()
+def isKeystoreInfoAvailable = file(KEYSTORE_PATH).exists() && file(KEYSTORE_PROPERTIES_PATH).exists()
 
 android {
-    compileSdkVersion build_versions.target_sdk
-
     defaultConfig {
+        applicationId config.android.applicationId
+        archivesBaseName = "ubuntucountdownwidget"
         applicationId "com.leinardi.ubuntucountdownwidget"
-        minSdkVersion build_versions.min_sdk
-        targetSdkVersion build_versions.target_sdk
-        targetSdkVersion build_versions.target_sdk
-        versionCode build_versions.version_code
+        versionCode commitCount.isNumber() ? (commitCount as int) + 200 : 0
         versionName getVersionName()
     }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-        debug {
-            applicationIdSuffix ".debug"
-            versionNameSuffix "-debug"
-            debuggable true
-        }
-    }
-
-    def isKeystoreInfoAvailable = file(KEYSTORE_PATH).exists() && file(KEYSTORE_PROPERTIES_PATH).exists()
 
     signingConfigs {
         if (isKeystoreInfoAvailable) {
@@ -75,11 +60,15 @@ android {
     }
 
     buildTypes {
-        if (isKeystoreInfoAvailable) {
-            release {
-                minifyEnabled true
-                shrinkResources true
-                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        debug {
+            signingConfig signingConfigs.debug
+            applicationIdSuffix ".debug"
+        }
+        release {
+            shrinkResources true
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            if (isKeystoreInfoAvailable) {
                 signingConfig signingConfigs.release
             }
         }
@@ -89,22 +78,18 @@ android {
 task updateVersionFile() {
     doLast {
         project.rootProject.file("version.txt").text =
-                "${project.android.defaultConfig.versionName}+" +
-                        "${project.android.defaultConfig.versionCode}\n"
+                "${project.android.defaultConfig.versionName}+${project.android.defaultConfig.versionCode}\n"
     }
 }
 
 preBuild.dependsOn updateVersionFile
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
-    implementation "androidx.core:core-ktx:1.6.0"
-    implementation "androidx.legacy:legacy-support-v4:$versions.androidx_legacy_support"
-    implementation "androidx.appcompat:appcompat:$versions.androidx_appcompat"
-    implementation "com.google.android.material:material:$versions.android_material"
-    implementation "androidx.preference:preference-ktx:$versions.androidx_preference"
-    implementation "androidx.legacy:legacy-preference-v14:$versions.androidx_legacy_preference"
-    implementation "com.github.gabrielemariotti.changeloglib:changelog:$versions.changeloglib"
-    implementation "com.jakewharton.timber:timber:$versions.timber"
+    implementation "androidx.legacy:legacy-support-v4:1.0.0"
+    implementation libs.androidx.appcompat
+    implementation libs.material
+    implementation "androidx.preference:preference-ktx:1.2.0"
+    implementation "androidx.legacy:legacy-preference-v14:1.0.0"
+    implementation "com.github.gabrielemariotti.changeloglib:changelog:2.1.0"
+    implementation libs.timber
 }

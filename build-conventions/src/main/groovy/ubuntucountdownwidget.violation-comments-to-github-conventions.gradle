@@ -1,0 +1,58 @@
+/*
+ * Ubuntu Countdown Widget
+ * Copyright (C) 2022 Roberto Leinardi
+ *
+ * This program is free software: you can redistribute it and/or modify it under the terms
+ * of the GNU General Public License as published by the Free Software Foundation,
+ * either version 3 of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT ANY
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+ * A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along with this
+ * program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+import se.bjurr.violations.comments.github.plugin.gradle.ViolationCommentsToGitHubTask
+
+plugins {
+    id 'se.bjurr.violations.violation-comments-to-github-gradle-plugin'
+}
+
+tasks.register('violationCommentsToGitHub', ViolationCommentsToGitHubTask) {
+    repositoryOwner = "leinardi"
+    repositoryName = "ubuntucountdownwidget"
+    pullRequestId = System.properties['GITHUB_PULLREQUESTID']
+    oAuth2Token = System.properties['GITHUB_OAUTH2TOKEN']
+    gitHubUrl = "https://api.github.com/"
+    createCommentWithAllSingleFileComments = false
+    createSingleFileComments = true
+    commentOnlyChangedContent = true
+    keepOldComments = false
+    violations = [
+        [
+            "KOTLINGRADLE",
+            ".",
+            ".*/build/logs/buildlog.*\\.txt\$",
+            "Gradle"
+        ],
+        [
+            "CHECKSTYLE",
+            ".",
+            ".*/reports/detekt/.*\\.xml\$",
+            "Detekt"
+        ],
+        [
+            "ANDROIDLINT",
+            ".",
+            ".*/reports/lint-results.*\\.xml\$",
+            "Android Lint"
+        ],
+        [
+            "JUNIT",
+            ".",
+            ".*/build/test-results/test.*/.*\\.xml\$",
+            "Unit"
+        ],
+    ]
+}
