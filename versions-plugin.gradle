@@ -1,6 +1,6 @@
 /*
  * Ubuntu Countdown Widget
- * Copyright (C) 2020 Roberto Leinardi
+ * Copyright (C) 2022 Roberto Leinardi
  *
  * This program is free software: you can redistribute it and/or modify it under the terms
  * of the GNU General Public License as published by the Free Software Foundation,
@@ -19,7 +19,13 @@ apply plugin: 'com.github.ben-manes.versions'
 dependencyUpdates.resolutionStrategy = {
     componentSelection { rules ->
         rules.all { ComponentSelection selection ->
-            boolean rejected = ['alpha', 'beta', 'rc', 'cr', 'm'].any { qualifier ->
+            boolean rejected = [
+                'alpha',
+                'beta',
+                'rc',
+                'cr',
+                'm'
+            ].any { qualifier ->
                 selection.candidate.version ==~ /(?i).*[.-]${qualifier}[.\d-]*/
             }
             if (rejected) {

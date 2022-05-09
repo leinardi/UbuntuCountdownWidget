@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?><!--
   ~ Ubuntu Countdown Widget
-  ~ Copyright (C) 2020 Roberto Leinardi
+  ~ Copyright (C) 2022 Roberto Leinardi
   ~
   ~ This program is free software: you can redistribute it and/or modify it under the terms
   ~ of the GNU General Public License as published by the Free Software Foundation,
@@ -15,6 +15,39 @@
   -->
 
 <changelog bulletedList="true">
+    <changelogversion
+        changeDate="May 9, 2022"
+        versionName="22.10">
+        <changelogtext>Added count down for Ubuntu 22.10 Kinetic Kudu</changelogtext>
+        <changelogtext>Updated dependencies</changelogtext>
+    </changelogversion>
+
+    <changelogversion
+        changeDate="October 17, 2021"
+        versionName="22.04">
+        <changelogtext>Added count down for Ubuntu 22.04 Jammy Jellyfish</changelogtext>
+        <changelogtext>Updated dependencies</changelogtext>
+    </changelogversion>
+    <changelogversion
+        changeDate="April 25, 2021"
+        versionName="21.10">
+        <changelogtext>Added count down for Ubuntu 21.10 Impish Indri</changelogtext>
+        <changelogtext>Updated dependencies</changelogtext>
+    </changelogversion>
+
+    <changelogversion
+        changeDate="February 16, 2021"
+        versionName="21.04">
+        <changelogtext>Added count down for Ubuntu 21.04 Hirsute Hippo</changelogtext>
+        <changelogtext>Updated dependencies</changelogtext>
+    </changelogversion>
+
+    <changelogversion
+        changeDate="October 04, 2020"
+        versionName="20.10">
+        <changelogtext>Added count down for Ubuntu 20.10 Groovy Gorilla!</changelogtext>
+        <changelogtext>Updated dependencies</changelogtext>
+    </changelogversion>
 
     <changelogversion
         changeDate="April 07, 2020"
