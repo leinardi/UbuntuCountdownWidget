@@ -16,6 +16,13 @@
 
 <changelog bulletedList="true">
     <changelogversion
+        changeDate="May 9, 2022"
+        versionName="22.10">
+        <changelogtext>Added count down for Ubuntu 22.10 Kinetic Kudu</changelogtext>
+        <changelogtext>Updated dependencies</changelogtext>
+    </changelogversion>
+
+    <changelogversion
         changeDate="October 17, 2021"
         versionName="22.04">
         <changelogtext>Added count down for Ubuntu 22.04 Jammy Jellyfish</changelogtext>
