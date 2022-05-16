@@ -1,0 +1,1 @@
+ - Removed unused dependencies from build conventions (this build is needed only for F-Droid)
