@@ -7,7 +7,7 @@
 5. `./gradlew clean assembleDebug`
 6. `git ci --amend -av --no-edit`
 7. `git tag -s -f vYY.MM && git push --tags`
-8. `./gradlew clean assembleRelease`
+8. `./gradlew clean assembleRelease bundleRelease`
 9. Test the release APK
 10. Crate a fastlane changelog file using the `BuildConfig.VERSION_CODE` as file name with `.txt` as extension.
 11. `git commit -am "Updated fastlane changelog"`
