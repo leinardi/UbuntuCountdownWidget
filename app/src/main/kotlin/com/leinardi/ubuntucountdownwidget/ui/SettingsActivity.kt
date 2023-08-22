@@ -48,7 +48,8 @@ class SettingsActivity : AppCompatActivity() {
         if (AppWidgetManager.ACTION_APPWIDGET_CONFIGURE == intent.action) {
             val snackbar = Snackbar.make(
                 findViewById(R.id.main_content),
-                R.string.press_save_to_add_the_widget, Snackbar.LENGTH_INDEFINITE,
+                R.string.press_save_to_add_the_widget,
+                Snackbar.LENGTH_INDEFINITE,
             )
             snackbar.setAction(R.string.close) { snackbar.dismiss() }
             snackbar.show()
@@ -65,13 +66,13 @@ class SettingsActivity : AppCompatActivity() {
         return true
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean = when (item.itemId) {
-        R.id.action_save -> {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean =
+        if (item.itemId == R.id.action_save) {
             onBackPressed()
             true
+        } else {
+            super.onOptionsItemSelected(item)
         }
-        else -> super.onOptionsItemSelected(item)
-    }
 
     override fun onPause() {
         super.onPause()
@@ -92,12 +93,16 @@ class SettingsActivity : AppCompatActivity() {
                 setResult(Activity.RESULT_OK, result)
             }
         }
-        sendBroadcast(Intent(this, Widget1x1Provider::class.java).apply {
-            action = WidgetProvider.FORCE_WIDGET_UPDATE
-        })
-        sendBroadcast(Intent(this, Widget2x2Provider::class.java).apply {
-            action = WidgetProvider.FORCE_WIDGET_UPDATE
-        })
+        sendBroadcast(
+            Intent(this, Widget1x1Provider::class.java).apply {
+                action = WidgetProvider.FORCE_WIDGET_UPDATE
+            },
+        )
+        sendBroadcast(
+            Intent(this, Widget2x2Provider::class.java).apply {
+                action = WidgetProvider.FORCE_WIDGET_UPDATE
+            },
+        )
     }
 
     companion object {

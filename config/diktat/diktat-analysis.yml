@@ -395,7 +395,7 @@
     startCollapseFromNestedLevel: 2
 # Checks that floating-point values are not used in arithmetic expressions
 - name: FLOAT_IN_ACCURATE_CALCULATIONS
-  enabled: true
+  enabled: false # Custom
 # Checks that function length isn't too long
 - name: TOO_LONG_FUNCTION
   enabled: false # Custom - Detekt is already checking it

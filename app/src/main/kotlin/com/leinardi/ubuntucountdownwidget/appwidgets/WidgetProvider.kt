@@ -18,6 +18,7 @@ package com.leinardi.ubuntucountdownwidget.appwidgets
 
 import android.app.AlarmManager
 import android.app.PendingIntent
+import android.app.PendingIntent.FLAG_IMMUTABLE
 import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
 import android.content.ComponentName
@@ -81,7 +82,8 @@ abstract class WidgetProvider : AppWidgetProvider() {
         val ubuntuReleaseDay = Utils.ubuntuReleaseDate
         if (prefs.getBoolean(context.getString(R.string.pref_custom_date_checkbox_key), false)) {
             val ubuntuReleaseMillis = prefs.getLong(
-                context.getString(R.string.pref_custom_date_key), DatePickerFragment.DEFAULT_VALUE,
+                context.getString(R.string.pref_custom_date_key),
+                DatePickerFragment.DEFAULT_VALUE,
             )
             ubuntuReleaseDay.timeInMillis = ubuntuReleaseMillis
         }
@@ -120,7 +122,7 @@ abstract class WidgetProvider : AppWidgetProvider() {
                 context,
                 0,  // no requestCode
                 intent,
-                0,  // no flags
+                FLAG_IMMUTABLE,
             )
             views.setOnClickPendingIntent(R.id.rl_widget, pendingIntent)
             appWidgetManager.updateAppWidget(appWidgetId, views)
@@ -149,10 +151,12 @@ abstract class WidgetProvider : AppWidgetProvider() {
                 views.setViewVisibility(R.id.counter_text_view, View.VISIBLE)
                 views.setTextViewText(R.id.footer_text_view, context.getString(R.string.days_left))
             }
+
             millisLeft < 0 -> {
                 val releaseNumber = String.format(
                     Locale.ROOT,
-                    "%02d.%02d", ubuntuReleaseDay[Calendar.YEAR] - 2000,
+                    "%02d.%02d",
+                    ubuntuReleaseDay[Calendar.YEAR] - 2000,
                     ubuntuReleaseDay[Calendar.MONTH] + 1,
                 )
                 views.setViewVisibility(R.id.header_image_view, View.VISIBLE)
@@ -162,6 +166,7 @@ abstract class WidgetProvider : AppWidgetProvider() {
                 views.setViewVisibility(R.id.release_text_view, View.VISIBLE)
                 views.setTextViewText(R.id.footer_text_view, context.getString(R.string.its_here))
             }
+
             else -> {
                 views.setViewVisibility(R.id.header_image_view, View.GONE)
                 views.setViewVisibility(R.id.counter_text_view, View.GONE)
@@ -178,11 +183,10 @@ abstract class WidgetProvider : AppWidgetProvider() {
     private fun setAlarmManager(context: Context, ubuntuReleaseDay: GregorianCalendar) {
         val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
         val pi = PendingIntent.getBroadcast(
-            context, 0,
-            Intent(
-                FORCE_WIDGET_UPDATE,
-            ),
+            context,
             0,
+            Intent(FORCE_WIDGET_UPDATE),
+            FLAG_IMMUTABLE,
         )
         val now = GregorianCalendar(TimeZone.getDefault())
         val triggerCalendar = now.clone() as GregorianCalendar
@@ -199,8 +203,10 @@ abstract class WidgetProvider : AppWidgetProvider() {
         triggerCalendar.timeInMillis
         alarmManager.cancel(pi)
         alarmManager.setRepeating(
-            AlarmManager.RTC, triggerCalendar.timeInMillis,
-            AlarmManager.INTERVAL_HALF_DAY, pi,
+            AlarmManager.RTC,
+            triggerCalendar.timeInMillis,
+            AlarmManager.INTERVAL_HALF_DAY,
+            pi,
         )
     }
 

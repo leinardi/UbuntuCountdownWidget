@@ -29,7 +29,6 @@ kapt {
 
 android {
     compileSdk config.android.compileSdk
-    buildToolsVersion libs.versions.buildtools.get()
 
     defaultConfig {
         minSdk config.android.minSdk
@@ -52,7 +51,6 @@ android {
     kotlinOptions {
         freeCompilerArgs += '-opt-in=kotlin.RequiresOptIn'
         jvmTarget = config.android.javaVersion
-        useIR = true
     }
     testOptions {
         execution 'ANDROIDX_TEST_ORCHESTRATOR'
