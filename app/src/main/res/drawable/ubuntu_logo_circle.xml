@@ -1,0 +1,46 @@
+<!--
+  ~ Ubuntu Countdown Widget
+  ~ Copyright (C) 2023 Roberto Leinardi
+  ~
+  ~ This program is free software: you can redistribute it and/or modify it under the terms
+  ~ of the GNU General Public License as published by the Free Software Foundation,
+  ~ either version 3 of the License, or (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful, but WITHOUT ANY
+  ~ WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+  ~ A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License along with this
+  ~ program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="128dp"
+    android:height="124dp"
+    android:viewportWidth="128"
+    android:viewportHeight="124">
+    <path
+        android:pathData="M18.19,58.49m-18.19,0a18.19,18.19 0,1 1,36.37 0a18.19,18.19 0,1 1,-36.37 0"
+        android:strokeWidth="0.740753"
+        android:fillColor="#e9500e" />
+    <path
+        android:pathData="M93.92,18.61m-18.19,0a18.19,18.19 0,1 1,36.37 0a18.19,18.19 0,1 1,-36.37 0"
+        android:strokeWidth="0.740753"
+        android:fillColor="#e9500e" />
+    <path
+        android:pathData="m59.2,105.29a44.29,44.29 0,0 1,-30.2 -23.03,26.18 26.18,0 0,1 -15.55,1.91 59.2,59.2 0,0 0,42.62 35.72,59.91 59.91,0 0,0 12.91,1.33 26.02,26.02 0,0 1,-5.32 -15.2c-1.5,-0.17 -2.99,-0.41 -4.46,-0.72z"
+        android:strokeWidth="0.740753"
+        android:fillColor="#e9500e" />
+    <path
+        android:pathData="M89.82,105.39m-18.19,0a18.19,18.19 0,1 1,36.37 0a18.19,18.19 0,1 1,-36.37 0"
+        android:strokeWidth="0.740753"
+        android:fillColor="#e9500e" />
+    <path
+        android:pathData="m115.13,98.71a59.5,59.5 0,0 0,2.98 -69.81,26.21 26.21,0 0,1 -10.23,11.98 44.58,44.58 0,0 1,-1.46 44.28,26.08 26.08,0 0,1 8.7,13.55z"
+        android:strokeWidth="0.740753"
+        android:fillColor="#e9500e" />
+    <path
+        android:pathData="m16.78,32.41q0.69,-0.04 1.39,-0.04A26.24,26.24 0,0 1,31.96 36.3,44.35 44.35,0 0,1 67.67,17.2 26.37,26.37 0,0 1,73.19 2.45,59.78 59.78,0 0,0 16.78,32.41Z"
+        android:strokeWidth="0.740753"
+        android:fillColor="#e9500e" />
+</vector>

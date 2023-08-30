@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?><!--
   ~ Ubuntu Countdown Widget
-  ~ Copyright (C) 2022 Roberto Leinardi
+  ~ Copyright (C) 2023 Roberto Leinardi
   ~
   ~ This program is free software: you can redistribute it and/or modify it under the terms
   ~ of the GNU General Public License as published by the Free Software Foundation,
@@ -16,55 +16,31 @@
 
 <resources>
 
-    <string name="widget_1x1_name">Conto alla rovescia Ubuntu 1x1</string>
-    <string name="widget_2x2_name">Conto alla rovescia Ubuntu 2x2</string>
-    <string name="days_left">giorni...</string>
-    <string name="coming_soon">In arrivo</string>
-    <string name="its_here">È qui!</string>
-    <string name="ok">OK</string>
-    <string name="cancel">Annulla</string>
-    <string name="close">Chiudi</string>
-    <string name="yes">Sì</string>
-    <string name="no">No</string>
     <string name="back">Indietro</string>
-    <string name="next">Avanti</string>
-    <string name="settings">Impostazioni</string>
-    <string name="exit">Esci</string>
-    <string name="default_text">Default</string>
-
+    <string name="close">Chiudi</string>
+    <string name="coming_soon">In arrivo</string>
+    <string name="days_left">giorni…</string>
     <string name="info">Informazioni</string>
+    <string name="its_here">È qui!</string>
+    <string name="no_browser_installed">No web browser available on this device.</string>
     <string name="open_source_licenses">Licenze Open Source</string>
-
-    <!-- Preferences -->
     <string name="pref_countdown_options">Opzioni countdown</string>
-    <string name="pref_default_release_date">Data rilascio Ubuntu</string>
+    <string name="pref_custom_date">Seleziona data personalizzata</string>
     <string name="pref_custom_date_checkbox">Usa data personalizzata</string>
     <string name="pref_custom_date_checkbox_summary">Usa una data personalizzata per il countdown</string>
-    <string name="pref_custom_date">Seleziona data personalizzata</string>
-    <string name="pref_theme">Tema</string>
-    <string name="pref_theme_summary">Scegli se utilizzare un tema chiaro o scuro</string>
-    <string name="pref_on_touch">Azione al tocco</string>
-    <string name="pref_on_touch_summary">Scegli quale azione eseguire al tocco del widget</string>
-    <string name="pref_url">URL</string>
-    <string name="pref_url_summary">Imposta una URL personalizzata</string>
-    <string name="pref_launcher_options">Opzioni launcher</string>
-    <string name="pref_show_launcher_icon">Icona sul launcher</string>
-    <string name="pref_show_launcher_icon_summary">Se non spuntato nasconde l\'icona del widget sul launcher
-		(richiede riavvio)</string>
-    <string name="pref_show_tutorial">Visualizza tutorial</string>
-    <string name="pref_show_tutorial_summary">Mostra il tutorial quando si clicca l\'icona del launcher</string>
+    <string name="pref_default_release_date">Data rilascio Ubuntu</string>
     <string name="pref_info_version">Versione</string>
     <string name="pref_info_version_error">Impossibile determinare la versione</string>
-    <string name="pref_info_summary">Informazioni, FAQ e Ringraziamenti</string>
-    <string name="pref_donate_title">Donazioni</string>
-    <string name="pref_donate">Offrimi una birra</string>
-    <string name="pref_donate_summary">Aiutami a mantenere questa app gratuita e senza pubblicità</string>
+    <string name="pref_launcher_options">Opzioni launcher</string>
+    <string name="pref_on_touch">Azione al tocco</string>
+    <string name="pref_on_touch_summary">Scegli quale azione eseguire al tocco del widget</string>
     <string name="pref_report_a_bug">Segnala un bug</string>
     <string name="pref_report_a_bug_summary">Invia un nuovo problema sull\'Issue Tracker</string>
-    <string name="pref_display_settings">Display settings</string>
-    <string name="pref_display_changelog_summary">Visualizza il changelog dell\'applicazione</string>
-    <string name="pref_save">Salva</string>
-    <string name="press_save_to_add_the_widget">Premi Salva per aggiungere il Widget</string>
-    <string name="changelog_title">Note di revisione</string>
+    <string name="pref_show_launcher_icon">Icona sul launcher</string>
+    <string name="pref_show_launcher_icon_summary">Se non spuntato nasconde l\'icona del widget sul launcher (richiede riavvio)</string>
+    <string name="pref_url">URL</string>
+    <string name="pref_url_summary">Imposta una URL personalizzata</string>
+    <string name="pref_use_dark_theme">Usa tema scuro</string>
+    <string name="pref_use_dark_theme_summary">Scegli se utilizzare un tema chiaro o scuro</string>
 
 </resources>

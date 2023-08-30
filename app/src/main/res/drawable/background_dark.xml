@@ -1,6 +1,6 @@
 <!--
   ~ Ubuntu Countdown Widget
-  ~ Copyright (C) 2022 Roberto Leinardi
+  ~ Copyright (C) 2023 Roberto Leinardi
   ~
   ~ This program is free software: you can redistribute it and/or modify it under the terms
   ~ of the GNU General Public License as published by the Free Software Foundation,
@@ -16,11 +16,11 @@
 
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:aapt="http://schemas.android.com/aapt"
-    android:width="103dp"
-    android:height="103dp"
+    android:width="56dp"
+    android:height="56dp"
     android:viewportWidth="56"
     android:viewportHeight="56">
-    <path android:pathData="M8,0L48,0A8,8 0,0 1,56 8L56,48A8,8 0,0 1,48 56L8,56A8,8 0,0 1,0 48L0,8A8,8 0,0 1,8 0z">
+    <path android:pathData="M16,0L40,0A16,16 0,0 1,56 16L56,40A16,16 0,0 1,40 56L16,56A16,16 0,0 1,0 40L0,16A16,16 0,0 1,16 0z">
         <aapt:attr name="android:fillColor">
             <gradient
                 android:centerX="28"
@@ -28,17 +28,17 @@
                 android:gradientRadius="28"
                 android:type="radial">
                 <item
-                    android:color="#FF666666"
-                    android:offset="0" />
+                    android:offset="0"
+                    android:color="#FF666666" />
                 <item
-                    android:color="#FF333333"
-                    android:offset="1" />
+                    android:offset="1"
+                    android:color="#FF333333" />
             </gradient>
         </aapt:attr>
     </path>
     <path
-        android:fillColor="#00000000"
-        android:pathData="M8,1.5L48,1.5A6.5,6.5 0,0 1,54.5 8L54.5,48A6.5,6.5 0,0 1,48 54.5L8,54.5A6.5,6.5 0,0 1,1.5 48L1.5,8A6.5,6.5 0,0 1,8 1.5z"
         android:strokeWidth="1"
-        android:strokeColor="#AEA79F" />
+        android:pathData="M16,1.5L40,1.5A14.5,14.5 0,0 1,54.5 16L54.5,40A14.5,14.5 0,0 1,40 54.5L16,54.5A14.5,14.5 0,0 1,1.5 40L1.5,16A14.5,14.5 0,0 1,16 1.5z"
+        android:fillColor="#00000000"
+        android:strokeColor="#aea79f" />
 </vector>

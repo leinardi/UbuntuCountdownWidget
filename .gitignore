@@ -69,8 +69,3 @@ fastlane/readme.md
 
 # Reports
 reports/
-
-keystore/
-.gitmodules
-
-/app/fabric.properties

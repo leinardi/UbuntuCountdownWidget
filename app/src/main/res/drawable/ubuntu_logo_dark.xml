@@ -1,0 +1,74 @@
+<!--
+  ~ Ubuntu Countdown Widget
+  ~ Copyright (C) 2023 Roberto Leinardi
+  ~
+  ~ This program is free software: you can redistribute it and/or modify it under the terms
+  ~ of the GNU General Public License as published by the Free Software Foundation,
+  ~ either version 3 of the License, or (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful, but WITHOUT ANY
+  ~ WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+  ~ A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License along with this
+  ~ program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="256dp"
+    android:height="90.21dp"
+    android:viewportWidth="256"
+    android:viewportHeight="90.21">
+    <path
+        android:pathData="m87.44,83.06q-4.08,0 -6.94,-1.24a11.95,11.95 0,0 1,-4.64 -3.43,13.74 13.74,0 0,1 -2.57,-5.11 23.82,23.82 0,0 1,-0.8 -6.29V41.25h4.02v25.22a18.88,18.88 0,0 0,0.8 5.82,11.22 11.22,0 0,0 2.21,4.05 8.64,8.64 0,0 0,3.43 2.36,13.5 13.5,0 0,0 8.98,0 8.65,8.65 0,0 0,3.43 -2.36,11.22 11.22,0 0,0 2.21,-4.05 18.88,18.88 0,0 0,0.8 -5.82V41.25h4.02v25.75a23.83,23.83 0,0 1,-0.8 6.29,13.74 13.74,0 0,1 -2.57,5.11 11.96,11.96 0,0 1,-4.64 3.43q-2.87,1.24 -6.94,1.24z"
+        android:strokeWidth="0.250388"
+        android:fillColor="#fff" />
+    <path
+        android:pathData="m115.56,53.47q1,-0.77 3.22,-1.62a14.48,14.48 0,0 1,5.23 -0.86,13.93 13.93,0 0,1 5.88,1.18 12.22,12.22 0,0 1,4.34 3.31,14.61 14.61,0 0,1 2.69,5.05 21.36,21.36 0,0 1,0.92 6.41,19.14 19.14,0 0,1 -1.09,6.67 14.36,14.36 0,0 1,-3.07 5.02,13.21 13.21,0 0,1 -4.72,3.16 16.41,16.41 0,0 1,-6.11 1.09q-4.08,0 -6.73,-0.53a34.46,34.46 0,0 1,-4.37 -1.12L111.72,37.05l3.84,-0.71zM115.56,78.57a16.93,16.93 0,0 0,2.63 0.56,31.56 31.56,0 0,0 4.58,0.27q4.96,0 7.97,-3.22 3.01,-3.22 3.01,-9.24a21.1,21.1 0,0 0,-0.53 -4.81,11.29 11.29,0 0,0 -1.71,-3.96 8.58,8.58 0,0 0,-3.1 -2.69q-1.92,-1 -4.75,-1a12.36,12.36 0,0 0,-2.6 0.27,15.11 15.11,0 0,0 -2.3,0.68 12.74,12.74 0,0 0,-1.86 0.89,13.14 13.14,0 0,0 -1.33,0.89z"
+        android:strokeWidth="0.250388"
+        android:fillColor="#fff" />
+    <path
+        android:pathData="m168.78,81.11q-1.71,0.47 -4.61,1.06a36.16,36.16 0,0 1,-7.09 0.59q-3.43,0 -5.73,-1a9.3,9.3 0,0 1,-3.72 -2.83,11.48 11.48,0 0,1 -2.04,-4.43 24.68,24.68 0,0 1,-0.62 -5.73V51.64h3.84v15.89a27.12,27.12 0,0 0,0.47 5.49q0.47,2.25 1.54,3.63a5.99,5.99 0,0 0,2.75 2.01,11.93 11.93,0 0,0 4.1,0.62 32.83,32.83 0,0 0,4.72 -0.3q2.01,-0.29 2.54,-0.53V51.64h3.84z"
+        android:strokeWidth="0.250388"
+        android:fillColor="#fff" />
+    <path
+        android:pathData="m177.85,52.71q1.71,-0.47 4.61,-1.06a36.15,36.15 0,0 1,7.09 -0.59q3.48,0 5.82,1a8.94,8.94 0,0 1,3.72 2.86,11.7 11.7,0 0,1 1.98,4.46 25.92,25.92 0,0 1,0.59 5.73v17.07h-3.84V66.35a28.92,28.92 0,0 0,-0.44 -5.49,9.17 9.17,0 0,0 -1.48,-3.66 5.74,5.74 0,0 0,-2.72 -2.04q-1.68,-0.62 -4.22,-0.62a32.33,32.33 0,0 0,-4.7 0.3q-1.98,0.3 -2.57,0.53v26.81h-3.84z"
+        android:strokeWidth="0.250388"
+        android:fillColor="#fff" />
+    <path
+        android:pathData="m214.07,51.64h12.17v3.25h-12.17v16.24a16.49,16.49 0,0 0,0.44 4.22,5.88 5.88,0 0,0 1.27,2.51 4.02,4.02 0,0 0,2.01 1.18,10.68 10.68,0 0,0 2.6,0.3q2.42,0 3.9,-0.56a16.94,16.94 0,0 0,2.3 -1.03l0.94,3.19q-0.83,0.53 -2.89,1.21a14.32,14.32 0,0 1,-4.49 0.68q-2.83,0 -4.75,-0.74a6.87,6.87 0,0 1,-3.07 -2.24,9.2 9.2,0 0,1 -1.62,-3.75 26.05,26.05 0,0 1,-0.47 -5.32V42.66l3.84,-0.71z"
+        android:strokeWidth="0.250388"
+        android:fillColor="#fff" />
+    <path
+        android:pathData="m256,81.11q-1.71,0.47 -4.61,1.06a36.16,36.16 0,0 1,-7.09 0.59q-3.43,0 -5.73,-1a9.3,9.3 0,0 1,-3.72 -2.83,11.48 11.48,0 0,1 -2.04,-4.43 24.68,24.68 0,0 1,-0.62 -5.73V51.64h3.84v15.89a27.12,27.12 0,0 0,0.47 5.49q0.47,2.25 1.54,3.63a5.99,5.99 0,0 0,2.75 2.01,11.93 11.93,0 0,0 4.1,0.62 32.83,32.83 0,0 0,4.72 -0.3q2.01,-0.29 2.54,-0.53V51.64h3.84z"
+        android:strokeWidth="0.250388"
+        android:fillColor="#fff" />
+    <path
+        android:pathData="M0,0h58.57v90.21h-58.57z"
+        android:strokeWidth="0.250388"
+        android:fillColor="#e9500e" />
+    <path
+        android:pathData="M12.78,59.54m-6.15,0a6.15,6.15 0,1 1,12.29 0a6.15,6.15 0,1 1,-12.29 0"
+        android:strokeWidth="0.250388"
+        android:fillColor="#fff" />
+    <path
+        android:pathData="M38.37,46.06m-6.15,0a6.15,6.15 0,1 1,12.29 0a6.15,6.15 0,1 1,-12.29 0"
+        android:strokeWidth="0.250388"
+        android:fillColor="#fff" />
+    <path
+        android:pathData="m26.64,75.36a14.97,14.97 0,0 1,-10.21 -7.79,8.85 8.85,0 0,1 -5.26,0.65 20.01,20.01 0,0 0,14.41 12.07,20.25 20.25,0 0,0 4.36,0.45 8.8,8.8 0,0 1,-1.8 -5.14c-0.51,-0.06 -1.01,-0.14 -1.51,-0.24z"
+        android:strokeWidth="0.250388"
+        android:fillColor="#fff" />
+    <path
+        android:pathData="M36.99,75.4m-6.15,0a6.15,6.15 0,1 1,12.29 0a6.15,6.15 0,1 1,-12.29 0"
+        android:strokeWidth="0.250388"
+        android:fillColor="#fff" />
+    <path
+        android:pathData="m45.54,73.14a20.11,20.11 0,0 0,1.01 -23.6,8.86 8.86,0 0,1 -3.46,4.05 15.07,15.07 0,0 1,-0.49 14.97,8.81 8.81,0 0,1 2.94,4.58z"
+        android:strokeWidth="0.250388"
+        android:fillColor="#fff" />
+    <path
+        android:pathData="m12.3,50.73q0.23,-0.01 0.47,-0.01A8.87,8.87 0,0 1,17.43 52.04,14.99 14.99,0 0,1 29.5,45.58 8.91,8.91 0,0 1,31.37 40.6,20.21 20.21,0 0,0 12.3,50.73Z"
+        android:strokeWidth="0.250388"
+        android:fillColor="#fff" />
+</vector>

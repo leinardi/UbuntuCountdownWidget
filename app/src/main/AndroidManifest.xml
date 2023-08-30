@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?><!--
   ~ Ubuntu Countdown Widget
-  ~ Copyright (C) 2022 Roberto Leinardi
+  ~ Copyright (C) 2023 Roberto Leinardi
   ~
   ~ This program is free software: you can redistribute it and/or modify it under the terms
   ~ of the GNU General Public License as published by the Free Software Foundation,
@@ -15,75 +15,59 @@
   -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:installLocation="internalOnly">
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
-    <uses-sdk xmlns:tools="http://schemas.android.com/tools"
-        tools:overrideLibrary="android.support.v14.preference" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name="androidx.multidex.MultiDexApplication"
+        android:name=".UbuntuCountdownWidget"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/Theme.AppTheme">
-
-        <receiver
-            android:name=".appwidgets.Widget1x1Provider"
-            android:exported="true"
-            android:label="@string/widget_1x1_name">
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
-                <action android:name="android.intent.action.TIME_SET" />
-                <!-- <action -->
-                <!-- android:name="android.intent.action.DATE_CHANGED" /> -->
-                <action android:name="${applicationId}.FORCE_WIDGET_UPDATE" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.appwidget.provider"
-                android:resource="@xml/appwidget_info_1x1" />
-        </receiver>
-        <receiver
-            android:name=".appwidgets.Widget2x2Provider"
-            android:exported="true"
-            android:label="@string/widget_2x2_name">
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
-                <action android:name="android.intent.action.TIME_SET" />
-                <!-- <action -->
-                <!-- android:name="android.intent.action.DATE_CHANGED" /> -->
-            </intent-filter>
-
-            <meta-data
-                android:name="android.appwidget.provider"
-                android:resource="@xml/appwidget_info_2x2" />
-        </receiver>
+        android:theme="@style/Ui.Theme.UbuntuCountdownWidget">
 
         <activity
-            android:name=".ui.LauncherActivity"
-            android:exported="true"
-            android:label="@string/app_name">
+            android:name=".ui.MainActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
-            android:name=".ui.SettingsActivity"
-            android:exported="true"
-            android:label="@string/app_name">
+            android:name=".ui.configuration.AppWidgetConfigurationActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
             </intent-filter>
         </activity>
 
-        <meta-data
-            android:name="io.fabric.ApiKey"
-            android:value="d6a7d9e5206bea5363da94713b01b7419cb2dcd3" />
+        <receiver
+            android:name=".appwidget.AppWidgetReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/app_widget_info" />
+        </receiver>
+
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            android:exported="false"
+            tools:node="merge">
+            <meta-data
+                android:name="com.leinardi.ubuntucountdownwidget.initializer.TimberInitializer"
+                android:value="androidx.startup" />
+
+        </provider>
+
     </application>
 
 </manifest>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?><!--
   ~ Ubuntu Countdown Widget
-  ~ Copyright (C) 2022 Roberto Leinardi
+  ~ Copyright (C) 2023 Roberto Leinardi
   ~
   ~ This program is free software: you can redistribute it and/or modify it under the terms
   ~ of the GNU General Public License as published by the Free Software Foundation,
@@ -14,24 +14,26 @@
   ~ program.  If not, see <http://www.gnu.org/licenses/>.
   -->
 
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="Theme.AppTheme_" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Set AppCompat’s actionBarStyle -->
-        <!--<item name="actionBarStyle">@style/MyActionBarStyle</item>-->
-
-        <!-- Set AppCompat’s color theming attrs -->
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <!--<item name="colorPrimaryDark">@color/my_awesome_darker_red</item>-->
-
+    <!-- Allows us to override platform level specific attributes in their respective values-vXX folder. -->
+    <style name="Ui.Theme.Platform.UbuntuCountdownWidget" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- MaterialComponents theme is currently needed because there are no Compose DatePicker and have to fallback to the MC one. -->
     </style>
 
-    <style name="Theme.AppTheme" parent="Theme.AppTheme_">
-        <!-- The rest of your attributes -->
-        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
-        <item name="android:listSeparatorTextViewStyle">
-            @style/Theme.AppTheme.ListSeparatorTextView
-        </item>
+    <style name="Ui.Theme.Base.UbuntuCountdownWidget" parent="Ui.Theme.Platform.UbuntuCountdownWidget">
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">?attr/isLightTheme</item>
+        <item name="android:navigationBarColor">@color/ui_navigationBarColor</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="O_MR1">?attr/isLightTheme</item>
+    </style>
+
+    <!-- The actual theme we use. This varies for light theme (here), and values-night for dark theme. -->
+    <style name="Ui.Theme.UbuntuCountdownWidget" parent="Ui.Theme.Base.UbuntuCountdownWidget">
+        <!-- These color attributes are needed only due to the use of non compose components like the Material Date Picker -->
+        <item name="colorPrimary">#FFb4262d</item>
+        <item name="colorPrimaryDark">#FF410004</item>
+        <item name="colorAccent">#FF98470b</item>
     </style>
 </resources>
