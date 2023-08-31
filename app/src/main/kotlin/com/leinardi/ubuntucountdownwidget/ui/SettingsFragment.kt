@@ -37,7 +37,8 @@ import java.text.DateFormat
 import java.util.Locale
 import java.util.TimeZone
 
-class SettingsFragment : PreferenceFragmentCompat(),
+class SettingsFragment :
+    PreferenceFragmentCompat(),
     SharedPreferences.OnSharedPreferenceChangeListener {
     private val prefs: SharedPreferences by lazy {
         PreferenceManager.getDefaultSharedPreferences(
@@ -84,7 +85,7 @@ class SettingsFragment : PreferenceFragmentCompat(),
         preferenceScreen.sharedPreferences?.unregisterOnSharedPreferenceChangeListener(this)
     }
 
-    override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences, key: String) {
+    override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences, key: String?) {
         if (key == getString(R.string.pref_custom_date_key)) {
             val dateInMillis = sharedPreferences.getLong(
                 getString(R.string.pref_custom_date_key),

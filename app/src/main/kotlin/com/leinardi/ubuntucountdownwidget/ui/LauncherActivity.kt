@@ -45,13 +45,13 @@ class LauncherActivity : AppCompatActivity() {
         return true
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean = when (item.itemId) {
-        R.id.action_settings -> {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean =
+        if (item.itemId == R.id.action_settings) {
             startConfigActivity()
             true
+        } else {
+            super.onOptionsItemSelected(item)
         }
-        else -> super.onOptionsItemSelected(item)
-    }
 
     private fun startConfigActivity() {
         Intent(this@LauncherActivity, SettingsActivity::class.java).apply {

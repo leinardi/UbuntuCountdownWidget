@@ -38,6 +38,7 @@ def commitCount = 'git rev-list --count HEAD'.execute().text.trim()
 def isKeystoreInfoAvailable = file(KEYSTORE_PATH).exists() && file(KEYSTORE_PROPERTIES_PATH).exists()
 
 android {
+    namespace = "com.leinardi.ubuntucountdownwidget"
     defaultConfig {
         applicationId config.android.applicationId
         archivesBaseName = "ubuntucountdownwidget"
