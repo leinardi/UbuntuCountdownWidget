@@ -29,6 +29,9 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
+      - name: Validate input
+        run: date -d "${{ steps.deployment.outputs.page_url }}" "+%Y-%m-%d"
+
       - name: Install jo
         run: sudo apt-get install -y jo
 
