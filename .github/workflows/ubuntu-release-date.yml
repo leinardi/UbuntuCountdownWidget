@@ -30,7 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Validate input
-        run: date -d "${{ steps.deployment.outputs.page_url }}" "+%Y-%m-%d"
+        run: date -d "${{ github.event.inputs.releaseDate }}" "+%Y-%m-%d"
 
       - name: Install jo
         run: sudo apt-get install -y jo
