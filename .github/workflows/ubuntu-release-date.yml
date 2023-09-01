@@ -39,7 +39,7 @@ jobs:
         run: sudo apt-get install -y jo
 
       - name: Create JSON File
-        run: jo releaseDate=${{ steps.validate.outputs.stdout }} > releaseDate.json
+        run: jo releaseDate=${{ steps.validate.outputs.stdout }} | tee releaseDate.json
 
       - name: Setup Pages
         uses: actions/configure-pages@v3
