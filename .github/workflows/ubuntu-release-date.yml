@@ -30,13 +30,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Validate input
-        run: date -d "${{ github.event.inputs.releaseDate }}" "+%Y-%m-%d"
+        uses: mathiasvr/command-output@34408ea3d0528273faff3d9e201761ae96106cd0
+        id: validate
+        with:
+          run: date -d "${{ github.event.inputs.releaseDate }}" "+%Y-%m-%d"
 
       - name: Install jo
         run: sudo apt-get install -y jo
 
       - name: Create JSON File
-        run: jo releaseDate=${{ github.event.inputs.releaseDate }} > releaseDate.json
+        run: jo releaseDate=${{ steps.validate.outputs.stdout }} > releaseDate.json
 
       - name: Setup Pages
         uses: actions/configure-pages@v3
