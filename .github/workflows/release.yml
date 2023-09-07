@@ -85,7 +85,7 @@ jobs:
         env:
           ORG_GRADLE_PROJECT_RELEASE_KEYSTORE_PWD: ${{ secrets.RELEASE_KEYSTORE_PWD }}
         with:
-          arguments: :app:assembleDebug :app:assembleRelease :app:bundleRelease
+          arguments: :app:assembleRelease :app:bundleRelease
 
       - name: Publish to Play Store
         uses: gradle/gradle-build-action@v2
@@ -103,7 +103,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: build-outputs
-          path: apps/forlago/build/outputs
+          path: app/build/outputs
 
       - name: Create GitHub release
         uses: softprops/action-gh-release@v1
@@ -112,10 +112,8 @@ jobs:
           tag_name: ${{ github.event.inputs.semver }}
           fail_on_unmatched_files: true
           files: |
-            apps/forlago/build/outputs/apk/debug/forlago-debug.apk
-            apps/forlago/build/outputs/apk/release/forlago-release.apk
-            apps/forlago/build/outputs/bundle/release/forlago-release.aab
-            apps/forlago/build/outputs/mapping/release/mapping.txt
+            app/build/outputs/apk/release/ubuntucountdownwidget-release.apk
+            app/build/outputs/bundle/release/ubuntucountdownwidget-release.aab
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

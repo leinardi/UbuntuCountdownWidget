@@ -164,7 +164,7 @@ jobs:
       #   uses: actions/upload-artifact@v3
       #   with:
       #     name: ruler
-      #     path: apps/forlago/build/reports/ruler
+      #     path: app/build/reports/ruler
 
   detekt:
     name: Detekt
