@@ -52,4 +52,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: build-outputs
-          path: apps/forlago/build/outputs
+          path: app/build/outputs
