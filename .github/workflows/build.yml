@@ -1,0 +1,55 @@
+name: Build
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-release:
+    name: Build APKs
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      TERM: dumb
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: 17.0.7
+
+      - name: Copy CI gradle.properties
+        run: mkdir -p ~/.gradle ; cp .github/ci-gradle.properties ~/.gradle/gradle.properties
+
+      - name: Validate gradle wrapper
+        uses: gradle/wrapper-validation-action@v1
+
+      ## This is needed by secrets-gradle-plugin
+      - name: Create Local Properties File
+        run: touch local.properties
+
+      - name: Decrypt secrets
+        run: ./release/decrypt-secrets.sh
+        env:
+          ENCRYPT_KEY: ${{ secrets.ENCRYPT_KEY }}
+
+      ## Actual task
+      - name: Build
+        uses: gradle/gradle-build-action@v2
+        env:
+          ORG_GRADLE_PROJECT_RELEASE_KEYSTORE_PWD: ${{ secrets.RELEASE_KEYSTORE_PWD }}
+        with:
+          arguments: assemble
+
+      - name: Clean secrets
+        if: always()
+        run: ./release/clean-secrets.sh
+
+      - name: Upload build outputs
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-outputs
+          path: apps/forlago/build/outputs

@@ -1,10 +1,83 @@
-<svg fill="none" height="56" viewBox="0 0 56 56" width="56" xmlns="http://www.w3.org/2000/svg">
-    <rect fill="url(#paint0_radial)" height="56" rx="8" width="56" />
-    <rect height="53" rx="6.5" stroke="#AEA79F" width="53" x="1.5" y="1.5" />
-    <defs>
-        <radialGradient cx="0" cy="0" gradientTransform="translate(28 28) rotate(90) scale(28)" gradientUnits="userSpaceOnUse" id="paint0_radial" r="1">
-            <stop stop-color="#666666" />
-            <stop offset="1" stop-color="#333333" />
-        </radialGradient>
-    </defs>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  - Ubuntu Countdown Widget
+  - Copyright (C) 2023 Roberto Leinardi
+  -
+  - This program is free software: you can redistribute it and/or modify it under the terms
+  - of the GNU General Public License as published by the Free Software Foundation,
+  - either version 3 of the License, or (at your option) any later version.
+  -
+  - This program is distributed in the hope that it will be useful, but WITHOUT ANY
+  - WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+  - A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+  -
+  - You should have received a copy of the GNU General Public License along with this
+  - program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<svg
+   fill="none"
+   height="56"
+   viewBox="0 0 56 56"
+   width="56"
+   version="1.1"
+   id="svg13"
+   sodipodi:docname="background_dark.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview15"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="32"
+     inkscape:cx="11.625"
+     inkscape:cy="17.890625"
+     inkscape:window-width="3370"
+     inkscape:window-height="1376"
+     inkscape:window-x="2630"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg13" />
+  <rect
+     fill="url(#paint0_radial)"
+     height="56"
+     rx="16"
+     width="56"
+     id="rect2"
+     x="0"
+     y="0" />
+  <rect
+     height="53"
+     rx="14.5"
+     stroke="#aea79f"
+     width="53"
+     x="1.5"
+     y="1.5"
+     id="rect4" />
+  <defs
+     id="defs11">
+    <radialGradient
+       cx="0"
+       cy="0"
+       gradientTransform="translate(28 28) rotate(90) scale(28)"
+       gradientUnits="userSpaceOnUse"
+       id="paint0_radial"
+       r="1">
+      <stop
+         stop-color="#666666"
+         id="stop6" />
+      <stop
+         offset="1"
+         stop-color="#333333"
+         id="stop8" />
+    </radialGradient>
+  </defs>
 </svg>

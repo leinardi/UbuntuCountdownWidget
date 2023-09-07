@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?><!--
   ~ Ubuntu Countdown Widget
-  ~ Copyright (C) 2022 Roberto Leinardi
+  ~ Copyright (C) 2023 Roberto Leinardi
   ~
   ~ This program is free software: you can redistribute it and/or modify it under the terms
   ~ of the GNU General Public License as published by the Free Software Foundation,
@@ -16,53 +16,31 @@
 
 <resources>
 
-    <string name="coming_soon">Coming soon</string>
-    <string name="widget_1x1_name">Ubuntu compte à rebours 1x1</string>
-    <string name="widget_2x2_name">Ubuntu compte à rebours 2x2</string>
-    <string name="days_left">Jours restants</string>
-    <string name="its_here">C\'est là !</string>
-    <string name="ok">Valider</string>
-    <string name="cancel">Annuler</string>
-    <string name="close">Fermer</string>
-    <string name="yes">Oui</string>
-    <string name="no">Non</string>
     <string name="back">Précédent</string>
-    <string name="next">Suivant</string>
-    <string name="settings">Paramètres</string>
-    <string name="exit">Quitter</string>
-    <string name="default_text">Défaut</string>
+    <string name="close">Fermer</string>
+    <string name="coming_soon">Coming soon</string>
+    <string name="days_left">Jours restants</string>
     <string name="info">Info</string>
+    <string name="its_here">C\'est là !</string>
+    <string name="no_browser_installed">No web browser available on this device.</string>
     <string name="open_source_licenses">Open Source Licenses</string>
-    <string name="changelog_title">Changelog</string>
-
-    <!-- Preferences -->
     <string name="pref_countdown_options">Options du compte à rebours</string>
-    <string name="pref_default_release_date">Date de sortie de Ubuntu</string>
+    <string name="pref_custom_date">Sélectionner une date personnalisée</string>
     <string name="pref_custom_date_checkbox">Utiliser une date personnalisée</string>
     <string name="pref_custom_date_checkbox_summary">Utiliser une date de sortie personnalisée pour le compte à rebours</string>
-    <string name="pref_custom_date">Sélectionner une date personnalisée</string>
-    <string name="pref_theme">Thème</string>
-    <string name="pref_theme_summary">Choisissez entre le thème clair ou sombre</string>
-    <string name="pref_on_touch">Action au clic</string>
-    <string name="pref_on_touch_summary">Choisir quoi faire lors du clic sur le widget</string>
-    <string name="pref_url">URL</string>
-    <string name="pref_url_summary">Définir une URL personnalisée</string>
-    <string name="pref_launcher_options">Options du lanceur</string>
-    <string name="pref_show_launcher_icon">Montrer l\'icône de lancement</string>
-    <string name="pref_show_launcher_icon_summary">Si non cochée, cache l\'icône de lancement (nécessite un redémarrage)</string>
-    <string name="pref_show_tutorial">Voir le tutorial</string>
-    <string name="pref_show_tutorial_summary">Voir le tutorial en cliquant sur l\'iĉone de lancement</string>
+    <string name="pref_default_release_date">Date de sortie de Ubuntu</string>
     <string name="pref_info_version">Version</string>
     <string name="pref_info_version_error">Impossible de récupérer la version</string>
-    <string name="pref_info_summary">Info, FAQ et remerciements</string>
-    <string name="pref_donate">Offrez-moi une bière</string>
-    <string name="pref_donate_title">Donate</string>
-    <string name="pref_donate_summary">Aider-moi à garder mes applications gratuites et sans pub</string>
+    <string name="pref_launcher_options">Options du lanceur</string>
+    <string name="pref_on_touch">Action au clic</string>
+    <string name="pref_on_touch_summary">Choisir quoi faire lors du clic sur le widget</string>
     <string name="pref_report_a_bug">Rapporter un bug</string>
     <string name="pref_report_a_bug_summary">Rapporter un nouveau bug</string>
-    <string name="pref_display_changelog_summary">Voir les changements de l\'application</string>
-    <string name="pref_display_settings">Voir les préférences</string>
-    <string name="pref_save">Save</string>
-    <string name="press_save_to_add_the_widget">Appuyez sur Enregistrer pour ajouter le Widget</string>
+    <string name="pref_show_launcher_icon">Montrer l\'icône de lancement</string>
+    <string name="pref_show_launcher_icon_summary">Si non cochée, cache l\'icône de lancement (nécessite un redémarrage)</string>
+    <string name="pref_url">URL</string>
+    <string name="pref_url_summary">Définir une URL personnalisée</string>
+    <string name="pref_use_dark_theme">Thème</string>
+    <string name="pref_use_dark_theme_summary">Choisissez entre le thème clair ou sombre</string>
 
 </resources>

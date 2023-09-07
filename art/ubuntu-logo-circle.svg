@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!--
+  - Ubuntu Countdown Widget
+  - Copyright (C) 2023 Roberto Leinardi
+  -
+  - This program is free software: you can redistribute it and/or modify it under the terms
+  - of the GNU General Public License as published by the Free Software Foundation,
+  - either version 3 of the License, or (at your option) any later version.
+  -
+  - This program is distributed in the hope that it will be useful, but WITHOUT ANY
+  - WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+  - A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+  -
+  - You should have received a copy of the GNU General Public License along with this
+  - program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg width="128mm" height="124mm" viewBox="0 0 128 124" version="1.1" id="svg900" inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)" sodipodi:docname="ubuntu-logo-circle.svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg">
+    <sodipodi:namedview id="namedview902" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" inkscape:pageshadow="2" inkscape:pageopacity="0.0" inkscape:pagecheckerboard="0" inkscape:document-units="mm" showgrid="false" inkscape:zoom="1.0998546" inkscape:cx="-439.14896" inkscape:cy="297.76663" inkscape:window-width="3370" inkscape:window-height="1376" inkscape:window-x="2630" inkscape:window-y="27" inkscape:window-maximized="1" inkscape:current-layer="layer1" />
+    <defs id="defs897" />
+    <g inkscape:label="Layer 1" inkscape:groupmode="layer" id="layer1">
+        <circle class="cls-3" cx="18.185226" cy="58.486805" r="18.185226" id="circle2344" style="fill:#e9500e;fill-opacity:1;stroke-width:0.740753" />
+        <circle class="cls-3" cx="93.919945" cy="18.611418" r="18.185226" id="circle2346" style="fill:#e9500e;fill-opacity:1;stroke-width:0.740753" />
+        <path class="cls-3" d="m 59.199198,105.28828 a 44.288407,44.288407 0 0 1 -30.201919,-23.03419 26.178291,26.178291 0 0 1 -15.548551,1.911198 59.201666,59.201666 0 0 0 42.622506,35.721722 59.914787,59.914787 0 0 0 12.913241,1.32888 26.020674,26.020674 0 0 1 -5.324522,-15.20422 c -1.497747,-0.16638 -2.993711,-0.40944 -4.460755,-0.72339 z" id="path2348" style="fill:#e9500e;fill-opacity:1;stroke-width:0.740753" />
+        <circle class="cls-3" cx="89.822891" cy="105.38858" r="18.185226" id="circle2350" style="fill:#e9500e;fill-opacity:1;stroke-width:0.740753" />
+        <path class="cls-3" d="m 115.12847,98.709047 a 59.496124,59.496124 0 0 0 2.98145,-69.807148 26.210988,26.210988 0 0 1 -10.22621,11.976472 44.583358,44.583358 0 0 1 -1.45726,44.28233 26.077971,26.077971 0 0 1 8.70202,13.548346 z" id="path2352" style="fill:#e9500e;fill-opacity:1;stroke-width:0.740753" />
+        <path class="cls-3" d="m 16.78213,32.407449 q 0.692291,-0.03799 1.385295,-0.03763 A 26.24467,26.24467 0 0 1 31.958491,36.297096 44.35209,44.35209 0 0 1 67.670789,17.197427 26.368457,26.368457 0 0 1 73.187729,2.4493153 59.775283,59.775283 0 0 0 16.78213,32.407434 Z" id="path2354" style="fill:#e9500e;fill-opacity:1;stroke-width:0.740753" />
+    </g>
+</svg>

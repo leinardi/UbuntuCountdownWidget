@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?><!--
   ~ Ubuntu Countdown Widget
-  ~ Copyright (C) 2022 Roberto Leinardi
+  ~ Copyright (C) 2023 Roberto Leinardi
   ~
   ~ This program is free software: you can redistribute it and/or modify it under the terms
   ~ of the GNU General Public License as published by the Free Software Foundation,
@@ -16,54 +16,32 @@
 
 <resources>
 
-    <string name="widget_1x1_name">Ubuntu Countdown 1x1</string>
-    <string name="widget_2x2_name">Ubuntu Countdown 2x2</string>
-    <string name="days_left">Days left</string>
-    <string name="coming_soon">Coming soon</string>
-    <string name="its_here">It\'s here!</string>
-    <string name="ok">OK</string>
-    <string name="cancel">Cancel</string>
-    <string name="close">Close</string>
-    <string name="yes">Yes</string>
-    <string name="no">No</string>
+    <string name="app_name" translatable="false">Ubuntu Countdown Widget</string>
     <string name="back">Back</string>
-    <string name="next">Next</string>
-    <string name="settings">Settings</string>
-    <string name="exit">Exit</string>
-    <string name="default_text">Default</string>
+    <string name="close">Close</string>
+    <string name="coming_soon">Coming soon</string>
+    <string name="days_left">Days left</string>
     <string name="info">Info</string>
+    <string name="its_here">It\'s here!</string>
+    <string name="no_browser_installed">No web browser available on this device.</string>
     <string name="open_source_licenses">Open Source Licenses</string>
-    <string name="changelog_title">Changelog</string>
-
-    <!-- Preferences -->
     <string name="pref_countdown_options">Countdown options</string>
-    <string name="pref_default_release_date">Ubuntu release date</string>
+    <string name="pref_custom_date">Select a custom date</string>
     <string name="pref_custom_date_checkbox">Use a custom date</string>
     <string name="pref_custom_date_checkbox_summary">Use a custom release date for the countdown</string>
-    <string name="pref_custom_date">Select a custom date</string>
-    <string name="pref_theme">Theme</string>
-    <string name="pref_theme_summary">Choose whether you want a light or a dark theme</string>
-    <string name="pref_on_touch">On touch action</string>
-    <string name="pref_on_touch_summary">Choose what should be done when you touch the widget</string>
-    <string name="pref_url">URL</string>
-    <string name="pref_url_summary">Set a custom URL</string>
-    <string name="pref_launcher_options">Launcher options</string>
-    <string name="pref_show_launcher_icon">Show Launcher icon</string>
-    <string name="pref_show_launcher_icon_summary">If unchecked hide the widget icon from the launcher (Restart
-		needed)</string>
-    <string name="pref_show_tutorial">Show tutorial</string>
-    <string name="pref_show_tutorial_summary">Display the tutorial when you click on the launcher icon</string>
+    <string name="pref_default_release_date">Ubuntu release date</string>
     <string name="pref_info_version">Version</string>
     <string name="pref_info_version_error">Unable to determine version</string>
-    <string name="pref_info_summary">Info, FAQ and acknowledgements</string>
-    <string name="pref_donate_title">Donate</string>
-    <string name="pref_donate">Buy me a beer</string>
-    <string name="pref_donate_summary">Help me to keep my apps free and without ads</string>
+    <string name="pref_launcher_options">Launcher options</string>
+    <string name="pref_on_touch">On touch action</string>
+    <string name="pref_on_touch_summary">Choose what should be done when you touch the widget</string>
     <string name="pref_report_a_bug">Report a bug</string>
     <string name="pref_report_a_bug_summary">Submit a new issue to the issue tracker</string>
-    <string name="pref_display_changelog_summary">Display application changelog</string>
-    <string name="pref_display_settings">Display settings</string>
-    <string name="pref_save">Save</string>
-    <string name="press_save_to_add_the_widget">Press Save to add the Widget</string>
+    <string name="pref_show_launcher_icon">Show Launcher icon</string>
+    <string name="pref_show_launcher_icon_summary">If unchecked hide the widget icon from the launcher (Restart needed)</string>
+    <string name="pref_url">URL</string>
+    <string name="pref_url_summary">Set a custom URL</string>
+    <string name="pref_use_dark_theme">Use Dark theme</string>
+    <string name="pref_use_dark_theme_summary">Choose whether you want a light or a dark theme</string>
 
 </resources>
