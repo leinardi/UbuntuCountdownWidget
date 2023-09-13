@@ -23,15 +23,24 @@ import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListScope
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Clear
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.LargeTopAppBar
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.stringResource
@@ -41,6 +50,7 @@ import com.leinardi.ubuntucountdownwidget.ext.toLocalizedDate
 import com.leinardi.ubuntucountdownwidget.ui.annotation.DevicePreviews
 import com.leinardi.ubuntucountdownwidget.ui.component.DatePickerDialog
 import com.leinardi.ubuntucountdownwidget.ui.component.LocalNavHostController
+import com.leinardi.ubuntucountdownwidget.ui.component.OutlinedTextField
 import com.leinardi.ubuntucountdownwidget.ui.component.SettingsGroup
 import com.leinardi.ubuntucountdownwidget.ui.component.SettingsMenuLink
 import com.leinardi.ubuntucountdownwidget.ui.component.SettingsMenuSwitch
@@ -88,11 +98,13 @@ fun AppWidgetConfigurationScreen(
         },
     ) { scaffoldPadding ->
         val dueDatePickerVisible = rememberSaveable { mutableStateOf(false) }
+        val customReleaseCodeDialogVisible = remember { mutableStateOf(false) }
+
         LazyColumn(
             modifier = Modifier.fillMaxSize(),
             contentPadding = scaffoldPadding,
         ) {
-            countdownItems(state, sendEvent, dueDatePickerVisible)
+            countdownItems(state, sendEvent, dueDatePickerVisible, customReleaseCodeDialogVisible)
             launcherItems(state, sendEvent)
             infoItems(state, sendEvent)
         }
@@ -110,6 +122,47 @@ fun AppWidgetConfigurationScreen(
                 dueDatePickerVisible.value = false
             },
         )
+        if (customReleaseCodeDialogVisible.value) {
+            var releaseCode: String by rememberSaveable { mutableStateOf(state.customReleaseCode.orEmpty()) }
+            AlertDialog(
+                title = { Text(text = stringResource(R.string.pref_custom_release_code_dialog_title)) },
+                text = {
+                    OutlinedTextField(
+                        value = releaseCode,
+                        onValueChange = { releaseCode = it.take(MAX_CUSTOM_RELEASE_CODE_LENGTH) },
+                        label = stringResource(R.string.default_text),
+                        trailingIcon = if (releaseCode.isNotEmpty()) {
+                            {
+                                IconButton(onClick = { releaseCode = "" }) {
+                                    Icon(Icons.Filled.Clear, contentDescription = null)
+                                }
+                            }
+                        } else {
+                            null
+                        },
+                        counterMessage = "${releaseCode.length}/$MAX_CUSTOM_RELEASE_CODE_LENGTH",
+                    )
+                },
+                onDismissRequest = { customReleaseCodeDialogVisible.value = false },
+                confirmButton = {
+                    TextButton(
+                        onClick = {
+                            sendEvent(Event.OnCustomReleaseCodeSelected(releaseCode))
+                            customReleaseCodeDialogVisible.value = false
+                        },
+                    ) {
+                        Text(stringResource(android.R.string.ok))
+                    }
+                },
+                dismissButton = {
+                    TextButton(
+                        onClick = { customReleaseCodeDialogVisible.value = false },
+                    ) {
+                        Text(stringResource(android.R.string.cancel))
+                    }
+                },
+            )
+        }
     }
 }
 
@@ -117,6 +170,7 @@ private fun LazyListScope.countdownItems(
     state: State,
     sendEvent: (event: Event) -> Unit,
     dueDatePickerVisible: MutableState<Boolean>,
+    customReleaseCodeDialogVisible: MutableState<Boolean>,
 ) {
     item {
         SettingsGroup(
@@ -145,6 +199,16 @@ private fun LazyListScope.countdownItems(
             subtitle = { Text(text = state.customDate.toLocalizedDate()) },
             enabled = state.useCustomDate,
             onClick = { dueDatePickerVisible.value = true },
+        )
+    }
+    item(contentType = "SettingsMenuLink") {
+        SettingsMenuLink(
+            title = { Text(stringResource(R.string.pref_custom_release_code)) },
+            subtitle = {
+                Text(if (state.customReleaseCode.isNullOrBlank()) stringResource(R.string.default_text) else state.customReleaseCode)
+            },
+            enabled = state.useCustomDate,
+            onClick = { customReleaseCodeDialogVisible.value = true },
         )
     }
     item(contentType = "SettingsMenuSwitch") {
@@ -207,6 +271,8 @@ private fun LazyListScope.infoItems(
         )
     }
 }
+
+private const val MAX_CUSTOM_RELEASE_CODE_LENGTH = 16
 
 @DevicePreviews
 @Composable

@@ -28,6 +28,7 @@ object AppWidgetConfigurationContract {
         val releaseDate: LocalDate? = null,
         val useCustomDate: Boolean = false,
         val customDate: LocalDate = LocalDate.now(),
+        val customReleaseCode: String? = null,
         val useDarkTheme: Boolean = false,
         val showLauncherIcon: Boolean = true,
         val version: String = "",
@@ -35,6 +36,7 @@ object AppWidgetConfigurationContract {
 
     sealed class Event : ViewEvent {
         data class OnCustomDateSelected(val date: LocalDate) : Event()
+        data class OnCustomReleaseCodeSelected(val releaseCode: String) : Event()
         data class OnShowLauncherIconChanged(val enabled: Boolean) : Event()
         data class OnUseCustomDateChanged(val enabled: Boolean) : Event()
         data class OnUseDarkThemeChanged(val enabled: Boolean) : Event()

@@ -104,13 +104,14 @@ fun AppWidgetContent(
                     )
 
                     is AppWidgetState.ItIsHere -> Text(
-                        text = state.releaseNumber,
+                        text = state.release,
                         style = TextDefaults.defaultTextStyle.copy(
                             color = GlanceTheme.colors.primary,
-                            fontSize = size.value.sp / 3.1f,
+                            fontSize = size.value.sp / getMagicNumber(state.release),
                             fontWeight = FontWeight.Bold,
                             textAlign = TextAlign.Center,
                         ),
+                        maxLines = 1,
                     )
 
                     is AppWidgetState.Unavailable -> CircularProgressIndicator()
@@ -160,3 +161,6 @@ fun AppWidgetContent(
         }
     }
 }
+
+@Suppress("MagicNumber")
+private fun getMagicNumber(text: String): Float = 0.466667f * text.length + 0.766667f
