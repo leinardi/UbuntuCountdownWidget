@@ -20,6 +20,7 @@
     <string name="close">Chiudi</string>
     <string name="coming_soon">In arrivo</string>
     <string name="days_left">giorni…</string>
+    <string name="default_text">Default</string>
     <string name="info">Informazioni</string>
     <string name="its_here">È qui!</string>
     <string name="no_browser_installed">No web browser available on this device.</string>
@@ -28,6 +29,8 @@
     <string name="pref_custom_date">Seleziona data personalizzata</string>
     <string name="pref_custom_date_checkbox">Usa data personalizzata</string>
     <string name="pref_custom_date_checkbox_summary">Usa una data personalizzata per il countdown</string>
+    <string name="pref_custom_release_code">Select a custom release code</string>
+    <string name="pref_custom_release_code_dialog_title">Custom release code</string>
     <string name="pref_default_release_date">Data rilascio Ubuntu</string>
     <string name="pref_info_version">Versione</string>
     <string name="pref_info_version_error">Impossibile determinare la versione</string>

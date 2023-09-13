@@ -35,7 +35,7 @@ sealed class AppWidgetState {
     data class ItIsHere(
         override val appWidgetId: Int,
         override val darkTheme: Boolean,
-        val releaseNumber: String,
+        val release: String,
     ) : AppWidgetState()
 
     @Serializable

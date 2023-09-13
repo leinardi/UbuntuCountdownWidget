@@ -17,6 +17,7 @@
 package com.leinardi.ubuntucountdownwidget.appwidget
 
 import com.leinardi.ubuntucountdownwidget.interactor.GetCustomDateInteractor
+import com.leinardi.ubuntucountdownwidget.interactor.GetCustomReleaseCodeInteractor
 import com.leinardi.ubuntucountdownwidget.interactor.GetDaysLeftInteractor
 import com.leinardi.ubuntucountdownwidget.interactor.GetReleaseDateInteractor
 import com.leinardi.ubuntucountdownwidget.interactor.GetUseCustomDateInteractor
@@ -27,6 +28,7 @@ import javax.inject.Inject
 
 class AppWidgetStateProvider @Inject constructor(
     private val getCustomDateInteractor: GetCustomDateInteractor,
+    private val getCustomReleaseCodeInteractor: GetCustomReleaseCodeInteractor,
     private val getDaysLeftInteractor: GetDaysLeftInteractor,
     private val getReleaseDateInteractor: GetReleaseDateInteractor,
     private val getUseCustomDateInteractor: GetUseCustomDateInteractor,
@@ -37,6 +39,12 @@ class AppWidgetStateProvider @Inject constructor(
         val darkTheme = getUseDarkThemeInteractor()
         val releaseDate = if (getUseCustomDateInteractor()) getCustomDateInteractor() else getReleaseDateInteractor()
         val daysLeft = getDaysLeftInteractor(releaseDate)
+        val customReleaseCode = getCustomReleaseCodeInteractor()
+        val releaseNumber = if (getUseCustomDateInteractor() && customReleaseCode.isNotBlank()) {
+            customReleaseCode
+        } else {
+            @Suppress("MagicNumber") String.format(Locale.ROOT, "%02d.%02d", releaseDate.year % 100, releaseDate.monthValue)
+        }
         return when {
             daysLeft > 1 -> AppWidgetState.DaysLeft(
                 appWidgetId = appWidgetId,
@@ -47,7 +55,7 @@ class AppWidgetStateProvider @Inject constructor(
             daysLeft <= 0 -> AppWidgetState.ItIsHere(
                 appWidgetId = appWidgetId,
                 darkTheme = darkTheme,
-                releaseNumber = @Suppress("MagicNumber") String.format(Locale.ROOT, "%02d.%02d", releaseDate.year % 100, releaseDate.monthValue),
+                release = releaseNumber,
             )
 
             else -> AppWidgetState.ComingSoon(

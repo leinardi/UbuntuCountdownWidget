@@ -20,6 +20,7 @@
     <string name="close">Fechar</string>
     <string name="coming_soon">Logo será</string>
     <string name="days_left">Dias apenas</string>
+    <string name="default_text">Padrão</string>
     <string name="info">Info</string>
     <string name="its_here">Está aqui!</string>
     <string name="no_browser_installed">No web browser available on this device.</string>
@@ -28,6 +29,8 @@
     <string name="pref_custom_date">Selecione uma data personalizada</string>
     <string name="pref_custom_date_checkbox">Use uma data personalizada</string>
     <string name="pref_custom_date_checkbox_summary">Use uma data personalizada para a contagem regressiva</string>
+    <string name="pref_custom_release_code">Select a custom release code</string>
+    <string name="pref_custom_release_code_dialog_title">Custom release code</string>
     <string name="pref_default_release_date">Data de lançamento de Ubuntu</string>
     <string name="pref_info_version">Versão</string>
     <string name="pref_info_version_error">Não foi possível determinar a versão</string>

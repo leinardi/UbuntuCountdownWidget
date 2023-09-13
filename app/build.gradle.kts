@@ -101,13 +101,15 @@ if (serviceAccountCredentialsFile.exists()) {
 println("play-account.json ${if (serviceAccountCredentialsFile.exists()) "" else "NOT "}found!")
 
 //tasks.register("updateVersionFile") {
+//    notCompatibleWithConfigurationCache("I'm bad at Gradle")
 //    doLast {
-//        project.rootProject.file("version.txt").text =
-//            "${project.android.defaultConfig.versionName}+${project.android.defaultConfig.versionCode}\n"
+//        project.rootProject
+//            .file("version.txt")
+//            .writeText("${project.android.defaultConfig.versionName}+${project.android.defaultConfig.versionCode}\n")
 //    }
 //}
 //
-//preBuild.dependsOn(updateVersionFile)
+//tasks.named("preBuild").dependsOn("updateVersionFile")
 
 dependencies {
     implementation(libs.aboutlibraries)

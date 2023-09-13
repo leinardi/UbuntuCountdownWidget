@@ -19,12 +19,14 @@ package com.leinardi.ubuntucountdownwidget.ui.configuration
 import androidx.lifecycle.viewModelScope
 import com.leinardi.ubuntucountdownwidget.interactor.GetAppVersionInteractor
 import com.leinardi.ubuntucountdownwidget.interactor.GetCustomDateStreamInteractor
+import com.leinardi.ubuntucountdownwidget.interactor.GetCustomReleaseCodeInteractor
 import com.leinardi.ubuntucountdownwidget.interactor.GetReleaseDateInteractor
 import com.leinardi.ubuntucountdownwidget.interactor.GetUseCustomDateStreamInteractor
 import com.leinardi.ubuntucountdownwidget.interactor.GetUseDarkThemeStreamInteractor
 import com.leinardi.ubuntucountdownwidget.interactor.OpenUrlInWebBrowserInteractor
 import com.leinardi.ubuntucountdownwidget.interactor.ReadShowLauncherIconInteractor
 import com.leinardi.ubuntucountdownwidget.interactor.StoreCustomDateInteractor
+import com.leinardi.ubuntucountdownwidget.interactor.StoreCustomReleaseCodeInteractor
 import com.leinardi.ubuntucountdownwidget.interactor.StoreShowLauncherIconInteractor
 import com.leinardi.ubuntucountdownwidget.interactor.StoreUseCustomDateInteractor
 import com.leinardi.ubuntucountdownwidget.interactor.StoreUseDarkThemeInteractor
@@ -44,18 +46,26 @@ class AppWidgetConfigurationViewModel @Inject constructor(
     getUseCustomDateStreamInteractor: GetUseCustomDateStreamInteractor,
     getUseDarkThemeStreamInteractor: GetUseDarkThemeStreamInteractor,
     private val getAppVersionInteractor: GetAppVersionInteractor,
+    private val getCustomReleaseCodeInteractor: GetCustomReleaseCodeInteractor,
     private val getReleaseDateInteractor: GetReleaseDateInteractor,
     private val readShowLauncherIconInteractor: ReadShowLauncherIconInteractor,
     private val openUrlInWebBrowserInteractor: OpenUrlInWebBrowserInteractor,
     private val storeCustomDateInteractor: StoreCustomDateInteractor,
     private val storeUseCustomDateInteractor: StoreUseCustomDateInteractor,
+    private val storeCustomReleaseCodeInteractor: StoreCustomReleaseCodeInteractor,
     private val storeUseDarkThemeInteractor: StoreUseDarkThemeInteractor,
     private val storeShowLauncherIconInteractor: StoreShowLauncherIconInteractor,
 ) : BaseViewModel<Event, State, Effect>() {
     init {
         viewModelScope.launch {
             val releaseDate = getReleaseDateInteractor()
-            updateState { copy(releaseDate = releaseDate) }
+            val customReleaseCode = getCustomReleaseCodeInteractor()
+            updateState {
+                copy(
+                    releaseDate = releaseDate,
+                    customReleaseCode = customReleaseCode,
+                )
+            }
         }
         getCustomDateStreamInteractor().onEach {
             updateState { copy(customDate = it) }
@@ -78,11 +88,17 @@ class AppWidgetConfigurationViewModel @Inject constructor(
             when (event) {
                 is Event.OnBugReportClicked -> openUrlInWebBrowserInteractor(REPORT_A_BUG_URL)
                 is Event.OnCustomDateSelected -> storeCustomDateInteractor(event.date)
+                is Event.OnCustomReleaseCodeSelected -> handleOnCustomReleaseCodeSelected(event.releaseCode)
                 is Event.OnShowLauncherIconChanged -> handleOnShowLauncherIconChanged(event.enabled)
                 is Event.OnUseCustomDateChanged -> storeUseCustomDateInteractor(event.enabled)
                 is Event.OnUseDarkThemeChanged -> storeUseDarkThemeInteractor(event.enabled)
             }
         }
+    }
+
+    private suspend fun handleOnCustomReleaseCodeSelected(releaseCode: String) {
+        storeCustomReleaseCodeInteractor(releaseCode)
+        updateState { copy(customReleaseCode = releaseCode) }
     }
 
     private fun handleOnShowLauncherIconChanged(enabled: Boolean) {

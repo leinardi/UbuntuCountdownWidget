@@ -12,9 +12,9 @@ Keep an eye on the days remaining before the new Ubuntu release!
      height="80">](https://play.google.com/store/apps/details?id=com.leinardi.ubuntucountdownwidget)
 
 ## Features
-* Two square widgets (1x1 and 2x2)
+* A resizeable square widget
 * Option to set a custom release date
-* Built with an eye on battery consumption (widget refresh at most twice a day)
+* Built with an eye on battery consumption (widget refresh once per day)
 
 ## Acknowledgements
 I would like to thank all of those who directly or indirectly contributed to the creation of this software.
