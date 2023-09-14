@@ -1,0 +1,1 @@
+ - Full rewrite of the App Widget with Glance
