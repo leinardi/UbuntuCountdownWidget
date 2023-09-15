@@ -100,17 +100,6 @@ if (serviceAccountCredentialsFile.exists()) {
 }
 println("play-account.json ${if (serviceAccountCredentialsFile.exists()) "" else "NOT "}found!")
 
-//tasks.register("updateVersionFile") {
-//    notCompatibleWithConfigurationCache("I'm bad at Gradle")
-//    doLast {
-//        project.rootProject
-//            .file("version.txt")
-//            .writeText("${project.android.defaultConfig.versionName}+${project.android.defaultConfig.versionCode}\n")
-//    }
-//}
-//
-//tasks.named("preBuild").dependsOn("updateVersionFile")
-
 dependencies {
     implementation(libs.aboutlibraries)
     implementation(libs.aboutlibraries.core)
@@ -138,7 +127,6 @@ dependencies {
     implementation(libs.androidx.paging)
     implementation(libs.coil.compose)
     implementation(libs.kotlinx.serialization)
-    implementation(libs.material)
     implementation(libs.material)
     implementation(libs.okhttp3.logging.interceptor)
     implementation(libs.retrofit)

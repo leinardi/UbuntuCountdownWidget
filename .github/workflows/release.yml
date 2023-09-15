@@ -105,6 +105,9 @@ jobs:
           name: build-outputs
           path: app/build/outputs
 
+      - name: Generating version.txt for F-Droid
+        run: scripts/generateFDroidVersionFile.sh
+
       - name: Create GitHub release
         uses: softprops/action-gh-release@v1
         with:
@@ -114,6 +117,7 @@ jobs:
           files: |
             app/build/outputs/apk/release/ubuntucountdownwidget-release.apk
             app/build/outputs/bundle/release/ubuntucountdownwidget-release.aab
+            version.txt
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
