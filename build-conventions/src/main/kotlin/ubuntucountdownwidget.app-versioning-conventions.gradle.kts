@@ -33,6 +33,6 @@ appVersioning {
         version + epoch
     }
     overrideVersionName { gitTag, _, variantInfo ->
-        "${gitTag.rawTagName}${if (variantInfo.buildType == "debug") "-dev" else ""} (${gitTag.commitHash})"
+        "${gitTag.rawTagName}${if (variantInfo.buildType == "debug") "-dev" else ""}"
     }
 }
