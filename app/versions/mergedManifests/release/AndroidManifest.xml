@@ -221,16 +221,16 @@
             </intent-filter>
         </receiver>
 
-        <service
-            android:name="androidx.core.widget.RemoteViewsCompatService"
-            android:permission="android.permission.BIND_REMOTEVIEWS" />
-
         <uses-library
             android:name="androidx.window.extensions"
             android:required="false" />
         <uses-library
             android:name="androidx.window.sidecar"
             android:required="false" />
+
+        <service
+            android:name="androidx.core.widget.RemoteViewsCompatService"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
 
         <activity
             android:name="androidx.compose.ui.tooling.PreviewActivity"

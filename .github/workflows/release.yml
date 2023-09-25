@@ -98,15 +98,17 @@ jobs:
         if: always()
         run: ./release/clean-secrets.sh
 
+      - name: Generating version.txt for F-Droid
+        run: scripts/generateFDroidVersionFile.sh
+
       - name: Upload build outputs
         if: always()
         uses: actions/upload-artifact@v3
         with:
           name: build-outputs
-          path: app/build/outputs
-
-      - name: Generating version.txt for F-Droid
-        run: scripts/generateFDroidVersionFile.sh
+          path: |
+            app/build/outputs
+            version_name.txt
 
       - name: Create GitHub release
         uses: softprops/action-gh-release@v1
