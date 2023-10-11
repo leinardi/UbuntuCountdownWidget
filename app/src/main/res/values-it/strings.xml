@@ -23,14 +23,14 @@
     <string name="default_text">Default</string>
     <string name="info">Informazioni</string>
     <string name="its_here">È qui!</string>
-    <string name="no_browser_installed">No web browser available on this device.</string>
+    <string name="no_browser_installed">Nessun browser disponibile nel dispositivo.</string>
     <string name="open_source_licenses">Licenze Open Source</string>
     <string name="pref_countdown_options">Opzioni countdown</string>
     <string name="pref_custom_date">Seleziona data personalizzata</string>
     <string name="pref_custom_date_checkbox">Usa data personalizzata</string>
     <string name="pref_custom_date_checkbox_summary">Usa una data personalizzata per il countdown</string>
-    <string name="pref_custom_release_code">Select a custom release code</string>
-    <string name="pref_custom_release_code_dialog_title">Custom release code</string>
+    <string name="pref_custom_release_code">Scegli un codice di rilascio personalizzato</string>
+    <string name="pref_custom_release_code_dialog_title">Codice di rilascio personalizzato</string>
     <string name="pref_default_release_date">Data rilascio Ubuntu</string>
     <string name="pref_info_version">Versione</string>
     <string name="pref_info_version_error">Impossibile determinare la versione</string>
