@@ -47,16 +47,16 @@ import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.leinardi.ubuntucountdownwidget.R
 import com.leinardi.ubuntucountdownwidget.ext.toLocalizedDate
-import com.leinardi.ubuntucountdownwidget.ui.annotation.DevicePreviews
 import com.leinardi.ubuntucountdownwidget.ui.component.DatePickerDialog
 import com.leinardi.ubuntucountdownwidget.ui.component.LocalNavHostController
 import com.leinardi.ubuntucountdownwidget.ui.component.OutlinedTextField
 import com.leinardi.ubuntucountdownwidget.ui.component.SettingsGroup
 import com.leinardi.ubuntucountdownwidget.ui.component.SettingsMenuLink
 import com.leinardi.ubuntucountdownwidget.ui.component.SettingsMenuSwitch
-import com.leinardi.ubuntucountdownwidget.ui.component.placeholder
+import com.leinardi.ubuntucountdownwidget.ui.component.placeholder.placeholder
 import com.leinardi.ubuntucountdownwidget.ui.configuration.AppWidgetConfigurationContract.Event
 import com.leinardi.ubuntucountdownwidget.ui.configuration.AppWidgetConfigurationContract.State
+import com.leinardi.ubuntucountdownwidget.ui.preview.PreviewDevices
 import com.leinardi.ubuntucountdownwidget.ui.theme.AppTheme
 import com.leinardi.ubuntucountdownwidget.ui.theme.settingsContainer
 import com.leinardi.ubuntucountdownwidget.ui.theme.settingsContent
@@ -274,9 +274,9 @@ private fun LazyListScope.infoItems(
 
 private const val MAX_CUSTOM_RELEASE_CODE_LENGTH = 16
 
-@DevicePreviews
+@PreviewDevices
 @Composable
-fun PreviewAppWidgetConfigurationScreen() {
+private fun PreviewAppWidgetConfigurationScreen() {
     AppTheme {
         AppWidgetConfigurationScreen(State(LocalDate.now()), {})
     }

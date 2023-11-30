@@ -13,19 +13,9 @@
  * You should have received a copy of the GNU General Public License along with this
  * program.  If not, see <http://www.gnu.org/licenses/>.
  */
-tasks {
-    register<Copy>("copyMergedManifests") {
-        dependsOn(tasks.matching { it.name matches "^process.*Manifest$".toRegex() })
-        mustRunAfter(tasks.matching { it.name matches "^process.*Manifest$".toRegex() })
-        mkdir("versions/mergedManifests")
-        from(layout.buildDirectory.dir("intermediates/merged_manifests")) {
-            include("**/*.xml")
-        }
-        into("versions/mergedManifests")
-        filter { line -> line.replace("(android:version.*=\".*\")|(android:testOnly=\".*\")".toRegex(), "") }
-    }
 
-    named("check") {
-        dependsOn(tasks.named("copyMergedManifests"))
-    }
-}
+package com.leinardi.ubuntucountdownwidget.ui.preview
+
+import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
+
+fun loremIpsum(words: Int): String = LoremIpsum(words).values.joinToString(" ")

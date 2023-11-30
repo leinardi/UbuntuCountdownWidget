@@ -13,10 +13,10 @@
  * You should have received a copy of the GNU General Public License along with this
  * program.  If not, see <http://www.gnu.org/licenses/>.
  */
-import com.project.starter.easylauncher.filter.ChromeLikeFilter
-import org.gradle.accessors.dm.LibrariesForLibs
 import com.mikepenz.aboutlibraries.plugin.DuplicateMode
 import com.mikepenz.aboutlibraries.plugin.DuplicateRule
+import com.project.starter.easylauncher.filter.ChromeLikeFilter
+import org.gradle.accessors.dm.LibrariesForLibs
 
 plugins {
     id("com.android.application")
@@ -63,8 +63,8 @@ easylauncher {
                     gravity = ChromeLikeFilter.Gravity.TOP,
                     label = "DEBUG",
                     textSizeRatio = 0.20f,
-                    labelPadding = 10
-                )
+                    labelPadding = 10,
+                ),
             )
         }
     }
@@ -85,12 +85,12 @@ dependencies {
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.coroutines.android)
     implementation(libs.coroutines.core)
-    implementation(libs.hilt.android)
-    implementation(libs.hilt.navigation.compose)
+    implementation(libs.dagger.hilt.android)
+    implementation(libs.androidx.hilt.navigation.compose)
     implementation(libs.kotlin.result)
     implementation(libs.kotlinx.collections.immutable)
     implementation(libs.timber)
-    kapt(libs.hilt.compiler)
+    kapt(libs.dagger.hilt.compiler)
 
     androidTestUtil(libs.androidx.test.orchestrator)
 }

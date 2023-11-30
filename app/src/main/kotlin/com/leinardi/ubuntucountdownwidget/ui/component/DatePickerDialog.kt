@@ -29,7 +29,7 @@ import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import com.leinardi.ubuntucountdownwidget.ui.annotation.ThemePreviews
+import com.leinardi.ubuntucountdownwidget.ui.preview.PreviewThemes
 import com.leinardi.ubuntucountdownwidget.ui.theme.AppTheme
 import com.leinardi.ubuntucountdownwidget.ui.theme.Spacing
 
@@ -75,7 +75,7 @@ fun DatePickerDialog(
     }
 }
 
-@ThemePreviews
+@PreviewThemes
 @Composable
 private fun PreviewDatePickerDialog() {
     AppTheme {

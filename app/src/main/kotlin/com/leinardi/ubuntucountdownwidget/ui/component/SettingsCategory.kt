@@ -38,7 +38,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
-import com.leinardi.ubuntucountdownwidget.ui.annotation.ThemePreviews
+import com.leinardi.ubuntucountdownwidget.ui.preview.PreviewThemes
 import com.leinardi.ubuntucountdownwidget.ui.theme.AppTheme
 import com.leinardi.ubuntucountdownwidget.ui.theme.Spacing
 
@@ -76,7 +76,7 @@ fun SettingsCategory(
     }
 }
 
-@ThemePreviews
+@PreviewThemes
 @Composable
 private fun PreviewSettingsCategory() {
     AppTheme {
@@ -86,7 +86,7 @@ private fun PreviewSettingsCategory() {
     }
 }
 
-@ThemePreviews
+@PreviewThemes
 @Composable
 private fun PreviewSettingsCategorySubtitle() {
     AppTheme {
@@ -97,7 +97,7 @@ private fun PreviewSettingsCategorySubtitle() {
     }
 }
 
-@ThemePreviews
+@PreviewThemes
 @Composable
 private fun PreviewSettingsCategorySelected() {
     AppTheme {
@@ -109,7 +109,7 @@ private fun PreviewSettingsCategorySelected() {
     }
 }
 
-@ThemePreviews
+@PreviewThemes
 @Composable
 private fun PreviewSettingsCategoryIcon() {
     AppTheme {
@@ -121,7 +121,7 @@ private fun PreviewSettingsCategoryIcon() {
     }
 }
 
-@ThemePreviews
+@PreviewThemes
 @Composable
 private fun PreviewSettingsCategoryIconSelected() {
     AppTheme {

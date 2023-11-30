@@ -29,7 +29,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.leinardi.ubuntucountdownwidget.ui.annotation.ThemePreviews
+import com.leinardi.ubuntucountdownwidget.ui.preview.PreviewThemes
 import com.leinardi.ubuntucountdownwidget.ui.theme.AppTheme
 import com.leinardi.ubuntucountdownwidget.ui.theme.Spacing
 
@@ -63,7 +63,7 @@ internal fun SettingsGroupTitle(
     }
 }
 
-@ThemePreviews
+@PreviewThemes
 @Composable
 private fun PreviewSettingsGroup() {
     AppTheme {

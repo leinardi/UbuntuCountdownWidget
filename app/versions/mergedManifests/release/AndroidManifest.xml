@@ -13,11 +13,11 @@
   ~
   ~ You should have received a copy of the GNU General Public License along with this
   ~ program.  If not, see <http://www.gnu.org/licenses/>.
--->
+  -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.leinardi.ubuntucountdownwidget"
     android:installLocation="internalOnly"
-    
+
      >
 
     <uses-sdk
@@ -221,16 +221,16 @@
             </intent-filter>
         </receiver>
 
+        <service
+            android:name="androidx.core.widget.RemoteViewsCompatService"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
+
         <uses-library
             android:name="androidx.window.extensions"
             android:required="false" />
         <uses-library
             android:name="androidx.window.sidecar"
             android:required="false" />
-
-        <service
-            android:name="androidx.core.widget.RemoteViewsCompatService"
-            android:permission="android.permission.BIND_REMOTEVIEWS" />
 
         <activity
             android:name="androidx.compose.ui.tooling.PreviewActivity"

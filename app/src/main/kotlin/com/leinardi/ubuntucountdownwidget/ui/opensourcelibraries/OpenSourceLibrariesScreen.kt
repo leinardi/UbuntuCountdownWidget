@@ -60,8 +60,8 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
 import androidx.constraintlayout.compose.Visibility
 import com.leinardi.ubuntucountdownwidget.R
-import com.leinardi.ubuntucountdownwidget.ui.annotation.DevicePreviews
 import com.leinardi.ubuntucountdownwidget.ui.component.LocalNavHostController
+import com.leinardi.ubuntucountdownwidget.ui.preview.PreviewDevices
 import com.leinardi.ubuntucountdownwidget.ui.theme.AppTheme
 import com.leinardi.ubuntucountdownwidget.ui.theme.Spacing
 import com.mikepenz.aboutlibraries.Libs
@@ -240,7 +240,7 @@ private fun LibraryItem(
     }
 }
 
-@DevicePreviews
+@PreviewDevices
 @Composable
 private fun PreviewOpenSourceLibrariesScreen() {
     val lib = Library(

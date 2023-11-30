@@ -29,7 +29,7 @@ dependencies {
     implementation(libs.plugin.appversioning)
     implementation(libs.plugin.detekt)
     implementation(libs.plugin.easylauncher)
-    implementation(libs.plugin.hilt)
+    implementation(libs.plugin.dagger.hilt)
     implementation(libs.plugin.kotlin)
     implementation(libs.plugin.ruler)
     implementation(libs.plugin.spotless)

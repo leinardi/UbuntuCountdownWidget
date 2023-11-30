@@ -700,7 +700,6 @@ naming:
   EnumNaming:
     active: true
     enumEntryPattern: '[A-Z][_A-Z0-9]*' # Custom
-    excludes: []
   ForbiddenClassName:
     active: false
     forbiddenName: []
@@ -1187,9 +1186,9 @@ style:
     active: true
     allowedNames: '(_|ignored|expected|serialVersionUID)'
     ignoreAnnotated: # Custom
-      - 'DevicePreviews'
       - 'Preview'
-      - 'ThemePreviews'
+      - 'PreviewDevices'
+      - 'PreviewThemes'
   UnusedPrivateProperty:
     active: true
     allowedNames: '_|ignored|expected|serialVersionUID'
@@ -1259,7 +1258,9 @@ compose:
   ComposeFunctionName:
     active: true
 
-TwitterCompose:
+Compose:
+  ComposableAnnotationNaming:
+    active: true
   CompositionLocalAllowlist:
     active: false # Custom
     # You can optionally define a list of CompositionLocals that are allowed here
@@ -1270,10 +1271,23 @@ TwitterCompose:
     active: true
     # You can optionally add your own composables here
     # contentEmitters: MyComposable,MyOtherComposable
+  DefaultsVisibility:
+    active: true
+  ModifierClickableOrder:
+    active: true
   ModifierComposable:
     active: true
   ModifierMissing:
     active: true
+    # You can optionally control the visibility of which composables to check for here
+    # Possible values are: `only_public`, `public_and_internal` and `all` (default is `only_public`)
+    # checkModifiersForVisibility: only_public
+  ModifierNaming:
+    active: true
+  ModifierNotUsedAtRoot:
+    active: true
+    # You can optionally add your own composables here
+    # contentEmitters: MyComposable,MyOtherComposable
   ModifierReused:
     active: true
   ModifierWithoutDefault:
@@ -1283,24 +1297,28 @@ TwitterCompose:
     # You can optionally add your own composables here
     # contentEmitters: MyComposable,MyOtherComposable
   MutableParams:
-    active: false # Custom
+    active: false # Custom https://github.com/mrmans0n/compose-rules/issues/133
   ComposableNaming:
     active: true
     # You can optionally disable the checks in this rule for regex matches against the composable name (e.g. molecule presenters)
     # allowedComposableFunctionNames: .*Presenter,.*MoleculePresenter
   ComposableParamOrder:
     active: true
-  PreviewNaming:
+  PreviewAnnotationNaming:
     active: true
   PreviewPublic:
     active: true
-    # You can optionally disable that only previews with @PreviewParameter are flagged
-    # previewPublicOnlyIfParams: false
   RememberMissing:
+    active: true
+  RememberContentMissing:
     active: true
   UnstableCollections:
     active: true
   ViewModelForwarding:
     active: true
+    # You can optionally use this rule on things other than types ending in "ViewModel" or "Presenter" (which are the defaults). You can add your own via a regex here:
+    # allowedStateHolderNames: .*ViewModel,.*Presenter
   ViewModelInjection:
     active: true
+    # You can optionally add your own ViewModel factories here
+    # viewModelFactories: hiltViewModel,potatoViewModel
