@@ -20,14 +20,14 @@ decrypt() {
   PASSPHRASE=$1
   INPUT=$2
   OUTPUT=$3
-  gpg --quiet --batch --yes --decrypt --passphrase="$PASSPHRASE" --output $OUTPUT $INPUT
+  gpg --quiet --batch --yes --decrypt --passphrase="$PASSPHRASE" --output "$OUTPUT" "$INPUT"
 }
 
-if [[ ! -z "$ENCRYPT_KEY" ]]; then
+if [[ -n "$ENCRYPT_KEY" ]]; then
   # Decrypt Release key
-  decrypt ${ENCRYPT_KEY} release/app-release.gpg release/app-release.jks
+  decrypt "${ENCRYPT_KEY}" release/app-release.gpg release/app-release.jks
   # Decrypt Play Store key
-  decrypt ${ENCRYPT_KEY} release/play-account.gpg release/play-account.json
+  decrypt "${ENCRYPT_KEY}" release/play-account.gpg release/play-account.json
 else
   echo "ENCRYPT_KEY is empty"
 fi

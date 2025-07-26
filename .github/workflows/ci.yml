@@ -22,21 +22,21 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
       - name: Setup JDK
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: 17.0.7
 
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
       - name: Copy CI gradle.properties
         run: mkdir -p ~/.gradle ; cp .github/ci-gradle.properties ~/.gradle/gradle.properties
-
-      - name: Validate gradle wrapper
-        uses: gradle/wrapper-validation-action@v1
 
       ## This is needed by secrets-gradle-plugin
       - name: Create Local Properties File
@@ -81,19 +81,19 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup JDK
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: 17.0.7
 
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
       - name: Copy CI gradle.properties
         run: mkdir -p ~/.gradle ; cp .github/ci-gradle.properties ~/.gradle/gradle.properties
-
-      - name: Validate gradle wrapper
-        uses: gradle/wrapper-validation-action@v1
 
       ## This is needed by secrets-gradle-plugin
       - name: Create Local Properties File
@@ -108,7 +108,7 @@ jobs:
 
       - name: Archiving violations report
         if: ${{ always() && github.event_name == 'pull_request' }}
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: violations-build-debug
           path: ./**/build/logs/buildlog*.txt
@@ -122,21 +122,21 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
       - name: Setup JDK
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: 17.0.7
 
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
       - name: Copy CI gradle.properties
         run: mkdir -p ~/.gradle ; cp .github/ci-gradle.properties ~/.gradle/gradle.properties
-
-      - name: Validate gradle wrapper
-        uses: gradle/wrapper-validation-action@v1
 
       ## This is needed by secrets-gradle-plugin
       - name: Create Local Properties File
@@ -161,7 +161,7 @@ jobs:
 
       # Disable due to https://github.com/spotify/ruler/issues/116
       # - name: Upload Ruler report
-      #   uses: actions/upload-artifact@v3
+      #   uses: actions/upload-artifact@v4
       #   with:
       #     name: ruler
       #     path: app/build/reports/ruler
@@ -175,19 +175,19 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup JDK
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: 17.0.7
 
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
       - name: Copy CI gradle.properties
         run: mkdir -p ~/.gradle ; cp .github/ci-gradle.properties ~/.gradle/gradle.properties
-
-      - name: Validate gradle wrapper
-        uses: gradle/wrapper-validation-action@v1
 
       ## This is needed by secrets-gradle-plugin
       - name: Create Local Properties File
@@ -201,7 +201,7 @@ jobs:
 
       - name: Archiving violations report
         if: ${{ always() && github.event_name == 'pull_request' }}
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: violations-detekt
           path: ./**/reports/detekt/*.xml
@@ -215,19 +215,19 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup JDK
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: 17.0.7
 
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
       - name: Copy CI gradle.properties
         run: mkdir -p ~/.gradle ; cp .github/ci-gradle.properties ~/.gradle/gradle.properties
-
-      - name: Validate gradle wrapper
-        uses: gradle/wrapper-validation-action@v1
 
       ## This is needed by secrets-gradle-plugin
       - name: Create Local Properties File
@@ -248,19 +248,19 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup JDK
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: 17.0.7
 
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
       - name: Copy CI gradle.properties
         run: mkdir -p ~/.gradle ; cp .github/ci-gradle.properties ~/.gradle/gradle.properties
-
-      - name: Validate gradle wrapper
-        uses: gradle/wrapper-validation-action@v1
 
       ## This is needed by secrets-gradle-plugin
       - name: Create Local Properties File
@@ -274,14 +274,14 @@ jobs:
 
       - name: Upload Lint results
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: android-lint-html-report
           path: ./**/build/reports/lint-results-*.html
 
       - name: Archiving violations report
         if: ${{ always() && github.event_name == 'pull_request' }}
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: violations-android-lint
           path: ./**/reports/lint-results*.xml
@@ -295,19 +295,19 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup JDK
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: 17.0.7
 
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
       - name: Copy CI gradle.properties
         run: mkdir -p ~/.gradle ; cp .github/ci-gradle.properties ~/.gradle/gradle.properties
-
-      - name: Validate gradle wrapper
-        uses: gradle/wrapper-validation-action@v1
 
       ## This is needed by secrets-gradle-plugin
       - name: Create Local Properties File
@@ -321,7 +321,7 @@ jobs:
 
       - name: Archiving violations report
         if: ${{ always() && github.event_name == 'pull_request' }}
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: violations-unit-tests
           path: ./**/build/test-results/test*/*.xml
@@ -337,42 +337,42 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup JDK
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: 17.0.7
 
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
       - name: Copy CI gradle.properties
         run: mkdir -p ~/.gradle ; cp .github/ci-gradle.properties ~/.gradle/gradle.properties
-
-      - name: Validate gradle wrapper
-        uses: gradle/wrapper-validation-action@v1
 
       ## This is needed by secrets-gradle-plugin
       - name: Create Local Properties File
         run: touch local.properties
 
       - name: Fetching build-debug result
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: violations-build-debug
 
       - name: Fetching detekt result
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: violations-detekt
 
       - name: Fetching android-lint result
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: violations-android-lint
 
       # Uncomment once there are unit tests
       #      - name: Fetching unit-tests result
-      #        uses: actions/download-artifact@v3
+      #        uses: actions/download-artifact@v4
       #        with:
       #          name: violations-unit-tests
 
