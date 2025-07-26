@@ -40,7 +40,7 @@ detekt {
 dependencies {
     detektPlugins(libs.detekt)
     detektPlugins(libs.detekt.rules.compose)
-    detektPlugins(libs.detekt.twitter.compose.rules)
+    detektPlugins(libs.detekt.nlopez.compose.rules)
 }
 
 tasks {

@@ -34,7 +34,7 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.leinardi.ubuntucountdownwidget.ui.annotation.ThemePreviews
+import com.leinardi.ubuntucountdownwidget.ui.preview.PreviewThemes
 import com.leinardi.ubuntucountdownwidget.ui.theme.AppTheme
 import com.leinardi.ubuntucountdownwidget.ui.theme.Spacing
 
@@ -107,7 +107,7 @@ internal fun SettingsTileSubtitle(subtitle: @Composable () -> Unit) {
     }
 }
 
-@ThemePreviews
+@PreviewThemes
 @Composable
 private fun PreviewSettingsIcon() {
     AppTheme {
@@ -117,7 +117,7 @@ private fun PreviewSettingsIcon() {
     }
 }
 
-@ThemePreviews
+@PreviewThemes
 @Composable
 private fun PreviewSettingsIconPreviewEmpty() {
     AppTheme {

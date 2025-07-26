@@ -14,69 +14,75 @@
  * program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.leinardi.ubuntucountdownwidget.ui.annotation
+package com.leinardi.ubuntucountdownwidget.ui.preview
 
 import android.content.res.Configuration
+import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 
 /**
  * Multipreview annotation that represents various device sizes. Add this annotation to a composable
  * to render various devices.
  */
+@Retention(AnnotationRetention.BINARY)
+@Target(
+    AnnotationTarget.ANNOTATION_CLASS,
+    AnnotationTarget.FUNCTION,
+)
 @Preview(
     name = "1. Phone - Light theme",
-    device = "spec:shape=Normal,width=360,height=640,unit=dp,dpi=480",
+    device = Devices.NEXUS_5,
     uiMode = Configuration.UI_MODE_NIGHT_NO,
     showBackground = true,
     backgroundColor = 0xFFFBFCFF,
 )
 @Preview(
     name = "2. Phone - Dark theme",
-    device = "spec:shape=Normal,width=360,height=640,unit=dp,dpi=480",
+    device = Devices.NEXUS_5,
     uiMode = Configuration.UI_MODE_NIGHT_YES,
     showBackground = true,
     backgroundColor = 0xFF001E2E,
 )
 @Preview(
     name = "3. Landscape - Light theme",
-    device = "spec:shape=Normal,width=640,height=360,unit=dp,dpi=480",
+    device = "spec:shape=Normal,width=640,height=360,unit=dp,orientation=landscape,dpi=480",
     uiMode = Configuration.UI_MODE_NIGHT_NO,
     showBackground = true,
     backgroundColor = 0xFFFBFCFF,
 )
 @Preview(
     name = "4. Landscape - Dark theme",
-    device = "spec:shape=Normal,width=640,height=360,unit=dp,dpi=480",
+    device = "spec:shape=Normal,width=640,height=360,unit=dp,orientation=landscape,dpi=480",
     uiMode = Configuration.UI_MODE_NIGHT_YES,
     showBackground = true,
     backgroundColor = 0xFF001E2E,
 )
 @Preview(
-    name = "5. Foldable - Light theme",
-    device = "spec:shape=Normal,width=673,height=841,unit=dp,dpi=480",
+    name = "5. Unfolded Foldable - Light theme",
+    device = Devices.FOLDABLE,
     uiMode = Configuration.UI_MODE_NIGHT_NO,
     showBackground = true,
     backgroundColor = 0xFFFBFCFF,
 )
 @Preview(
-    name = "6. Foldable - Dark theme",
-    device = "spec:shape=Normal,width=673,height=841,unit=dp,dpi=480",
+    name = "6. Unfolded Foldable - Dark theme",
+    device = Devices.FOLDABLE,
     uiMode = Configuration.UI_MODE_NIGHT_YES,
     showBackground = true,
     backgroundColor = 0xFF001E2E,
 )
 @Preview(
     name = "7. Tablet - Light theme",
-    device = "spec:shape=Normal,width=1280,height=800,unit=dp,dpi=480",
+    device = Devices.TABLET,
     uiMode = Configuration.UI_MODE_NIGHT_NO,
     showBackground = true,
     backgroundColor = 0xFFFBFCFF,
 )
 @Preview(
     name = "8. Tablet - Dark theme",
-    device = "spec:shape=Normal,width=1280,height=800,unit=dp,dpi=480",
+    device = Devices.TABLET,
     uiMode = Configuration.UI_MODE_NIGHT_YES,
     showBackground = true,
     backgroundColor = 0xFF001E2E,
 )
-annotation class DevicePreviews
+annotation class PreviewDevices

@@ -46,8 +46,8 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
-import com.leinardi.ubuntucountdownwidget.ui.annotation.ThemePreviews
 import com.leinardi.ubuntucountdownwidget.ui.constraintlayout.goneIf
+import com.leinardi.ubuntucountdownwidget.ui.preview.PreviewThemes
 import com.leinardi.ubuntucountdownwidget.ui.theme.AppTheme
 import com.leinardi.ubuntucountdownwidget.ui.theme.Spacing
 
@@ -161,7 +161,7 @@ fun OutlinedTextField(
     }
 }
 
-@ThemePreviews
+@PreviewThemes
 @Composable
 private fun PreviewOutlinedTextField() {
     AppTheme {
@@ -169,7 +169,7 @@ private fun PreviewOutlinedTextField() {
     }
 }
 
-@ThemePreviews
+@PreviewThemes
 @Composable
 private fun PreviewOutlinedTextFieldEmpty() {
     AppTheme {
@@ -177,7 +177,7 @@ private fun PreviewOutlinedTextFieldEmpty() {
     }
 }
 
-@ThemePreviews
+@PreviewThemes
 @Composable
 private fun PreviewOutlinedTextFieldEmptyHelperMessage() {
     AppTheme {
@@ -185,7 +185,7 @@ private fun PreviewOutlinedTextFieldEmptyHelperMessage() {
     }
 }
 
-@ThemePreviews
+@PreviewThemes
 @Composable
 private fun PreviewOutlinedTextFieldEmptyHelperMessageCounterMessage() {
     AppTheme {
@@ -193,7 +193,7 @@ private fun PreviewOutlinedTextFieldEmptyHelperMessageCounterMessage() {
     }
 }
 
-@ThemePreviews
+@PreviewThemes
 @Composable
 private fun PreviewOutlinedTextFieldErrorMessage() {
     AppTheme {
@@ -201,7 +201,7 @@ private fun PreviewOutlinedTextFieldErrorMessage() {
     }
 }
 
-@ThemePreviews
+@PreviewThemes
 @Composable
 private fun PreviewOutlinedTextFieldErrorMessageCounterMessage() {
     AppTheme {

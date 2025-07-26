@@ -55,12 +55,13 @@ object AppWidgetStateDefinition : GlanceStateDefinition<AppWidgetState> {
             defaultValue
         }
 
-        override suspend fun writeTo(state: AppWidgetState, output: OutputStream) {
+        @Suppress("IDENTIFIER_LENGTH")
+        override suspend fun writeTo(t: AppWidgetState, output: OutputStream) {
             output.use { outputStream ->
                 outputStream.write(
                     Json.encodeToString(
                         AppWidgetState.serializer(),
-                        state,
+                        t,
                     ).encodeToByteArray(),
                 )
             }

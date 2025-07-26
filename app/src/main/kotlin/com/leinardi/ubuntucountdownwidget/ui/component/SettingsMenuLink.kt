@@ -40,7 +40,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.unit.dp
-import com.leinardi.ubuntucountdownwidget.ui.annotation.ThemePreviews
+import com.leinardi.ubuntucountdownwidget.ui.preview.PreviewThemes
 import com.leinardi.ubuntucountdownwidget.ui.theme.AppTheme
 import com.leinardi.ubuntucountdownwidget.ui.theme.Spacing
 
@@ -83,7 +83,7 @@ fun SettingsMenuLink(
     }
 }
 
-@ThemePreviews
+@PreviewThemes
 @Composable
 private fun PreviewSettingsMenuLink() {
     AppTheme {
@@ -93,7 +93,7 @@ private fun PreviewSettingsMenuLink() {
     }
 }
 
-@ThemePreviews
+@PreviewThemes
 @Composable
 private fun PreviewSettingsMenuLinkSubtitle() {
     AppTheme {
@@ -104,7 +104,7 @@ private fun PreviewSettingsMenuLinkSubtitle() {
     }
 }
 
-@ThemePreviews
+@PreviewThemes
 @Composable
 private fun PreviewSettingsMenuLinkAction() {
     var rememberCheckBoxState by remember { mutableStateOf(true) }
@@ -124,7 +124,7 @@ private fun PreviewSettingsMenuLinkAction() {
     }
 }
 
-@ThemePreviews
+@PreviewThemes
 @Composable
 private fun PreviewSettingsMenuLinkIcon() {
     AppTheme {
@@ -136,7 +136,7 @@ private fun PreviewSettingsMenuLinkIcon() {
     }
 }
 
-@ThemePreviews
+@PreviewThemes
 @Composable
 private fun PreviewSettingsMenuLinkIconAction() {
     var rememberCheckBoxState by remember { mutableStateOf(true) }

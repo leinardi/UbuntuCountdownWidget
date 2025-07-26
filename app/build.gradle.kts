@@ -88,6 +88,9 @@ android {
             "-opt-in=androidx.compose.ui.ExperimentalComposeUiApi",
         )
     }
+    buildFeatures {
+        buildConfig = true
+    }
 }
 
 val serviceAccountCredentialsFile: File = rootProject.file("release/play-account.json")
@@ -103,8 +106,6 @@ println("play-account.json ${if (serviceAccountCredentialsFile.exists()) "" else
 dependencies {
     implementation(libs.aboutlibraries)
     implementation(libs.aboutlibraries.core)
-    implementation(libs.accompanist.placeholder)
-    implementation(libs.accompanist.systemuicontroller)
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.compose.material) // Still needed for stuff missing in M3, like ModalBottomSheetLayout
@@ -134,7 +135,7 @@ dependencies {
     implementation(libs.retrofit.kotlinx.serialization)
     implementation(libs.timber)
 
-    kaptAndroidTest(libs.hilt.android.compiler)
+    kaptAndroidTest(libs.dagger.hilt.android.compiler)
 
     debugImplementation(libs.androidx.compose.tooling)
 }
