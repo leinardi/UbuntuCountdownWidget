@@ -1,0 +1,48 @@
+---
+repos:
+  - repo: local
+    hooks:
+      - id: shellcheck
+        name: shellcheck
+        entry: shellcheck
+        language: system
+        types: [shell]
+        args: ['-e', 'SC2148']
+      - id: shellcheck
+        alias: shellcheck-diff-output
+        name: shellcheck (diff output)
+        entry: shellcheck
+        language: system
+        types: [shell]
+        args: ['-f', 'diff', '-e', 'SC2148']
+        stages: [manual]
+      - id: shellcheck
+        alias: shellcheck-json-output
+        name: shellcheck (json output)
+        entry: shellcheck
+        language: system
+        types: [shell]
+        args: ['-f', 'json', '-e', 'SC2148']
+        stages: [manual]
+  - repo: https://github.com/rhysd/actionlint
+    rev: v1.7.7
+    hooks:
+      - id: actionlint
+        name: actionlint
+        files: ^\.github/workflows/.*\.(yml|yaml)$
+        args: ['-shellcheck', 'shellcheck -S error']
+      - id: actionlint
+        alias: actionlint-oneline
+        name: actionlint (one line per one error)
+        files: ^\.github/workflows/.*\.(yml|yaml)$
+        args: ['-oneline', '-shellcheck', 'shellcheck -S error']
+        stages: [manual]
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.37.1
+    hooks:
+      - id: yamllint
+      - id: yamllint
+        alias: yamllint-parsable
+        name: 'yamllint (parsable output)'
+        args: ['--format', 'parsable']
+        stages: [manual]
